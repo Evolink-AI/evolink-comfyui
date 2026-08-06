@@ -1,0 +1,10 @@
+# 本地 API Key 配置 —— 绝不入库
+evolink_config.json
+
+__pycache__/
+*.pyc
+.DS_Store
+
+# 待 gh 获得 workflow 权限后再提交(Registry 自动发布用)
+# 届时: gh auth refresh -h github.com -s workflow && git add -f .github && git commit
+.github/
