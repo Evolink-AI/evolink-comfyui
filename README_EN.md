@@ -22,7 +22,7 @@ Generate images inside ComfyUI with [EvoLink](https://evolink.ai) cloud models
 
 ```bash
 cd ComfyUI/custom_nodes
-git clone https://github.com/deeplearning151/comfyui-evolink.git
+git clone https://github.com/deeplearning-goethe/comfyui-evolink.git
 ```
 
 **ZIP**: download, unzip into `ComfyUI/custom_nodes/`, make sure `__init__.py`

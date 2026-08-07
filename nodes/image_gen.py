@@ -179,12 +179,18 @@ class EvoLinkUploadImage:
 
     @classmethod
     def INPUT_TYPES(cls):
-        optional = {"api_key": ("STRING", {"default": "", "tooltip": _API_KEY_TOOLTIP})}
-        for i in range(2, 9):
-            optional[f"image{i}"] = ("IMAGE",)
         return {
             "required": {"image1": ("IMAGE", {"tooltip": "要上传的图片（可接 batch）"})},
-            "optional": optional,
+            "optional": {
+                "api_key": ("STRING", {"default": "", "tooltip": _API_KEY_TOOLTIP}),
+                "image2": ("IMAGE",),
+                "image3": ("IMAGE",),
+                "image4": ("IMAGE",),
+                "image5": ("IMAGE",),
+                "image6": ("IMAGE",),
+                "image7": ("IMAGE",),
+                "image8": ("IMAGE",),
+            },
         }
 
     def upload(self, image1, api_key="", **kwargs):

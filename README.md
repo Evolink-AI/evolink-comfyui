@@ -23,11 +23,11 @@ Manager → Custom Nodes Manager → 搜索 `EvoLink` → 安装 → **完全重
 
 ```bash
 cd ComfyUI/custom_nodes
-git clone https://github.com/deeplearning151/comfyui-evolink.git
+git clone https://github.com/deeplearning-goethe/comfyui-evolink.git
 ```
 
 **方式三：下载 ZIP**
-[Code → Download ZIP](https://github.com/deeplearning151/comfyui-evolink) → 解压后把文件夹放进 `ComfyUI/custom_nodes/`。
+[Code → Download ZIP](https://github.com/deeplearning-goethe/comfyui-evolink) → 解压后把文件夹放进 `ComfyUI/custom_nodes/`。
 ⚠️ 检查一层：打开 `custom_nodes/comfyui-evolink/` 应**直接看到** `__init__.py`；如果里面还套了一层同名文件夹，把内层移出来。
 
 依赖只有 `requests`（ComfyUI 环境一般已自带），装完后**完全重启 ComfyUI**（关掉控制台窗口重开，不是只刷新浏览器）。

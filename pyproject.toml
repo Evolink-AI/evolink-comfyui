@@ -1,12 +1,12 @@
 [project]
 name = "evolink-nodes"
 description = "Official EvoLink nodes for ComfyUI: text-to-image & image-to-image via EvoLink cloud API (gpt-image-2). No local GPU needed, local reference images are uploaded through EvoLink's official file channel (no third-party image hosting)."
-version = "1.0.1"
+version = "1.0.2"
 license = { text = "MIT License" }
 dependencies = ["requests"]
 
 [project.urls]
-Repository = "https://github.com/deeplearning151/comfyui-evolink"
+Repository = "https://github.com/deeplearning-goethe/comfyui-evolink"
 Documentation = "https://evolink.ai/docs/cn/integration-guide/comfyui"
 
 [tool.comfy]
