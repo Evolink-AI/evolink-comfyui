@@ -41,7 +41,13 @@ The only dependency is `requests`.
 **Image-to-image**: Load Image → `image1` → describe the edit in `prompt` → run.
 Up to 16 reference images via `image1~4` sockets and/or `image_urls` (one URL per line).
 
-Drag-and-drop examples: [example_workflows/](example_workflows/)
+Drag-and-drop examples: [example_workflows/](example_workflows/) — **drag any result PNG straight onto the canvas to restore its full workflow** (workflow metadata is embedded in the images; matching JSON files are also provided).
+
+| Example | Result (drag onto canvas) |
+|---|---|
+| 01 Text-to-image | ![text2img example](example_workflows/01_text2img.png) |
+| 02 Image-to-image (Ghibli-style redraw, pose preserved) | ![img2img example](example_workflows/02_img2img.png) |
+| 03 Multi-reference (place the subject into a new scene) | ![multi-ref example](example_workflows/03_multi_ref.png) |
 
 ## Nodes
 

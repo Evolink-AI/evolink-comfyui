@@ -43,7 +43,13 @@ git clone https://github.com/deeplearning-goethe/comfyui-evolink.git
 **图生图（3 步）**：添加「加载图像」→ 连到 `image1` → `prompt` 写修改要求 → 运行。
 最多 16 张参考图：`image1~4` 口与 `image_urls` 文本框（每行一个公网 URL）可混用。
 
-现成工作流见 [example_workflows/](example_workflows/)，拖进画布即用。
+现成工作流见 [example_workflows/](example_workflows/)：**把 PNG 效果图直接拖进画布即可还原完整工作流**（图片内嵌工作流元数据；另附同名 JSON 可用「加载」按钮导入）。
+
+| 示例 | 效果图（拖入即用） |
+|---|---|
+| 01 文生图 | ![文生图示例](example_workflows/01_text2img.png) |
+| 02 图生图（吉卜力风重绘，姿势不变） | ![图生图示例](example_workflows/02_img2img.png) |
+| 03 多参考图（把主体放进新场景） | ![多参考图示例](example_workflows/03_multi_ref.png) |
 
 ## 参数说明
 
