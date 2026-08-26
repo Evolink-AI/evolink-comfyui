@@ -28,42 +28,189 @@
         {
           "name": "size",
           "widget": "enum",
-          "values": ["auto", "1:1", "2:3", "3:2", "3:4", "4:3", "4:5", "5:4", "9:16", "16:9", "21:9", "1:4", "4:1", "1:8", "8:1"],
+          "values": [
+            "auto",
+            "1:1",
+            "2:3",
+            "3:2",
+            "3:4",
+            "4:3",
+            "4:5",
+            "5:4",
+            "9:16",
+            "16:9",
+            "21:9",
+            "1:4",
+            "4:1",
+            "1:8",
+            "8:1"
+          ],
           "default": "auto",
           "tooltip": "画面比例；auto 由模型自定。极端比例（1:4/1:8 等）仅 nano-banana-2 系支持",
           "model_values": {
-            "nano-banana-2": ["auto", "1:1", "2:3", "3:2", "3:4", "4:3", "4:5", "5:4", "9:16", "16:9", "21:9", "1:4", "4:1", "1:8", "8:1"],
-            "nano-banana-2-lite": ["auto", "1:1", "2:3", "3:2", "3:4", "4:3", "4:5", "5:4", "9:16", "16:9", "21:9", "1:4", "4:1", "1:8", "8:1"],
-            "nano-banana-2-beta": ["auto", "1:1", "2:3", "3:2", "3:4", "4:3", "4:5", "5:4", "9:16", "16:9", "21:9", "1:4", "4:1", "1:8", "8:1"],
-            "nano-banana-2-lite-beta": ["auto", "1:1", "2:3", "3:2", "3:4", "4:3", "4:5", "5:4", "9:16", "16:9", "21:9", "1:4", "4:1", "1:8", "8:1"],
-            "nano-banana-pro": ["auto", "1:1", "2:3", "3:2", "3:4", "4:3", "4:5", "5:4", "9:16", "16:9", "21:9"],
-            "nano-banana-pro-beta": ["auto", "1:1", "2:3", "3:2", "3:4", "4:3", "4:5", "5:4", "9:16", "16:9", "21:9"],
-            "nano-banana-beta": ["auto", "1:1", "2:3", "3:2", "4:3", "3:4", "16:9", "9:16"]
+            "nano-banana-2": [
+              "auto",
+              "1:1",
+              "2:3",
+              "3:2",
+              "3:4",
+              "4:3",
+              "4:5",
+              "5:4",
+              "9:16",
+              "16:9",
+              "21:9",
+              "1:4",
+              "4:1",
+              "1:8",
+              "8:1"
+            ],
+            "nano-banana-2-lite": [
+              "auto",
+              "1:1",
+              "2:3",
+              "3:2",
+              "3:4",
+              "4:3",
+              "4:5",
+              "5:4",
+              "9:16",
+              "16:9",
+              "21:9",
+              "1:4",
+              "4:1",
+              "1:8",
+              "8:1"
+            ],
+            "nano-banana-2-beta": [
+              "auto",
+              "1:1",
+              "2:3",
+              "3:2",
+              "3:4",
+              "4:3",
+              "4:5",
+              "5:4",
+              "9:16",
+              "16:9",
+              "21:9",
+              "1:4",
+              "4:1",
+              "1:8",
+              "8:1"
+            ],
+            "nano-banana-2-lite-beta": [
+              "auto",
+              "1:1",
+              "2:3",
+              "3:2",
+              "3:4",
+              "4:3",
+              "4:5",
+              "5:4",
+              "9:16",
+              "16:9",
+              "21:9",
+              "1:4",
+              "4:1",
+              "1:8",
+              "8:1"
+            ],
+            "nano-banana-pro": [
+              "auto",
+              "1:1",
+              "2:3",
+              "3:2",
+              "3:4",
+              "4:3",
+              "4:5",
+              "5:4",
+              "9:16",
+              "16:9",
+              "21:9"
+            ],
+            "nano-banana-pro-beta": [
+              "auto",
+              "1:1",
+              "2:3",
+              "3:2",
+              "3:4",
+              "4:3",
+              "4:5",
+              "5:4",
+              "9:16",
+              "16:9",
+              "21:9"
+            ],
+            "nano-banana-beta": [
+              "auto",
+              "1:1",
+              "2:3",
+              "3:2",
+              "4:3",
+              "3:4",
+              "16:9",
+              "9:16"
+            ]
           }
         },
         {
           "name": "quality",
           "widget": "enum",
-          "values": ["2K", "0.5K", "1K", "4K"],
+          "values": [
+            "2K",
+            "0.5K",
+            "1K",
+            "4K"
+          ],
           "default": "2K",
           "tooltip": "输出分辨率档位（注意与 gpt-image-2 的 quality 含义不同）。Lite 系固定 1K；Pro 系 4K 加价",
           "model_values": {
-            "nano-banana-2": ["2K", "0.5K", "1K", "4K"],
-            "nano-banana-2-beta": ["2K", "1K", "4K"],
-            "nano-banana-pro": ["2K", "1K", "4K"],
-            "nano-banana-pro-beta": ["2K", "1K", "4K"],
-            "nano-banana-2-lite": ["1K"],
-            "nano-banana-2-lite-beta": ["1K"]
+            "nano-banana-2": [
+              "2K",
+              "0.5K",
+              "1K",
+              "4K"
+            ],
+            "nano-banana-2-beta": [
+              "2K",
+              "1K",
+              "4K"
+            ],
+            "nano-banana-pro": [
+              "2K",
+              "1K",
+              "4K"
+            ],
+            "nano-banana-pro-beta": [
+              "2K",
+              "1K",
+              "4K"
+            ],
+            "nano-banana-2-lite": [
+              "1K"
+            ],
+            "nano-banana-2-lite-beta": [
+              "1K"
+            ]
           }
         },
         {
           "name": "thinking_level",
           "widget": "enum",
-          "values": ["auto", "min", "high"],
+          "values": [
+            "auto",
+            "min",
+            "high"
+          ],
           "default": "auto",
           "skip_value": "auto",
           "nest": "model_params",
-          "models": ["nano-banana-2", "nano-banana-2-lite", "nano-banana-2-beta"],
+          "models": [
+            "nano-banana-2",
+            "nano-banana-2-lite",
+            "nano-banana-2-beta"
+          ],
           "tooltip": "生成前的推理深度；auto 由模型决定"
         },
         {
@@ -72,15 +219,34 @@
           "default": false,
           "skip_value": false,
           "nest": "model_params",
-          "models": ["nano-banana-2", "nano-banana-pro"],
+          "models": [
+            "nano-banana-2",
+            "nano-banana-pro"
+          ],
           "tooltip": "用联网搜索结果优化生成（可能产生额外费用）"
         }
       ],
       "image_slots": [
-        {"name": "image1", "api_param": "image_urls", "tooltip": "参考图 1：接「加载图像」即图生图/图片编辑"},
-        {"name": "image2", "api_param": "image_urls", "tooltip": "参考图 2（可选）"},
-        {"name": "image3", "api_param": "image_urls", "tooltip": "参考图 3（可选）"},
-        {"name": "image4", "api_param": "image_urls", "tooltip": "参考图 4（可选）"}
+        {
+          "name": "image1",
+          "api_param": "image_urls",
+          "tooltip": "参考图 1：接「加载图像」即图生图/图片编辑"
+        },
+        {
+          "name": "image2",
+          "api_param": "image_urls",
+          "tooltip": "参考图 2（可选）"
+        },
+        {
+          "name": "image3",
+          "api_param": "image_urls",
+          "tooltip": "参考图 3（可选）"
+        },
+        {
+          "name": "image4",
+          "api_param": "image_urls",
+          "tooltip": "参考图 4（可选）"
+        }
       ],
       "url_text_param": "image_urls",
       "max_images": 14,
@@ -110,14 +276,35 @@
         {
           "name": "quality",
           "widget": "enum",
-          "values": ["2K", "1K", "1.5K", "3K", "4K"],
+          "values": [
+            "2K",
+            "1K",
+            "1.5K",
+            "3K",
+            "4K"
+          ],
           "default": "2K",
           "tooltip": "分辨率档位；各版本支持面不同（5.0-pro 最高 2K 档、lite 为 2K/3K/4K），选了不支持的档会自动回退",
           "model_values": {
-            "doubao-seedream-5.0-pro": ["1K", "1.5K", "2K"],
-            "doubao-seedream-5.0-lite": ["2K", "3K", "4K"],
-            "doubao-seedream-4.5": ["2K", "4K"],
-            "doubao-seedream-4.0": ["2K", "1K", "4K"]
+            "doubao-seedream-5.0-pro": [
+              "1K",
+              "1.5K",
+              "2K"
+            ],
+            "doubao-seedream-5.0-lite": [
+              "2K",
+              "3K",
+              "4K"
+            ],
+            "doubao-seedream-4.5": [
+              "2K",
+              "4K"
+            ],
+            "doubao-seedream-4.0": [
+              "2K",
+              "1K",
+              "4K"
+            ]
           }
         },
         {
@@ -127,7 +314,11 @@
           "min": 1,
           "max": 15,
           "skip_value": 1,
-          "models": ["doubao-seedream-5.0-lite", "doubao-seedream-4.5", "doubao-seedream-4.0"],
+          "models": [
+            "doubao-seedream-5.0-lite",
+            "doubao-seedream-4.5",
+            "doubao-seedream-4.0"
+          ],
           "tooltip": "最多生成几张（上限，需同时在 prompt 中要求多图）；5.0-pro 不支持多图"
         },
         {
@@ -135,15 +326,33 @@
           "widget": "bool",
           "default": false,
           "skip_value": false,
-          "models": ["doubao-seedream-5.0-pro"],
+          "models": [
+            "doubao-seedream-5.0-pro"
+          ],
           "tooltip": "是否加水印"
         }
       ],
       "image_slots": [
-        {"name": "image1", "api_param": "image_urls", "tooltip": "参考图 1：接「加载图像」即图生图/图片编辑"},
-        {"name": "image2", "api_param": "image_urls", "tooltip": "参考图 2（可选）"},
-        {"name": "image3", "api_param": "image_urls", "tooltip": "参考图 3（可选）"},
-        {"name": "image4", "api_param": "image_urls", "tooltip": "参考图 4（可选，5.0-pro 参考图上限 10 张）"}
+        {
+          "name": "image1",
+          "api_param": "image_urls",
+          "tooltip": "参考图 1：接「加载图像」即图生图/图片编辑"
+        },
+        {
+          "name": "image2",
+          "api_param": "image_urls",
+          "tooltip": "参考图 2（可选）"
+        },
+        {
+          "name": "image3",
+          "api_param": "image_urls",
+          "tooltip": "参考图 3（可选）"
+        },
+        {
+          "name": "image4",
+          "api_param": "image_urls",
+          "tooltip": "参考图 4（可选，5.0-pro 参考图上限 10 张）"
+        }
       ],
       "url_text_param": "image_urls",
       "max_images": 14,
@@ -158,6 +367,7 @@
       "prompt_tooltip": "画面描述或修改指令，支持中文。",
       "models": [
         "gpt-image-2",
+        "grok-imagine-image-2.0",
         "nano-banana-2",
         "nano-banana-pro",
         "nano-banana-2-lite",
@@ -187,10 +397,26 @@
       ],
       "extra_json_param": true,
       "image_slots": [
-        {"name": "image1", "api_param": "image_urls", "tooltip": "参考图 1：接「加载图像」即图生图"},
-        {"name": "image2", "api_param": "image_urls", "tooltip": "参考图 2（可选）"},
-        {"name": "image3", "api_param": "image_urls", "tooltip": "参考图 3（可选）"},
-        {"name": "image4", "api_param": "image_urls", "tooltip": "参考图 4（可选）"}
+        {
+          "name": "image1",
+          "api_param": "image_urls",
+          "tooltip": "参考图 1：接「加载图像」即图生图"
+        },
+        {
+          "name": "image2",
+          "api_param": "image_urls",
+          "tooltip": "参考图 2（可选）"
+        },
+        {
+          "name": "image3",
+          "api_param": "image_urls",
+          "tooltip": "参考图 3（可选）"
+        },
+        {
+          "name": "image4",
+          "api_param": "image_urls",
+          "tooltip": "参考图 4（可选）"
+        }
       ],
       "url_text_param": "image_urls",
       "max_images": 16,
@@ -204,34 +430,53 @@
       "preprocess": "sora_exact_size",
       "description": "EvoLink 官方节点：OpenAI Sora 2 / Sora 2 Pro 文生视频、图生视频。接「加载图像」即图生视频（sora-2-preview 的参考图会自动缩放到与画幅一致的像素）。输出可直连原生「保存视频」节点。Sora 2 text-to-video & image-to-video.",
       "prompt_tooltip": "镜头/画面描述，支持中文，最长约 5000 tokens。Sora 内容审核较严，参考图不支持真人照片。",
-      "models": ["sora-2-preview", "sora-2-pro-preview"],
+      "models": [
+        "sora-2-preview",
+        "sora-2-pro-preview"
+      ],
       "default_model": "sora-2-preview",
       "params": [
         {
           "name": "aspect_ratio",
           "widget": "enum",
-          "values": ["16:9", "9:16"],
+          "values": [
+            "16:9",
+            "9:16"
+          ],
           "default": "16:9",
           "tooltip": "横屏 16:9 / 竖屏 9:16"
         },
         {
           "name": "duration",
           "widget": "enum",
-          "values": [4, 8, 12],
+          "values": [
+            4,
+            8,
+            12
+          ],
           "default": 4,
           "tooltip": "视频时长（秒），按时长计费"
         },
         {
           "name": "quality",
           "widget": "enum",
-          "values": ["720p", "1080p"],
+          "values": [
+            "720p",
+            "1080p"
+          ],
           "default": "720p",
-          "models": ["sora-2-pro-preview"],
+          "models": [
+            "sora-2-pro-preview"
+          ],
           "tooltip": "仅 Pro 可选；1080p 价格约为 720p 的 1.67 倍"
         }
       ],
       "image_slots": [
-        {"name": "image", "api_param": "image_urls", "tooltip": "参考图（图生视频）；不支持真人照片"}
+        {
+          "name": "image",
+          "api_param": "image_urls",
+          "tooltip": "参考图（图生视频）；不支持真人照片"
+        }
       ],
       "max_images": 1,
       "default_timeout": 1200
@@ -254,57 +499,110 @@
         {
           "name": "aspect_ratio",
           "widget": "enum",
-          "values": ["auto", "16:9", "9:16"],
+          "values": [
+            "auto",
+            "16:9",
+            "9:16"
+          ],
           "default": "auto",
           "tooltip": "auto：图生视频按图比例，文生视频按 prompt 自动"
         },
         {
           "name": "duration",
           "widget": "enum",
-          "values": [8, 4, 6],
+          "values": [
+            8,
+            4,
+            6
+          ],
           "default": 8,
-          "models": ["veo-3.1-generate-preview", "veo-3.1-fast-generate-preview"],
+          "models": [
+            "veo-3.1-generate-preview",
+            "veo-3.1-fast-generate-preview"
+          ],
           "tooltip": "视频时长（秒）；beta 版不支持此参数"
         },
         {
           "name": "quality",
           "widget": "enum",
-          "values": ["720p", "1080p", "4k"],
+          "values": [
+            "720p",
+            "1080p",
+            "4k"
+          ],
           "default": "720p",
           "tooltip": "分辨率；beta 版仅 720p",
           "model_values": {
-            "veo-3.1-generate-preview": ["720p", "1080p", "4k"],
-            "veo-3.1-fast-generate-preview": ["720p", "1080p", "4k"],
-            "veo3.1-pro-beta": ["720p"],
-            "veo3.1-fast-beta": ["720p"]
+            "veo-3.1-generate-preview": [
+              "720p",
+              "1080p",
+              "4k"
+            ],
+            "veo-3.1-fast-generate-preview": [
+              "720p",
+              "1080p",
+              "4k"
+            ],
+            "veo3.1-pro-beta": [
+              "720p"
+            ],
+            "veo3.1-fast-beta": [
+              "720p"
+            ]
           }
         },
         {
           "name": "generate_audio",
           "widget": "bool",
           "default": true,
-          "models": ["veo-3.1-generate-preview", "veo-3.1-fast-generate-preview"],
+          "models": [
+            "veo-3.1-generate-preview",
+            "veo-3.1-fast-generate-preview"
+          ],
           "tooltip": "生成原生音频（额外收费）"
         },
         {
           "name": "generation_type",
           "widget": "enum",
-          "values": ["auto", "TEXT", "FIRST&LAST", "REFERENCE"],
+          "values": [
+            "auto",
+            "TEXT",
+            "FIRST&LAST",
+            "REFERENCE"
+          ],
           "default": "auto",
           "skip_value": "auto",
           "tooltip": "接图后建议手动指定：FIRST&LAST=首尾帧，REFERENCE=参考图（最多 3 张）",
           "model_values": {
-            "veo-3.1-generate-preview": ["TEXT", "FIRST&LAST", "REFERENCE"],
-            "veo-3.1-fast-generate-preview": ["TEXT", "FIRST&LAST", "REFERENCE"],
-            "veo3.1-pro-beta": ["TEXT", "FIRST&LAST"],
-            "veo3.1-fast-beta": ["TEXT", "FIRST&LAST", "REFERENCE"]
+            "veo-3.1-generate-preview": [
+              "TEXT",
+              "FIRST&LAST",
+              "REFERENCE"
+            ],
+            "veo-3.1-fast-generate-preview": [
+              "TEXT",
+              "FIRST&LAST",
+              "REFERENCE"
+            ],
+            "veo3.1-pro-beta": [
+              "TEXT",
+              "FIRST&LAST"
+            ],
+            "veo3.1-fast-beta": [
+              "TEXT",
+              "FIRST&LAST",
+              "REFERENCE"
+            ]
           }
         },
         {
           "name": "negative_prompt",
           "widget": "string",
           "default": "",
-          "models": ["veo-3.1-generate-preview", "veo-3.1-fast-generate-preview"],
+          "models": [
+            "veo-3.1-generate-preview",
+            "veo-3.1-fast-generate-preview"
+          ],
           "tooltip": "不希望出现的内容"
         },
         {
@@ -314,17 +612,32 @@
           "min": 0,
           "max": 4294967295,
           "skip_value": 0,
-          "models": ["veo-3.1-generate-preview", "veo-3.1-fast-generate-preview"],
+          "models": [
+            "veo-3.1-generate-preview",
+            "veo-3.1-fast-generate-preview"
+          ],
           "tooltip": "0=随机"
         }
       ],
       "image_slots": [
-        {"name": "first_frame", "api_param": "image_urls", "tooltip": "首帧（或 REFERENCE 模式参考图 1）"},
-        {"name": "last_frame", "api_param": "image_urls", "tooltip": "尾帧（或参考图 2）"},
+        {
+          "name": "first_frame",
+          "api_param": "image_urls",
+          "tooltip": "首帧（或 REFERENCE 模式参考图 1）"
+        },
+        {
+          "name": "last_frame",
+          "api_param": "image_urls",
+          "tooltip": "尾帧（或参考图 2）"
+        },
         {
           "name": "reference_image3",
           "api_param": "image_urls",
-          "models": ["veo-3.1-generate-preview", "veo-3.1-fast-generate-preview", "veo3.1-fast-beta"],
+          "models": [
+            "veo-3.1-generate-preview",
+            "veo-3.1-fast-generate-preview",
+            "veo3.1-fast-beta"
+          ],
           "tooltip": "REFERENCE 模式第 3 张参考图"
         }
       ],
@@ -360,40 +673,86 @@
         {
           "name": "aspect_ratio",
           "widget": "enum",
-          "values": ["16:9", "9:16", "1:1"],
+          "values": [
+            "16:9",
+            "9:16",
+            "1:1"
+          ],
           "default": "16:9",
-          "models": ["kling-v3-text-to-video", "kling-v3-turbo-text-to-video", "kling-o3-text-to-video", "kling-o3-image-to-video"],
+          "models": [
+            "kling-v3-text-to-video",
+            "kling-v3-turbo-text-to-video",
+            "kling-o3-text-to-video",
+            "kling-o3-image-to-video"
+          ],
           "tooltip": "画幅；图生视频（v3/turbo）由首帧图决定，此参数无效"
         },
         {
           "name": "quality",
           "widget": "enum",
-          "values": ["720p", "1080p", "4k"],
+          "values": [
+            "720p",
+            "1080p",
+            "4k"
+          ],
           "default": "720p",
           "tooltip": "分辨率；Turbo 不支持 4k",
           "model_values": {
-            "kling-v3-text-to-video": ["720p", "1080p", "4k"],
-            "kling-v3-image-to-video": ["720p", "1080p", "4k"],
-            "kling-o3-text-to-video": ["720p", "1080p", "4k"],
-            "kling-o3-image-to-video": ["720p", "1080p", "4k"],
-            "kling-v3-turbo-text-to-video": ["720p", "1080p"],
-            "kling-v3-turbo-image-to-video": ["720p", "1080p"]
+            "kling-v3-text-to-video": [
+              "720p",
+              "1080p",
+              "4k"
+            ],
+            "kling-v3-image-to-video": [
+              "720p",
+              "1080p",
+              "4k"
+            ],
+            "kling-o3-text-to-video": [
+              "720p",
+              "1080p",
+              "4k"
+            ],
+            "kling-o3-image-to-video": [
+              "720p",
+              "1080p",
+              "4k"
+            ],
+            "kling-v3-turbo-text-to-video": [
+              "720p",
+              "1080p"
+            ],
+            "kling-v3-turbo-image-to-video": [
+              "720p",
+              "1080p"
+            ]
           }
         },
         {
           "name": "sound",
           "widget": "enum",
-          "values": ["off", "on"],
+          "values": [
+            "off",
+            "on"
+          ],
           "default": "off",
           "skip_value": "off",
-          "models": ["kling-v3-text-to-video", "kling-v3-image-to-video", "kling-o3-text-to-video", "kling-o3-image-to-video"],
+          "models": [
+            "kling-v3-text-to-video",
+            "kling-v3-image-to-video",
+            "kling-o3-text-to-video",
+            "kling-o3-image-to-video"
+          ],
           "tooltip": "生成音效；Turbo 不支持"
         },
         {
           "name": "negative_prompt",
           "widget": "string",
           "default": "",
-          "models": ["kling-v3-text-to-video", "kling-v3-image-to-video"],
+          "models": [
+            "kling-v3-text-to-video",
+            "kling-v3-image-to-video"
+          ],
           "tooltip": "不希望出现的内容"
         }
       ],
@@ -402,14 +761,21 @@
           "name": "first_frame",
           "api_param": "image_start",
           "single": true,
-          "models": ["kling-v3-image-to-video", "kling-v3-turbo-image-to-video", "kling-o3-image-to-video"],
+          "models": [
+            "kling-v3-image-to-video",
+            "kling-v3-turbo-image-to-video",
+            "kling-o3-image-to-video"
+          ],
           "tooltip": "首帧图（image-to-video 模型必接）；宽高≥300px，比例 1:2.5~2.5:1"
         },
         {
           "name": "last_frame",
           "api_param": "image_end",
           "single": true,
-          "models": ["kling-v3-image-to-video", "kling-o3-image-to-video"],
+          "models": [
+            "kling-v3-image-to-video",
+            "kling-o3-image-to-video"
+          ],
           "tooltip": "尾帧图（可选；Turbo 不支持）"
         }
       ],
@@ -420,17 +786,11 @@
       "display_name": "EvoLink Seedance 2.5 (Official)",
       "output": "video",
       "endpoint": "/videos/generations",
-      "description": "EvoLink 官方节点：字节豆包 Seedance 2.5 / 2.0（standard/fast/mini）文生视频、图生视频（1 张=首帧，2 张=首尾帧），2.5 时长最长 30 秒，自带同步音频不加价。ByteDance Seedance text/image-to-video.",
+      "description": "EvoLink 官方节点：字节豆包 Seedance 2.5 文生视频、图生视频（1 张=首帧，2 张=首尾帧），时长 4~30 秒或 -1 自动，同步音频不加价。ByteDance Seedance 2.5 text/image-to-video. 2.0 系列请用 EvoLink Seedance 2.0 / Mini 节点。",
       "prompt_tooltip": "镜头/画面描述，支持中文（建议 500 字内）。图生视频时接 first_frame（可再接 last_frame 做首尾帧）。",
       "models": [
         "seedance-2.5-text-to-video",
-        "seedance-2.5-image-to-video",
-        "seedance-2.0-text-to-video",
-        "seedance-2.0-image-to-video",
-        "seedance-2.0-fast-text-to-video",
-        "seedance-2.0-fast-image-to-video",
-        "seedance-2.0-mini-text-to-video",
-        "seedance-2.0-mini-image-to-video"
+        "seedance-2.5-image-to-video"
       ],
       "default_model": "seedance-2.5-text-to-video",
       "params": [
@@ -440,40 +800,58 @@
           "default": 5,
           "min": -1,
           "max": 30,
-          "tooltip": "视频时长（秒）：2.5 支持 4~30 或 -1（自动时长）；2.0 系为 4~15。按时长计费"
+          "tooltip": "视频时长（秒）：4~30 或 -1（自动时长，按实际输出计费）"
         },
         {
           "name": "quality",
           "widget": "enum",
-          "values": ["720p", "480p", "1080p", "4k"],
+          "values": [
+            "720p",
+            "480p",
+            "1080p"
+          ],
           "default": "720p",
-          "tooltip": "分辨率；480p 为低价档；4k 仅 2.0 standard；fast/mini 最高 720p",
+          "tooltip": "分辨率；480p 为低价档",
           "model_values": {
-            "seedance-2.5-text-to-video": ["720p", "480p", "1080p"],
-            "seedance-2.5-image-to-video": ["720p", "480p", "1080p"],
-            "seedance-2.0-text-to-video": ["720p", "480p", "1080p", "4k"],
-            "seedance-2.0-image-to-video": ["720p", "480p", "1080p", "4k"],
-            "seedance-2.0-fast-text-to-video": ["720p", "480p"],
-            "seedance-2.0-fast-image-to-video": ["720p", "480p"],
-            "seedance-2.0-mini-text-to-video": ["720p", "480p"],
-            "seedance-2.0-mini-image-to-video": ["720p", "480p"]
+            "seedance-2.5-text-to-video": [
+              "720p",
+              "480p",
+              "1080p"
+            ],
+            "seedance-2.5-image-to-video": [
+              "720p",
+              "480p",
+              "1080p"
+            ]
           }
         },
         {
           "name": "aspect_ratio",
           "widget": "enum",
-          "values": ["adaptive", "16:9", "9:16", "1:1", "4:3", "3:4", "21:9"],
+          "values": [
+            "adaptive",
+            "16:9",
+            "9:16",
+            "1:1",
+            "4:3",
+            "3:4",
+            "21:9"
+          ],
           "default": "adaptive",
           "tooltip": "画幅；图生视频只接受 adaptive（跟随首帧图）",
           "model_values": {
-            "seedance-2.5-text-to-video": ["adaptive", "16:9", "9:16", "1:1", "4:3", "3:4", "21:9"],
-            "seedance-2.0-text-to-video": ["adaptive", "16:9", "9:16", "1:1", "4:3", "3:4", "21:9"],
-            "seedance-2.0-fast-text-to-video": ["adaptive", "16:9", "9:16", "1:1", "4:3", "3:4", "21:9"],
-            "seedance-2.0-mini-text-to-video": ["adaptive", "16:9", "9:16", "1:1", "4:3", "3:4", "21:9"],
-            "seedance-2.5-image-to-video": ["adaptive"],
-            "seedance-2.0-image-to-video": ["adaptive", "16:9", "9:16", "1:1", "4:3", "3:4", "21:9"],
-            "seedance-2.0-fast-image-to-video": ["adaptive"],
-            "seedance-2.0-mini-image-to-video": ["adaptive"]
+            "seedance-2.5-text-to-video": [
+              "adaptive",
+              "16:9",
+              "9:16",
+              "1:1",
+              "4:3",
+              "3:4",
+              "21:9"
+            ],
+            "seedance-2.5-image-to-video": [
+              "adaptive"
+            ]
           }
         },
         {
@@ -487,13 +865,17 @@
         {
           "name": "first_frame",
           "api_param": "image_urls",
-          "models": ["seedance-2.5-image-to-video", "seedance-2.0-image-to-video", "seedance-2.0-fast-image-to-video", "seedance-2.0-mini-image-to-video"],
+          "models": [
+            "seedance-2.5-image-to-video"
+          ],
           "tooltip": "首帧图（image-to-video 模型必接）"
         },
         {
           "name": "last_frame",
           "api_param": "image_urls",
-          "models": ["seedance-2.5-image-to-video", "seedance-2.0-image-to-video", "seedance-2.0-fast-image-to-video", "seedance-2.0-mini-image-to-video"],
+          "models": [
+            "seedance-2.5-image-to-video"
+          ],
           "tooltip": "尾帧图（可选，接上即首尾帧模式；比例不同时自动对齐首帧）"
         }
       ],
@@ -527,7 +909,13 @@
         "seedance-2.0-fast-text-to-video",
         "seedance-2.0-fast-image-to-video",
         "seedance-2.0-mini-text-to-video",
-        "seedance-2.0-mini-image-to-video"
+        "seedance-2.0-mini-image-to-video",
+        "wan3.0-text-to-video",
+        "wan3.0-image-to-video",
+        "wan3.0-reference-video",
+        "wan3.0-prime-text-to-video",
+        "wan3.0-prime-image-to-video",
+        "wan3.0-prime-reference-video"
       ],
       "default_model": "seedance-2.5-text-to-video",
       "params": [
@@ -543,7 +931,13 @@
         {
           "name": "quality",
           "widget": "enum",
-          "values": ["auto", "480p", "720p", "1080p", "4k"],
+          "values": [
+            "auto",
+            "480p",
+            "720p",
+            "1080p",
+            "4k"
+          ],
           "default": "auto",
           "skip_value": "auto",
           "tooltip": "分辨率；auto=用模型默认。各模型支持面不同，选不支持的档会报错"
@@ -557,12 +951,437 @@
       ],
       "extra_json_param": true,
       "image_slots": [
-        {"name": "image1", "api_param": "image_urls", "tooltip": "参考图/首帧（是否支持随模型而异）"},
-        {"name": "image2", "api_param": "image_urls", "tooltip": "参考图 2/尾帧（可选）"}
+        {
+          "name": "image1",
+          "api_param": "image_urls",
+          "tooltip": "参考图/首帧（是否支持随模型而异）"
+        },
+        {
+          "name": "image2",
+          "api_param": "image_urls",
+          "tooltip": "参考图 2/尾帧（可选）"
+        }
       ],
       "url_text_param": "image_urls",
       "max_images": 9,
       "default_timeout": 1800
+    },
+    {
+      "node_id": "EvoLink_Seedance20",
+      "display_name": "EvoLink Seedance 2.0 (Official)",
+      "output": "video",
+      "endpoint": "/videos/generations",
+      "description": "EvoLink 官方节点：字节豆包 Seedance 2.0 / 2.0 Fast 文生视频、图生视频（1 张=首帧，2 张=首尾帧），时长 4~15 秒，standard 档支持 4K，同步音频不加价。ByteDance Seedance 2.0 text/image-to-video.",
+      "prompt_tooltip": "镜头/画面描述，支持中文。图生视频时接 first_frame（可再接 last_frame 做首尾帧）。",
+      "models": [
+        "seedance-2.0-text-to-video",
+        "seedance-2.0-image-to-video",
+        "seedance-2.0-fast-text-to-video",
+        "seedance-2.0-fast-image-to-video"
+      ],
+      "default_model": "seedance-2.0-text-to-video",
+      "params": [
+        {
+          "name": "duration",
+          "widget": "int",
+          "default": 5,
+          "min": 4,
+          "max": 15,
+          "tooltip": "视频时长（秒），4~15 任意整数，按时长计费"
+        },
+        {
+          "name": "quality",
+          "widget": "enum",
+          "values": [
+            "720p",
+            "480p",
+            "1080p",
+            "4k"
+          ],
+          "default": "720p",
+          "tooltip": "分辨率；1080p/4k 仅 standard 档，fast 最高 720p",
+          "model_values": {
+            "seedance-2.0-text-to-video": [
+              "720p",
+              "480p",
+              "1080p",
+              "4k"
+            ],
+            "seedance-2.0-image-to-video": [
+              "720p",
+              "480p",
+              "1080p",
+              "4k"
+            ],
+            "seedance-2.0-fast-text-to-video": [
+              "720p",
+              "480p"
+            ],
+            "seedance-2.0-fast-image-to-video": [
+              "720p",
+              "480p"
+            ]
+          }
+        },
+        {
+          "name": "aspect_ratio",
+          "widget": "enum",
+          "values": [
+            "adaptive",
+            "16:9",
+            "9:16",
+            "1:1",
+            "4:3",
+            "3:4",
+            "21:9"
+          ],
+          "default": "adaptive",
+          "tooltip": "画幅；fast 图生视频只接受 adaptive（跟随首帧图）",
+          "model_values": {
+            "seedance-2.0-text-to-video": [
+              "adaptive",
+              "16:9",
+              "9:16",
+              "1:1",
+              "4:3",
+              "3:4",
+              "21:9"
+            ],
+            "seedance-2.0-image-to-video": [
+              "adaptive",
+              "16:9",
+              "9:16",
+              "1:1",
+              "4:3",
+              "3:4",
+              "21:9"
+            ],
+            "seedance-2.0-fast-text-to-video": [
+              "adaptive",
+              "16:9",
+              "9:16",
+              "1:1",
+              "4:3",
+              "3:4",
+              "21:9"
+            ],
+            "seedance-2.0-fast-image-to-video": [
+              "adaptive"
+            ]
+          }
+        },
+        {
+          "name": "generate_audio",
+          "widget": "bool",
+          "default": true,
+          "tooltip": "生成同步音频（不额外收费）"
+        }
+      ],
+      "image_slots": [
+        {
+          "name": "first_frame",
+          "api_param": "image_urls",
+          "models": [
+            "seedance-2.0-image-to-video",
+            "seedance-2.0-fast-image-to-video"
+          ],
+          "tooltip": "首帧图（image-to-video 模型必接）"
+        },
+        {
+          "name": "last_frame",
+          "api_param": "image_urls",
+          "models": [
+            "seedance-2.0-image-to-video",
+            "seedance-2.0-fast-image-to-video"
+          ],
+          "tooltip": "尾帧图（可选，接上即首尾帧模式）"
+        }
+      ],
+      "max_images": 2,
+      "default_timeout": 1800
+    },
+    {
+      "node_id": "EvoLink_Seedance20Mini",
+      "display_name": "EvoLink Seedance 2.0 Mini (Official)",
+      "output": "video",
+      "endpoint": "/videos/generations",
+      "description": "EvoLink 官方节点：字节豆包 Seedance 2.0 Mini 文生视频、图生视频——最便宜的视频档位，适合批量与调试，4~15 秒，最高 720p，同步音频不加价。ByteDance Seedance 2.0 Mini budget text/image-to-video.",
+      "prompt_tooltip": "镜头/画面描述，支持中文。图生视频时接 first_frame。",
+      "models": [
+        "seedance-2.0-mini-text-to-video",
+        "seedance-2.0-mini-image-to-video"
+      ],
+      "default_model": "seedance-2.0-mini-text-to-video",
+      "params": [
+        {
+          "name": "duration",
+          "widget": "int",
+          "default": 5,
+          "min": 4,
+          "max": 15,
+          "tooltip": "视频时长（秒），4~15 任意整数，按时长计费"
+        },
+        {
+          "name": "quality",
+          "widget": "enum",
+          "values": [
+            "720p",
+            "480p"
+          ],
+          "default": "720p",
+          "tooltip": "分辨率；480p 更便宜"
+        },
+        {
+          "name": "aspect_ratio",
+          "widget": "enum",
+          "values": [
+            "adaptive",
+            "16:9",
+            "9:16",
+            "1:1",
+            "4:3",
+            "3:4",
+            "21:9"
+          ],
+          "default": "adaptive",
+          "tooltip": "画幅；图生视频只接受 adaptive（跟随首帧图）",
+          "model_values": {
+            "seedance-2.0-mini-text-to-video": [
+              "adaptive",
+              "16:9",
+              "9:16",
+              "1:1",
+              "4:3",
+              "3:4",
+              "21:9"
+            ],
+            "seedance-2.0-mini-image-to-video": [
+              "adaptive"
+            ]
+          }
+        },
+        {
+          "name": "generate_audio",
+          "widget": "bool",
+          "default": true,
+          "tooltip": "生成同步音频（不额外收费）"
+        }
+      ],
+      "image_slots": [
+        {
+          "name": "first_frame",
+          "api_param": "image_urls",
+          "models": [
+            "seedance-2.0-mini-image-to-video"
+          ],
+          "tooltip": "首帧图（image-to-video 模型必接）"
+        },
+        {
+          "name": "last_frame",
+          "api_param": "image_urls",
+          "models": [
+            "seedance-2.0-mini-image-to-video"
+          ],
+          "tooltip": "尾帧图（可选，接上即首尾帧模式）"
+        }
+      ],
+      "max_images": 2,
+      "default_timeout": 1800
+    },
+    {
+      "node_id": "EvoLink_Wan30",
+      "display_name": "EvoLink Wan 3.0 (Official)",
+      "output": "video",
+      "endpoint": "/videos/generations",
+      "description": "EvoLink 官方节点：阿里通义万相 Wan 3.0 / Prime 文生视频、首尾帧图生视频、多模态参考生视频（图+视频+音频混合参考）。时长可 -1 智能时长（按实际输出结算），480p 起步低价档。Alibaba Wan 3.0 text/image/reference-to-video.",
+      "prompt_tooltip": "镜头/画面描述，支持中文，最长 20000 字符。reference 模型可用「图1」「视频1」引用素材。",
+      "models": [
+        "wan3.0-text-to-video",
+        "wan3.0-image-to-video",
+        "wan3.0-reference-video",
+        "wan3.0-prime-text-to-video",
+        "wan3.0-prime-image-to-video",
+        "wan3.0-prime-reference-video"
+      ],
+      "default_model": "wan3.0-text-to-video",
+      "prompt_required": false,
+      "params": [
+        {
+          "name": "duration",
+          "widget": "int",
+          "default": 5,
+          "min": -1,
+          "max": 30,
+          "tooltip": "视频时长（秒）；-1=智能时长（按 30s 上限预扣、按实际输出结算退差额）"
+        },
+        {
+          "name": "quality",
+          "widget": "enum",
+          "values": [
+            "720p",
+            "480p",
+            "1080p"
+          ],
+          "default": "720p",
+          "tooltip": "480p=计费基准最便宜；720p 约 2 倍；1080p 约 4 倍"
+        },
+        {
+          "name": "aspect_ratio",
+          "widget": "enum",
+          "values": [
+            "adaptive",
+            "16:9",
+            "9:16",
+            "1:1",
+            "4:3",
+            "3:4"
+          ],
+          "default": "adaptive",
+          "tooltip": "adaptive：按素材与 prompt 自动推荐"
+        },
+        {
+          "name": "generate_audio",
+          "widget": "bool",
+          "default": true,
+          "tooltip": "输出是否含音轨（开关同价）"
+        },
+        {
+          "name": "seed",
+          "widget": "int",
+          "default": 0,
+          "min": 0,
+          "max": 2147483647,
+          "skip_value": 0,
+          "tooltip": "0=随机；固定可复现结果"
+        }
+      ],
+      "image_slots": [
+        {
+          "name": "first_frame",
+          "api_param": "image_start",
+          "single": true,
+          "models": [
+            "wan3.0-image-to-video",
+            "wan3.0-prime-image-to-video"
+          ],
+          "tooltip": "首帧图（image-to-video 模型必接）；240~8000px，比例 1:8~8:1"
+        },
+        {
+          "name": "last_frame",
+          "api_param": "image_end",
+          "single": true,
+          "models": [
+            "wan3.0-image-to-video",
+            "wan3.0-prime-image-to-video"
+          ],
+          "tooltip": "尾帧图（可选，须与首帧同用）"
+        },
+        {
+          "name": "reference_image1",
+          "api_param": "image_urls",
+          "models": [
+            "wan3.0-reference-video",
+            "wan3.0-prime-reference-video"
+          ],
+          "tooltip": "参考图 1（reference 模型用，prompt 里写「图1」引用；单主体单图）"
+        },
+        {
+          "name": "reference_image2",
+          "api_param": "image_urls",
+          "models": [
+            "wan3.0-reference-video",
+            "wan3.0-prime-reference-video"
+          ],
+          "tooltip": "参考图 2（可选，最多 10 张，其余可经 extra_params 的 image_urls 传）"
+        }
+      ],
+      "extra_json_param": true,
+      "max_images": 10,
+      "default_timeout": 1800
+    },
+    {
+      "node_id": "EvoLink_GrokImagine",
+      "display_name": "EvoLink Grok Imagine Image 2.0 (Official)",
+      "output": "image",
+      "endpoint": "/images/generations",
+      "description": "EvoLink 官方节点：xAI Grok Imagine Image 2.0 文生图、图生图、多图编辑（<IMAGE_0> 引用语法），支持 13 种画幅与一次最多 10 张。xAI Grok Imagine text-to-image & image editing.",
+      "prompt_tooltip": "画面描述或编辑指令。多图编辑用 <IMAGE_0>、<IMAGE_1> 引用第 1、2 张参考图。",
+      "models": [
+        "grok-imagine-image-2.0"
+      ],
+      "default_model": "grok-imagine-image-2.0",
+      "params": [
+        {
+          "name": "size",
+          "widget": "enum",
+          "values": [
+            "auto",
+            "1:1",
+            "4:3",
+            "3:4",
+            "3:2",
+            "2:3",
+            "16:9",
+            "9:16",
+            "2:1",
+            "1:2",
+            "19.5:9",
+            "9:19.5",
+            "20:9",
+            "9:20"
+          ],
+          "default": "auto",
+          "tooltip": "画幅比例；auto 由模型自定（通常偏竖图）"
+        },
+        {
+          "name": "resolution",
+          "widget": "enum",
+          "values": [
+            "1K",
+            "2K"
+          ],
+          "default": "1K",
+          "tooltip": "像素档位（不支持 4K）"
+        },
+        {
+          "name": "quality",
+          "widget": "enum",
+          "values": [
+            "medium",
+            "low"
+          ],
+          "default": "medium",
+          "tooltip": "low 更快更便宜；medium 质量更好（无 high 档）"
+        },
+        {
+          "name": "n",
+          "widget": "int",
+          "default": 1,
+          "min": 1,
+          "max": 10,
+          "skip_value": 1,
+          "tooltip": "一次生成几张，每张独立计费"
+        }
+      ],
+      "image_slots": [
+        {
+          "name": "image1",
+          "api_param": "image_urls",
+          "tooltip": "参考图 1（接图即图生图/编辑；编辑时参考图按次加价，不随 n 翻倍）"
+        },
+        {
+          "name": "image2",
+          "api_param": "image_urls",
+          "tooltip": "参考图 2（可选，共最多 3 张）"
+        },
+        {
+          "name": "image3",
+          "api_param": "image_urls",
+          "tooltip": "参考图 3（可选）"
+        }
+      ],
+      "max_images": 3,
+      "default_timeout": 300
     }
   ]
 }

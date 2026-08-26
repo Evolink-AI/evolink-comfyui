@@ -4,8 +4,8 @@
 
 在 ComfyUI 里直接调用 [EvoLink](https://evolink.ai) 云端模型出图出视频，**本地无需显卡**。
 
-**图像**：GPT Image 2 ｜ Nano Banana 2 / Pro ｜ Seedream 5.0
-**视频**：Sora 2 ｜ Veo 3.1 ｜ Kling 3.0 ｜ Seedance 2.5 —— 输出直连原生「保存视频」节点，任务可随时取消
+**图像**：GPT Image 2 ｜ Nano Banana 2 / Pro ｜ Seedream 5.0 ｜ Grok Imagine Image 2.0
+**视频**：Sora 2 ｜ Veo 3.1 ｜ Kling 3.0 ｜ Seedance 2.5 / 2.0 / Mini ｜ Wan 3.0 —— 输出直连原生「保存视频」节点，任务可随时取消
 **通用**：EvoLink Image / Video 动态节点覆盖全部模型，新模型上线无需更新插件；Credits 节点一键查余额
 
 - ✅ **图生图零门槛**：「加载图像」连到 `image1` 就行 —— 本地图自动经 EvoLink 官方通道上传（72 小时自动删除），**不需要注册任何第三方图床**

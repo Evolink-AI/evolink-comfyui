@@ -1,6 +1,6 @@
 [project]
 name = "evolink-nodes"
-description = "Official EvoLink nodes: Nano Banana 2, Seedream 5.0, GPT Image 2, Sora 2, Veo 3.1, Kling 3.0, Seedance 2.5 — text-to-image, image-to-image, text-to-video & image-to-video via one API key. No local GPU, no third-party image hosting, async & cancellable video tasks, API key stays out of your workflow JSON. 国内直连，中文支持。"
+description = "Official EvoLink nodes: Nano Banana 2, Seedream 5.0, GPT Image 2, Grok Imagine, Sora 2, Veo 3.1, Kling 3.0, Seedance 2.5/2.0/Mini, Wan 3.0 — text-to-image, image-to-image, text-to-video & image-to-video via one API key. No local GPU, no third-party image hosting, async & cancellable video tasks, API key stays out of your workflow JSON. 国内直连，中文支持。"
 version = "1.1.0"
 license = { text = "MIT License" }
 dependencies = ["requests"]
