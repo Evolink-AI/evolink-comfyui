@@ -12,4 +12,5 @@ Documentation = "https://evolink.ai/docs/cn/integration-guide/comfyui"
 [tool.comfy]
 PublisherId = "evolink"
 DisplayName = "EvoLink"
-Icon = ""
+Icon = "https://raw.githubusercontent.com/deeplearning-goethe/comfyui-evolink/main/assets/icon.png"
+Banner = "https://raw.githubusercontent.com/deeplearning-goethe/comfyui-evolink/main/assets/banner.png"
