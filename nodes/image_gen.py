@@ -4,9 +4,10 @@ EvoLink_GPTImage2  文生图 / 图生图（IMAGE 口直连，本地图自动走�
 EvoLink_UploadImage 独立上传节点：本地图 -> 官方通道 -> URL 文本（进阶用）
 """
 
+import asyncio
 import time
 
-from .client import EvoLinkError, poll_task, submit_image_task
+from .client import EvoLinkError, poll_task_async, submit_image_task
 from .config import resolve_api_key
 from .task_utils import make_progress_bar, urls_to_tensor_batch
 from .upload import upload_image_tensor
@@ -90,9 +91,9 @@ class EvoLinkGPTImage2:
             },
         }
 
-    def generate(self, prompt, model, size, resolution, quality, n,
-                 api_key="", image1=None, image2=None, image3=None, image4=None,
-                 image_urls="", timeout_seconds=300):
+    async def generate(self, prompt, model, size, resolution, quality, n,
+                       api_key="", image1=None, image2=None, image3=None, image4=None,
+                       image_urls="", timeout_seconds=300):
         key = resolve_api_key(api_key)
         prompt = (prompt or "").strip()
         if not prompt:
@@ -108,7 +109,7 @@ class EvoLinkGPTImage2:
             if remaining <= 0:
                 notes.append(f"参考图超过 {MAX_REFERENCE_IMAGES} 张上限，多余部分已忽略")
                 break
-            new_urls = upload_image_tensor(key, tensor, limit=remaining)
+            new_urls = await asyncio.to_thread(upload_image_tensor, key, tensor, remaining)
             uploaded += len(new_urls)
             refs.extend(new_urls)
         refs = _dedupe(refs)
@@ -128,19 +129,19 @@ class EvoLinkGPTImage2:
             payload["image_urls"] = refs
 
         started = time.monotonic()
-        task = submit_image_task(key, payload)
+        task = await asyncio.to_thread(submit_image_task, key, payload)
         task_id = task["id"]
         reserved = (task.get("usage") or {}).get("credits_reserved")
         print(f"[EvoLink] 任务已提交 {task_id}，预扣 credits: {reserved}")
 
         progress = make_progress_bar(100)
         progress(max(int(task.get("progress") or 0), 1))
-        info = poll_task(key, task_id, timeout_seconds=timeout_seconds,
-                         progress_callback=progress)
+        info = await poll_task_async(key, task_id, timeout_seconds=timeout_seconds,
+                                     progress_callback=progress)
         progress(100)
 
         results = info.get("results") or []
-        images = urls_to_tensor_batch(results)
+        images = await asyncio.to_thread(urls_to_tensor_batch, results)
         elapsed = time.monotonic() - started
         used = (info.get("usage") or {}).get("credits_used")
 

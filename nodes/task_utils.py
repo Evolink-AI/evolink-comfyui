@@ -49,6 +49,19 @@ def urls_to_tensor_batch(urls):
     return torch.cat(tensors, dim=0)
 
 
+def url_to_video(url):
+    """下载结果视频 -> ComfyUI VIDEO 对象，可直连原生「保存视频」节点。"""
+    try:
+        from comfy_api.input_impl import VideoFromFile
+    except Exception:
+        raise EvoLinkError(
+            "当前 ComfyUI 版本不支持 VIDEO 输出（缺少 comfy_api），"
+            "请把 ComfyUI 升级到较新版本后再使用视频节点。"
+        )
+    data = _download(url, timeout=600)
+    return VideoFromFile(io.BytesIO(data))
+
+
 def make_progress_bar(total=100):
     """ComfyUI 进度条；在 ComfyUI 外（单测环境）静默降级。"""
     try:

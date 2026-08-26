@@ -2,8 +2,11 @@
 
 [中文](README.md) | Docs: https://evolink.ai/docs/en/integration-guide/comfyui
 
-Generate images inside ComfyUI with [EvoLink](https://evolink.ai) cloud models
-(gpt-image-2, text-to-image & image-to-image). **No local GPU required.**
+Generate images and videos inside ComfyUI with [EvoLink](https://evolink.ai) cloud models. **No local GPU required.**
+
+**Image**: GPT Image 2 | Nano Banana 2 / Pro | Seedream 5.0
+**Video**: Sora 2 | Veo 3.1 | Kling 3.0 | Seedance 2.5 — VIDEO output connects to the native Save Video node, tasks are async & cancellable
+**Dynamic**: EvoLink Image / Video nodes cover every model (new models work without a plugin update); Credits node for balance checks
 
 - ✅ **Zero-friction img2img**: connect "Load Image" to `image1` — local images are
   uploaded through EvoLink's official file channel (auto-deleted after 72h),

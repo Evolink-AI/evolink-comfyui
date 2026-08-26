@@ -1,7 +1,7 @@
 [project]
 name = "evolink-nodes"
-description = "Official EvoLink nodes for ComfyUI. Text-to-image & image-to-image with GPT Image 2 — no local GPU, no third-party image hosting, API key stays out of your workflow JSON. Powered by the EvoLink API platform (150+ models: Nano Banana 2, Seedream 5, Sora 2, Veo 3.1, Kling, Seedance, Midjourney, Suno — image/video/audio/LLM via one API key; more nodes coming soon). 国内直连，中文支持。"
-version = "1.0.3"
+description = "Official EvoLink nodes: Nano Banana 2, Seedream 5.0, GPT Image 2, Sora 2, Veo 3.1, Kling 3.0, Seedance 2.5 — text-to-image, image-to-image, text-to-video & image-to-video via one API key. No local GPU, no third-party image hosting, async & cancellable video tasks, API key stays out of your workflow JSON. 国内直连，中文支持。"
+version = "1.1.0"
 license = { text = "MIT License" }
 dependencies = ["requests"]
 

@@ -60,14 +60,18 @@ def upload_pil(api_key, pil_image):
     return file_url
 
 
-def upload_image_tensor(api_key, image_tensor, limit=None):
+def upload_image_tensor(api_key, image_tensor, limit=None, resize_to=None):
     """上传一个 IMAGE 输入（可能是多帧 batch），返回 URL 列表。
 
     limit 为剩余可用张数（防止超过 API 的 16 张上限时白白上传）。
+    resize_to=(w, h)：上传前缩放到精确像素（sora-2-preview 要求
+    参考图与 aspect_ratio 像素完全一致）。
     """
     urls = []
     for pil_image in tensor_to_pil_list(image_tensor):
         if limit is not None and len(urls) >= limit:
             break
+        if resize_to and pil_image.size != tuple(resize_to):
+            pil_image = pil_image.resize(tuple(resize_to), Image.LANCZOS)
         urls.append(upload_pil(api_key, pil_image))
     return urls

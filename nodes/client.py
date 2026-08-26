@@ -7,6 +7,7 @@
 结果链接 24 小时过期，失败任务不扣费。
 """
 
+import asyncio
 import time
 
 import requests
@@ -89,47 +90,116 @@ def request_json(method, url, api_key, payload=None, timeout=60):
     raise last_exc
 
 
-def submit_image_task(api_key, payload):
-    """提交图像生成任务，返回任务对象（含 id/status/usage.credits_reserved）。"""
-    task = request_json("POST", f"{API_BASE}/images/generations", api_key, payload)
+def submit_task(api_key, path, payload):
+    """提交异步生成任务（图像/视频通用），返回任务对象（含 id/status/usage.credits_reserved）。
+
+    path 形如 "/images/generations"、"/videos/generations"。
+    """
+    task = request_json("POST", f"{API_BASE}{path}", api_key, payload)
     if not task.get("id"):
         raise EvoLinkError(f"提交任务后未返回任务 ID，原始响应：{str(task)[:200]}")
     return task
+
+
+def submit_image_task(api_key, payload):
+    """提交图像生成任务，返回任务对象（含 id/status/usage.credits_reserved）。"""
+    return submit_task(api_key, "/images/generations", payload)
+
+
+def get_credits(api_key):
+    """查询账户余额。返回 (user_remaining, token_remaining, token_unlimited)。"""
+    body = request_json("GET", f"{API_BASE}/credits", api_key)
+    data = body.get("data") or {}
+    user = data.get("user") or {}
+    token = data.get("token") or {}
+    return (
+        float(user.get("remaining_credits") or 0.0),
+        float(token.get("remaining_credits") or 0.0),
+        bool(token.get("unlimited_credits")),
+    )
 
 
 def get_task(api_key, task_id):
     return request_json("GET", f"{API_BASE}/tasks/{task_id}", api_key)
 
 
+def _handle_task_status(info, task_id, deadline, timeout_seconds, progress_callback):
+    """公共状态机：completed 返回 info，failed/超时抛错，进行中返回 None。"""
+    status = info.get("status", "")
+    if progress_callback is not None:
+        try:
+            progress_callback(int(info.get("progress") or 0))
+        except Exception:
+            pass
+    if status == "completed":
+        return info
+    if status == "failed":
+        err = info.get("error") or {}
+        code = err.get("code", "")
+        hint = TASK_ERROR_HINTS.get(
+            code, f"{err.get('message', '未知错误')}（失败任务不扣费）"
+        )
+        raise EvoLinkError(
+            f"任务失败：{hint}。任务 ID: {task_id}，"
+            "可到 https://evolink.ai/zh/dashboard/logs 查看详情。"
+        )
+    if time.monotonic() > deadline:
+        raise EvoLinkError(
+            f"等待超时（{timeout_seconds}s）。任务可能仍在后台运行，"
+            f"任务 ID: {task_id}，可到 https://evolink.ai/zh/dashboard/logs "
+            "查看最终状态与扣费（超时失败的任务不会扣费）。"
+        )
+    return None
+
+
 def poll_task(api_key, task_id, timeout_seconds=300, progress_callback=None):
-    """轮询任务直到 completed/failed/超时。间隔 3s 起指数退避，上限 10s。"""
+    """同步轮询任务直到 completed/failed/超时。间隔 3s 起指数退避，上限 10s。"""
     interval = 3.0
     deadline = time.monotonic() + timeout_seconds
     while True:
         time.sleep(interval)
         interval = min(interval * 1.5, 10.0)
         info = get_task(api_key, task_id)
-        status = info.get("status", "")
-        if progress_callback is not None:
-            try:
-                progress_callback(int(info.get("progress") or 0))
-            except Exception:
-                pass
-        if status == "completed":
-            return info
-        if status == "failed":
-            err = info.get("error") or {}
-            code = err.get("code", "")
-            hint = TASK_ERROR_HINTS.get(
-                code, f"{err.get('message', '未知错误')}（失败任务不扣费）"
-            )
-            raise EvoLinkError(
-                f"任务失败：{hint}。任务 ID: {task_id}，"
-                "可到 https://evolink.ai/zh/dashboard/logs 查看详情。"
-            )
-        if time.monotonic() > deadline:
-            raise EvoLinkError(
-                f"等待超时（{timeout_seconds}s）。任务可能仍在后台运行，"
-                f"任务 ID: {task_id}，可到 https://evolink.ai/zh/dashboard/logs "
-                "查看最终状态与扣费（超时失败的任务不会扣费）。"
-            )
+        done = _handle_task_status(info, task_id, deadline, timeout_seconds, progress_callback)
+        if done is not None:
+            return done
+
+
+def _interrupt_check():
+    """ComfyUI 里用户点「取消」时抛 InterruptProcessingException；单测环境静默。"""
+    try:
+        from comfy import model_management
+    except Exception:
+        return
+    model_management.throw_exception_if_processing_interrupted()
+
+
+async def poll_task_async(api_key, task_id, timeout_seconds=300,
+                          progress_callback=None, max_interval=10.0):
+    """异步轮询：等待时让出事件循环（不阻塞 ComfyUI 队列），每 0.5s 响应一次取消。
+
+    视频任务动辄数分钟，必须用这个而不是 poll_task。
+    用户取消时抛出 ComfyUI 的中断异常，并提示 task_id 供后续用
+    GET /v1/tasks/{id} 取回结果（服务端任务不会因此停止，完成仍会扣费）。
+    """
+    interval = 3.0
+    deadline = time.monotonic() + timeout_seconds
+    try:
+        while True:
+            waited = 0.0
+            while waited < interval:
+                _interrupt_check()
+                await asyncio.sleep(0.5)
+                waited += 0.5
+            interval = min(interval * 1.5, max_interval)
+            info = await asyncio.to_thread(get_task, api_key, task_id)
+            done = _handle_task_status(info, task_id, deadline, timeout_seconds, progress_callback)
+            if done is not None:
+                return done
+    except EvoLinkError:
+        raise
+    except Exception as e:
+        if type(e).__name__ == "InterruptProcessingException":
+            print(f"[EvoLink] 已取消等待。任务 {task_id} 仍在服务端运行，"
+                  "完成后可到 https://evolink.ai/zh/dashboard/logs 查看结果与扣费。")
+        raise
