@@ -1,7 +1,7 @@
 [project]
 name = "evolink-nodes"
-description = "Official EvoLink nodes for ComfyUI: text-to-image & image-to-image via EvoLink cloud API (gpt-image-2). No local GPU needed, local reference images are uploaded through EvoLink's official file channel (no third-party image hosting)."
-version = "1.0.2"
+description = "Official EvoLink nodes for ComfyUI. Text-to-image & image-to-image with GPT Image 2 — no local GPU, no third-party image hosting, API key stays out of your workflow JSON. Powered by the EvoLink API platform (150+ models: Nano Banana 2, Seedream 5, Sora 2, Veo 3.1, Kling, Seedance, Midjourney, Suno — image/video/audio/LLM via one API key; more nodes coming soon). 国内直连，中文支持。"
+version = "1.0.3"
 license = { text = "MIT License" }
 dependencies = ["requests"]
 
@@ -11,6 +11,6 @@ Documentation = "https://evolink.ai/docs/cn/integration-guide/comfyui"
 
 [tool.comfy]
 PublisherId = "evolink"
-DisplayName = "EvoLink"
+DisplayName = "EvoLink (Official)"
 Icon = "https://raw.githubusercontent.com/deeplearning-goethe/comfyui-evolink/main/assets/icon.png"
 Banner = "https://raw.githubusercontent.com/deeplearning-goethe/comfyui-evolink/main/assets/banner.png"
