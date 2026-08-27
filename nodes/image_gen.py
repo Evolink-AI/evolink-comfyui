@@ -5,6 +5,7 @@ EvoLink_UploadImage 独立上传节点：本地图 -> 官方通道 -> URL 文本
 """
 
 import asyncio
+import json
 import time
 
 from .client import EvoLinkError, poll_task_async, submit_image_task
@@ -43,8 +44,15 @@ class EvoLinkGPTImage2:
     )
     CATEGORY = "EvoLink"
     FUNCTION = "generate"
-    RETURN_TYPES = ("IMAGE", "STRING", "STRING")
-    RETURN_NAMES = ("image", "task_id", "status_info")
+    RETURN_TYPES = ("IMAGE", "STRING", "STRING", "STRING", "STRING")
+    RETURN_NAMES = ("image", "task_id", "status_info", "result_urls", "response_json")
+    OUTPUT_TOOLTIPS = (
+        "生成结果（已下载落地，可直连保存节点）",
+        "EvoLink 任务 ID，可到 evolink.ai/zh/dashboard/logs 查询",
+        "人读状态摘要（模型/用时/消耗 credits）",
+        "结果原始链接，每行一个（24 小时过期）",
+        "平台 GET /v1/tasks/{id} 的完整 JSON 响应（status/usage/results 等），供下游节点解析",
+    )
 
     @classmethod
     def INPUT_TYPES(cls):
@@ -86,7 +94,7 @@ class EvoLinkGPTImage2:
                 }),
                 "timeout_seconds": ("INT", {
                     "default": 300, "min": 60, "max": 600, "step": 30,
-                    "tooltip": "最长等待时间；超时失败的任务不扣费",
+                    "tooltip": "最长等待时间；生成失败或审核拦截的任务不扣费",
                 }),
             },
         }
@@ -162,7 +170,8 @@ class EvoLinkGPTImage2:
         status_parts.append("结果已下载为图像输出（原始链接 24 小时过期）")
         status_info = " | ".join(status_parts)
         print(f"[EvoLink] {status_info}")
-        return (images, task_id, status_info)
+        return (images, task_id, status_info,
+                "\n".join(results), json.dumps(info, ensure_ascii=False))
 
 
 class EvoLinkUploadImage:

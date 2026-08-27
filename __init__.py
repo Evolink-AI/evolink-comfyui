@@ -1,9 +1,11 @@
 """EvoLink 官方 ComfyUI 节点包。
 
-图像：GPT Image 2、Nano Banana 2/Pro、Seedream 5.0 文生图/图生图；
-视频：Sora 2、Veo 3.1、Kling 3.0、Seedance 2.5 文生视频/图生视频；
-以及通用动态节点（全模型）、余额查询。本地参考图自动走 EvoLink 官方
-上传通道，不依赖任何第三方图床。
+一个模型变体一个节点（fal 风格，文生/图生分开）：
+图像：GPT Image 2、Nano Banana 2/Pro/Lite、Seedream 5.0 Pro/Lite/4.5/4.0、Grok Imagine；
+视频：Sora 2/Pro、Veo 3.1（T2V/首尾帧/参考图）、Kling V3/Turbo/O3（T2V/I2V）、
+Seedance 2.5/2.0/Fast/Mini（T2V/I2V）、Wan 3.0（T2V/首尾帧/参考）；
+以及通用动态节点（全模型，含 beta 渠道）、余额查询。本地参考图自动走
+EvoLink 官方上传通道，不依赖任何第三方图床。
 文档：https://evolink.ai/docs/cn/integration-guide/comfyui
 """
 

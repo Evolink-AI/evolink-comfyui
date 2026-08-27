@@ -1,28 +1,20 @@
 {
-  "updated": "2026-08-26",
-  "source": "evolink.ai/docs api-manual（image-series / video-series 逐页核实）",
+  "updated": "2026-08-27",
+  "source": "evolink.ai/docs api-manual（image-series / video-series 逐页核实）；2026-08-27 按变体拆分：一个 API model 变体一个节点，beta 渠道收进通用节点",
   "nodes": [
     {
-      "node_id": "EvoLink_NanoBanana",
+      "node_id": "EvoLink_NanoBanana2",
       "display_name": "EvoLink Nano Banana 2 (Official)",
       "output": "image",
       "endpoint": "/images/generations",
-      "description": "EvoLink 官方节点：Google Nano Banana 2 / Pro / Lite 文生图、图生图、图片编辑。官方渠道与 beta 渠道可选，接「加载图像」即图生图（本地图经 EvoLink 官方通道上传，72 小时自动删除）。Nano Banana 2 (gemini-3.1-flash-image) text-to-image & image editing.",
-      "prompt_tooltip": "画面描述或修改指令，支持中文，最长约 2000 tokens。含真人照片的参考图最多 4~5 张。",
+      "description": "EvoLink 官方节点：Google Nano Banana 2（gemini-3.1-flash-image）文生图、图生图、图片编辑，0.5K~4K 分辨率与极端比例（1:8/8:1 等），接「加载图像」即图生图（本地图经 EvoLink 官方通道上传，72 小时自动删除）。beta 低价渠道见 EvoLink Image 通用节点。Nano Banana 2 text-to-image & image editing.",
       "models": [
-        "nano-banana-2",
-        "nano-banana-pro",
-        "nano-banana-2-lite",
-        "nano-banana-2-beta",
-        "nano-banana-pro-beta",
-        "nano-banana-2-lite-beta",
-        "nano-banana-beta"
+        "nano-banana-2"
       ],
       "default_model": "nano-banana-2",
+      "prompt_tooltip": "画面描述或修改指令，支持中文，最长约 2000 tokens。含真人照片的参考图最多 4~5 张。",
       "model_map": {
-        "nano-banana-2": "gemini-3.1-flash-image-preview",
-        "nano-banana-2-lite": "gemini-3.1-flash-lite-image",
-        "nano-banana-pro": "gemini-3-pro-image-preview"
+        "nano-banana-2": "gemini-3.1-flash-image-preview"
       },
       "params": [
         {
@@ -46,113 +38,7 @@
             "8:1"
           ],
           "default": "auto",
-          "tooltip": "画面比例；auto 由模型自定。极端比例（1:4/1:8 等）仅 nano-banana-2 系支持",
-          "model_values": {
-            "nano-banana-2": [
-              "auto",
-              "1:1",
-              "2:3",
-              "3:2",
-              "3:4",
-              "4:3",
-              "4:5",
-              "5:4",
-              "9:16",
-              "16:9",
-              "21:9",
-              "1:4",
-              "4:1",
-              "1:8",
-              "8:1"
-            ],
-            "nano-banana-2-lite": [
-              "auto",
-              "1:1",
-              "2:3",
-              "3:2",
-              "3:4",
-              "4:3",
-              "4:5",
-              "5:4",
-              "9:16",
-              "16:9",
-              "21:9",
-              "1:4",
-              "4:1",
-              "1:8",
-              "8:1"
-            ],
-            "nano-banana-2-beta": [
-              "auto",
-              "1:1",
-              "2:3",
-              "3:2",
-              "3:4",
-              "4:3",
-              "4:5",
-              "5:4",
-              "9:16",
-              "16:9",
-              "21:9",
-              "1:4",
-              "4:1",
-              "1:8",
-              "8:1"
-            ],
-            "nano-banana-2-lite-beta": [
-              "auto",
-              "1:1",
-              "2:3",
-              "3:2",
-              "3:4",
-              "4:3",
-              "4:5",
-              "5:4",
-              "9:16",
-              "16:9",
-              "21:9",
-              "1:4",
-              "4:1",
-              "1:8",
-              "8:1"
-            ],
-            "nano-banana-pro": [
-              "auto",
-              "1:1",
-              "2:3",
-              "3:2",
-              "3:4",
-              "4:3",
-              "4:5",
-              "5:4",
-              "9:16",
-              "16:9",
-              "21:9"
-            ],
-            "nano-banana-pro-beta": [
-              "auto",
-              "1:1",
-              "2:3",
-              "3:2",
-              "3:4",
-              "4:3",
-              "4:5",
-              "5:4",
-              "9:16",
-              "16:9",
-              "21:9"
-            ],
-            "nano-banana-beta": [
-              "auto",
-              "1:1",
-              "2:3",
-              "3:2",
-              "4:3",
-              "3:4",
-              "16:9",
-              "9:16"
-            ]
-          }
+          "tooltip": "画面比例；auto 由模型自定"
         },
         {
           "name": "quality",
@@ -164,36 +50,7 @@
             "4K"
           ],
           "default": "2K",
-          "tooltip": "输出分辨率档位（注意与 gpt-image-2 的 quality 含义不同）。Lite 系固定 1K；Pro 系 4K 加价",
-          "model_values": {
-            "nano-banana-2": [
-              "2K",
-              "0.5K",
-              "1K",
-              "4K"
-            ],
-            "nano-banana-2-beta": [
-              "2K",
-              "1K",
-              "4K"
-            ],
-            "nano-banana-pro": [
-              "2K",
-              "1K",
-              "4K"
-            ],
-            "nano-banana-pro-beta": [
-              "2K",
-              "1K",
-              "4K"
-            ],
-            "nano-banana-2-lite": [
-              "1K"
-            ],
-            "nano-banana-2-lite-beta": [
-              "1K"
-            ]
-          }
+          "tooltip": "输出分辨率档位（注意与 gpt-image-2 的 quality 含义不同）；4K 加价"
         },
         {
           "name": "thinking_level",
@@ -204,26 +61,17 @@
             "high"
           ],
           "default": "auto",
+          "tooltip": "生成前的推理深度；auto 由模型决定",
           "skip_value": "auto",
-          "nest": "model_params",
-          "models": [
-            "nano-banana-2",
-            "nano-banana-2-lite",
-            "nano-banana-2-beta"
-          ],
-          "tooltip": "生成前的推理深度；auto 由模型决定"
+          "nest": "model_params"
         },
         {
           "name": "web_search",
           "widget": "bool",
           "default": false,
+          "tooltip": "用联网搜索结果优化生成（可能产生额外费用）",
           "skip_value": false,
-          "nest": "model_params",
-          "models": [
-            "nano-banana-2",
-            "nano-banana-pro"
-          ],
-          "tooltip": "用联网搜索结果优化生成（可能产生额外费用）"
+          "nest": "model_params"
         }
       ],
       "image_slots": [
@@ -253,19 +101,174 @@
       "default_timeout": 300
     },
     {
-      "node_id": "EvoLink_Seedream",
-      "display_name": "EvoLink Seedream 5.0 (Official)",
+      "node_id": "EvoLink_NanoBananaPro",
+      "display_name": "EvoLink Nano Banana Pro (Official)",
       "output": "image",
       "endpoint": "/images/generations",
-      "description": "EvoLink 官方节点：字节豆包 Seedream 5.0 Pro / Lite / 4.5 / 4.0 文生图、图生图、图片编辑，支持中文提示词与多图参考。Doubao Seedream text-to-image & image editing.",
-      "prompt_tooltip": "画面描述或修改指令，支持中文。5.0-pro 建议 300 字以内；lite/4.5/4.0 要多图时在 prompt 里说明张数。",
+      "description": "EvoLink 官方节点：Google Nano Banana Pro（gemini-3-pro-image）高质量文生图、图生图、图片编辑，支持 4K 输出与联网搜索增强。接「加载图像」即图生图。beta 低价渠道见 EvoLink Image 通用节点。Nano Banana Pro text-to-image & image editing.",
       "models": [
-        "doubao-seedream-5.0-pro",
-        "doubao-seedream-5.0-lite",
-        "doubao-seedream-4.5",
-        "doubao-seedream-4.0"
+        "nano-banana-pro"
+      ],
+      "default_model": "nano-banana-pro",
+      "prompt_tooltip": "画面描述或修改指令，支持中文，最长约 2000 tokens。含真人照片的参考图最多 4~5 张。",
+      "model_map": {
+        "nano-banana-pro": "gemini-3-pro-image-preview"
+      },
+      "params": [
+        {
+          "name": "size",
+          "widget": "enum",
+          "values": [
+            "auto",
+            "1:1",
+            "2:3",
+            "3:2",
+            "3:4",
+            "4:3",
+            "4:5",
+            "5:4",
+            "9:16",
+            "16:9",
+            "21:9"
+          ],
+          "default": "auto",
+          "tooltip": "画面比例；auto 由模型自定"
+        },
+        {
+          "name": "quality",
+          "widget": "enum",
+          "values": [
+            "2K",
+            "1K",
+            "4K"
+          ],
+          "default": "2K",
+          "tooltip": "输出分辨率档位；4K 加价"
+        },
+        {
+          "name": "web_search",
+          "widget": "bool",
+          "default": false,
+          "tooltip": "用联网搜索结果优化生成（可能产生额外费用）",
+          "skip_value": false,
+          "nest": "model_params"
+        }
+      ],
+      "image_slots": [
+        {
+          "name": "image1",
+          "api_param": "image_urls",
+          "tooltip": "参考图 1：接「加载图像」即图生图/图片编辑"
+        },
+        {
+          "name": "image2",
+          "api_param": "image_urls",
+          "tooltip": "参考图 2（可选）"
+        },
+        {
+          "name": "image3",
+          "api_param": "image_urls",
+          "tooltip": "参考图 3（可选）"
+        },
+        {
+          "name": "image4",
+          "api_param": "image_urls",
+          "tooltip": "参考图 4（可选）"
+        }
+      ],
+      "url_text_param": "image_urls",
+      "max_images": 14,
+      "default_timeout": 300
+    },
+    {
+      "node_id": "EvoLink_NanoBananaLite",
+      "display_name": "EvoLink Nano Banana 2 Lite (Official)",
+      "output": "image",
+      "endpoint": "/images/generations",
+      "description": "EvoLink 官方节点：Google Nano Banana 2 Lite（gemini-3.1-flash-lite-image）——最便宜的 Nano Banana 档位，固定 1K 输出，适合批量与调试。接「加载图像」即图生图。beta 低价渠道见 EvoLink Image 通用节点。Nano Banana 2 Lite budget text-to-image & image editing.",
+      "models": [
+        "nano-banana-2-lite"
+      ],
+      "default_model": "nano-banana-2-lite",
+      "prompt_tooltip": "画面描述或修改指令，支持中文，最长约 2000 tokens。含真人照片的参考图最多 4~5 张。",
+      "model_map": {
+        "nano-banana-2-lite": "gemini-3.1-flash-lite-image"
+      },
+      "params": [
+        {
+          "name": "size",
+          "widget": "enum",
+          "values": [
+            "auto",
+            "1:1",
+            "2:3",
+            "3:2",
+            "3:4",
+            "4:3",
+            "4:5",
+            "5:4",
+            "9:16",
+            "16:9",
+            "21:9",
+            "1:4",
+            "4:1",
+            "1:8",
+            "8:1"
+          ],
+          "default": "auto",
+          "tooltip": "画面比例；auto 由模型自定（输出固定 1K）"
+        },
+        {
+          "name": "thinking_level",
+          "widget": "enum",
+          "values": [
+            "auto",
+            "min",
+            "high"
+          ],
+          "default": "auto",
+          "tooltip": "生成前的推理深度；auto 由模型决定",
+          "skip_value": "auto",
+          "nest": "model_params"
+        }
+      ],
+      "image_slots": [
+        {
+          "name": "image1",
+          "api_param": "image_urls",
+          "tooltip": "参考图 1：接「加载图像」即图生图/图片编辑"
+        },
+        {
+          "name": "image2",
+          "api_param": "image_urls",
+          "tooltip": "参考图 2（可选）"
+        },
+        {
+          "name": "image3",
+          "api_param": "image_urls",
+          "tooltip": "参考图 3（可选）"
+        },
+        {
+          "name": "image4",
+          "api_param": "image_urls",
+          "tooltip": "参考图 4（可选）"
+        }
+      ],
+      "url_text_param": "image_urls",
+      "max_images": 14,
+      "default_timeout": 300
+    },
+    {
+      "node_id": "EvoLink_Seedream5Pro",
+      "display_name": "EvoLink Seedream 5.0 Pro (Official)",
+      "output": "image",
+      "endpoint": "/images/generations",
+      "description": "EvoLink 官方节点：字节豆包 Seedream 5.0 Pro 文生图、图生图、图片编辑——单图质量最优档，支持中文提示词与多图参考（上限 10 张）；不支持一次多图输出（要多图请用 Seedream 5.0 Lite）。Doubao Seedream 5.0 Pro text-to-image & image editing.",
+      "models": [
+        "doubao-seedream-5.0-pro"
       ],
       "default_model": "doubao-seedream-5.0-pro",
+      "prompt_tooltip": "画面描述或修改指令，支持中文，建议 300 字以内。",
       "params": [
         {
           "name": "size",
@@ -279,33 +282,73 @@
           "values": [
             "2K",
             "1K",
-            "1.5K",
+            "1.5K"
+          ],
+          "default": "2K",
+          "tooltip": "分辨率档位"
+        },
+        {
+          "name": "watermark",
+          "widget": "bool",
+          "default": false,
+          "tooltip": "是否加水印",
+          "skip_value": false
+        }
+      ],
+      "image_slots": [
+        {
+          "name": "image1",
+          "api_param": "image_urls",
+          "tooltip": "参考图 1：接「加载图像」即图生图/图片编辑（参考图上限 10 张）"
+        },
+        {
+          "name": "image2",
+          "api_param": "image_urls",
+          "tooltip": "参考图 2（可选）"
+        },
+        {
+          "name": "image3",
+          "api_param": "image_urls",
+          "tooltip": "参考图 3（可选）"
+        },
+        {
+          "name": "image4",
+          "api_param": "image_urls",
+          "tooltip": "参考图 4（可选）"
+        }
+      ],
+      "url_text_param": "image_urls",
+      "max_images": 10,
+      "default_timeout": 300
+    },
+    {
+      "node_id": "EvoLink_Seedream5Lite",
+      "display_name": "EvoLink Seedream 5.0 Lite (Official)",
+      "output": "image",
+      "endpoint": "/images/generations",
+      "description": "EvoLink 官方节点：字节豆包 Seedream 5.0 Lite 文生图、图生图、图片编辑，一次最多 15 张，2K/3K/4K 分辨率，支持中文提示词与多图参考。Doubao Seedream 5.0 Lite text-to-image & image editing.",
+      "models": [
+        "doubao-seedream-5.0-lite"
+      ],
+      "default_model": "doubao-seedream-5.0-lite",
+      "prompt_tooltip": "画面描述或修改指令，支持中文。要一次多图时在 prompt 里说明张数。",
+      "params": [
+        {
+          "name": "size",
+          "widget": "string",
+          "default": "auto",
+          "tooltip": "auto / 比例如 1:1、16:9、9:21 / 像素如 2048x2048"
+        },
+        {
+          "name": "quality",
+          "widget": "enum",
+          "values": [
+            "2K",
             "3K",
             "4K"
           ],
           "default": "2K",
-          "tooltip": "分辨率档位；各版本支持面不同（5.0-pro 最高 2K 档、lite 为 2K/3K/4K），选了不支持的档会自动回退",
-          "model_values": {
-            "doubao-seedream-5.0-pro": [
-              "1K",
-              "1.5K",
-              "2K"
-            ],
-            "doubao-seedream-5.0-lite": [
-              "2K",
-              "3K",
-              "4K"
-            ],
-            "doubao-seedream-4.5": [
-              "2K",
-              "4K"
-            ],
-            "doubao-seedream-4.0": [
-              "2K",
-              "1K",
-              "4K"
-            ]
-          }
+          "tooltip": "分辨率档位"
         },
         {
           "name": "n",
@@ -313,23 +356,8 @@
           "default": 1,
           "min": 1,
           "max": 15,
-          "skip_value": 1,
-          "models": [
-            "doubao-seedream-5.0-lite",
-            "doubao-seedream-4.5",
-            "doubao-seedream-4.0"
-          ],
-          "tooltip": "最多生成几张（上限，需同时在 prompt 中要求多图）；5.0-pro 不支持多图"
-        },
-        {
-          "name": "watermark",
-          "widget": "bool",
-          "default": false,
-          "skip_value": false,
-          "models": [
-            "doubao-seedream-5.0-pro"
-          ],
-          "tooltip": "是否加水印"
+          "tooltip": "最多生成几张（上限，需同时在 prompt 中要求多图）",
+          "skip_value": 1
         }
       ],
       "image_slots": [
@@ -351,7 +379,7 @@
         {
           "name": "image4",
           "api_param": "image_urls",
-          "tooltip": "参考图 4（可选，5.0-pro 参考图上限 10 张）"
+          "tooltip": "参考图 4（可选）"
         }
       ],
       "url_text_param": "image_urls",
@@ -359,48 +387,48 @@
       "default_timeout": 300
     },
     {
-      "node_id": "EvoLink_Image",
-      "display_name": "EvoLink Image (All Models)",
+      "node_id": "EvoLink_Seedream45",
+      "display_name": "EvoLink Seedream 4.5 (Official)",
       "output": "image",
       "endpoint": "/images/generations",
-      "description": "EvoLink 通用图像节点：一个节点调用全部图像模型（GPT Image 2、Nano Banana 2/Pro、Seedream 5.0 等）。模型专属参数用 extra_params 以 JSON 传入，接口文档见 evolink.ai/docs。",
-      "prompt_tooltip": "画面描述或修改指令，支持中文。",
+      "description": "EvoLink 官方节点：字节豆包 Seedream 4.5 文生图、图生图、图片编辑，一次最多 15 张，支持中文提示词与多图参考。Doubao Seedream 4.5 text-to-image & image editing.",
       "models": [
-        "gpt-image-2",
-        "grok-imagine-image-2.0",
-        "nano-banana-2",
-        "nano-banana-pro",
-        "nano-banana-2-lite",
-        "doubao-seedream-5.0-pro",
-        "doubao-seedream-5.0-lite",
-        "doubao-seedream-4.5",
-        "doubao-seedream-4.0",
-        "nano-banana-2-beta",
-        "nano-banana-pro-beta",
-        "nano-banana-2-lite-beta",
-        "nano-banana-beta",
-        "gpt-image-2-beta"
+        "doubao-seedream-4.5"
       ],
-      "default_model": "gpt-image-2",
-      "model_map": {
-        "nano-banana-2": "gemini-3.1-flash-image-preview",
-        "nano-banana-2-lite": "gemini-3.1-flash-lite-image",
-        "nano-banana-pro": "gemini-3-pro-image-preview"
-      },
+      "default_model": "doubao-seedream-4.5",
+      "prompt_tooltip": "画面描述或修改指令，支持中文。要一次多图时在 prompt 里说明张数。",
       "params": [
         {
           "name": "size",
           "widget": "string",
           "default": "auto",
-          "tooltip": "auto / 比例如 1:1、16:9 / 像素如 1024x1024（支持范围随模型而异）"
+          "tooltip": "auto / 比例如 1:1、16:9、9:21 / 像素如 2048x2048"
+        },
+        {
+          "name": "quality",
+          "widget": "enum",
+          "values": [
+            "2K",
+            "4K"
+          ],
+          "default": "2K",
+          "tooltip": "分辨率档位"
+        },
+        {
+          "name": "n",
+          "widget": "int",
+          "default": 1,
+          "min": 1,
+          "max": 15,
+          "tooltip": "最多生成几张（上限，需同时在 prompt 中要求多图）",
+          "skip_value": 1
         }
       ],
-      "extra_json_param": true,
       "image_slots": [
         {
           "name": "image1",
           "api_param": "image_urls",
-          "tooltip": "参考图 1：接「加载图像」即图生图"
+          "tooltip": "参考图 1：接「加载图像」即图生图/图片编辑"
         },
         {
           "name": "image2",
@@ -419,885 +447,73 @@
         }
       ],
       "url_text_param": "image_urls",
-      "max_images": 16,
+      "max_images": 14,
       "default_timeout": 300
     },
     {
-      "node_id": "EvoLink_Sora2",
-      "display_name": "EvoLink Sora 2 (Official)",
-      "output": "video",
-      "endpoint": "/videos/generations",
-      "preprocess": "sora_exact_size",
-      "description": "EvoLink 官方节点：OpenAI Sora 2 / Sora 2 Pro 文生视频、图生视频。接「加载图像」即图生视频（sora-2-preview 的参考图会自动缩放到与画幅一致的像素）。输出可直连原生「保存视频」节点。Sora 2 text-to-video & image-to-video.",
-      "prompt_tooltip": "镜头/画面描述，支持中文，最长约 5000 tokens。Sora 内容审核较严，参考图不支持真人照片。",
+      "node_id": "EvoLink_Seedream40",
+      "display_name": "EvoLink Seedream 4.0 (Official)",
+      "output": "image",
+      "endpoint": "/images/generations",
+      "description": "EvoLink 官方节点：字节豆包 Seedream 4.0 文生图、图生图、图片编辑，一次最多 15 张，支持中文提示词与多图参考。Doubao Seedream 4.0 text-to-image & image editing.",
       "models": [
-        "sora-2-preview",
-        "sora-2-pro-preview"
+        "doubao-seedream-4.0"
       ],
-      "default_model": "sora-2-preview",
+      "default_model": "doubao-seedream-4.0",
+      "prompt_tooltip": "画面描述或修改指令，支持中文。要一次多图时在 prompt 里说明张数。",
       "params": [
         {
-          "name": "aspect_ratio",
-          "widget": "enum",
-          "values": [
-            "16:9",
-            "9:16"
-          ],
-          "default": "16:9",
-          "tooltip": "横屏 16:9 / 竖屏 9:16"
-        },
-        {
-          "name": "duration",
-          "widget": "enum",
-          "values": [
-            4,
-            8,
-            12
-          ],
-          "default": 4,
-          "tooltip": "视频时长（秒），按时长计费"
-        },
-        {
-          "name": "quality",
-          "widget": "enum",
-          "values": [
-            "720p",
-            "1080p"
-          ],
-          "default": "720p",
-          "models": [
-            "sora-2-pro-preview"
-          ],
-          "tooltip": "仅 Pro 可选；1080p 价格约为 720p 的 1.67 倍"
-        }
-      ],
-      "image_slots": [
-        {
-          "name": "image",
-          "api_param": "image_urls",
-          "tooltip": "参考图（图生视频）；不支持真人照片"
-        }
-      ],
-      "max_images": 1,
-      "default_timeout": 1200
-    },
-    {
-      "node_id": "EvoLink_Veo31",
-      "display_name": "EvoLink Veo 3.1 (Official)",
-      "output": "video",
-      "endpoint": "/videos/generations",
-      "description": "EvoLink 官方节点：Google Veo 3.1 文生视频、图生视频（首尾帧）、参考图生视频，支持原生音频。preview 版参数全（时长/4K/seed），beta 版更精简。输出可直连「保存视频」节点。Veo 3.1 text/image-to-video with native audio.",
-      "prompt_tooltip": "镜头/画面描述，支持中文，最长约 2000 tokens。",
-      "models": [
-        "veo-3.1-generate-preview",
-        "veo-3.1-fast-generate-preview",
-        "veo3.1-pro-beta",
-        "veo3.1-fast-beta"
-      ],
-      "default_model": "veo-3.1-generate-preview",
-      "params": [
-        {
-          "name": "aspect_ratio",
-          "widget": "enum",
-          "values": [
-            "auto",
-            "16:9",
-            "9:16"
-          ],
-          "default": "auto",
-          "tooltip": "auto：图生视频按图比例，文生视频按 prompt 自动"
-        },
-        {
-          "name": "duration",
-          "widget": "enum",
-          "values": [
-            8,
-            4,
-            6
-          ],
-          "default": 8,
-          "models": [
-            "veo-3.1-generate-preview",
-            "veo-3.1-fast-generate-preview"
-          ],
-          "tooltip": "视频时长（秒）；beta 版不支持此参数"
-        },
-        {
-          "name": "quality",
-          "widget": "enum",
-          "values": [
-            "720p",
-            "1080p",
-            "4k"
-          ],
-          "default": "720p",
-          "tooltip": "分辨率；beta 版仅 720p",
-          "model_values": {
-            "veo-3.1-generate-preview": [
-              "720p",
-              "1080p",
-              "4k"
-            ],
-            "veo-3.1-fast-generate-preview": [
-              "720p",
-              "1080p",
-              "4k"
-            ],
-            "veo3.1-pro-beta": [
-              "720p"
-            ],
-            "veo3.1-fast-beta": [
-              "720p"
-            ]
-          }
-        },
-        {
-          "name": "generate_audio",
-          "widget": "bool",
-          "default": true,
-          "models": [
-            "veo-3.1-generate-preview",
-            "veo-3.1-fast-generate-preview"
-          ],
-          "tooltip": "生成原生音频（额外收费）"
-        },
-        {
-          "name": "generation_type",
-          "widget": "enum",
-          "values": [
-            "auto",
-            "TEXT",
-            "FIRST&LAST",
-            "REFERENCE"
-          ],
-          "default": "auto",
-          "skip_value": "auto",
-          "tooltip": "接图后建议手动指定：FIRST&LAST=首尾帧，REFERENCE=参考图（最多 3 张）",
-          "model_values": {
-            "veo-3.1-generate-preview": [
-              "TEXT",
-              "FIRST&LAST",
-              "REFERENCE"
-            ],
-            "veo-3.1-fast-generate-preview": [
-              "TEXT",
-              "FIRST&LAST",
-              "REFERENCE"
-            ],
-            "veo3.1-pro-beta": [
-              "TEXT",
-              "FIRST&LAST"
-            ],
-            "veo3.1-fast-beta": [
-              "TEXT",
-              "FIRST&LAST",
-              "REFERENCE"
-            ]
-          }
-        },
-        {
-          "name": "negative_prompt",
+          "name": "size",
           "widget": "string",
-          "default": "",
-          "models": [
-            "veo-3.1-generate-preview",
-            "veo-3.1-fast-generate-preview"
-          ],
-          "tooltip": "不希望出现的内容"
+          "default": "auto",
+          "tooltip": "auto / 比例如 1:1、16:9、9:21 / 像素如 2048x2048"
         },
         {
-          "name": "seed",
+          "name": "quality",
+          "widget": "enum",
+          "values": [
+            "2K",
+            "1K",
+            "4K"
+          ],
+          "default": "2K",
+          "tooltip": "分辨率档位"
+        },
+        {
+          "name": "n",
           "widget": "int",
-          "default": 0,
-          "min": 0,
-          "max": 4294967295,
-          "skip_value": 0,
-          "models": [
-            "veo-3.1-generate-preview",
-            "veo-3.1-fast-generate-preview"
-          ],
-          "tooltip": "0=随机"
-        }
-      ],
-      "image_slots": [
-        {
-          "name": "first_frame",
-          "api_param": "image_urls",
-          "tooltip": "首帧（或 REFERENCE 模式参考图 1）"
-        },
-        {
-          "name": "last_frame",
-          "api_param": "image_urls",
-          "tooltip": "尾帧（或参考图 2）"
-        },
-        {
-          "name": "reference_image3",
-          "api_param": "image_urls",
-          "models": [
-            "veo-3.1-generate-preview",
-            "veo-3.1-fast-generate-preview",
-            "veo3.1-fast-beta"
-          ],
-          "tooltip": "REFERENCE 模式第 3 张参考图"
-        }
-      ],
-      "max_images": 3,
-      "default_timeout": 1200
-    },
-    {
-      "node_id": "EvoLink_Kling",
-      "display_name": "EvoLink Kling 3.0 (Official)",
-      "output": "video",
-      "endpoint": "/videos/generations",
-      "description": "EvoLink 官方节点：快手可灵 Kling V3 / V3 Turbo / O3 文生视频、图生视频（首尾帧），时长 3~15 秒任意整数，支持 4K 与音效。选 *-image-to-video 模型并接 first_frame 即图生视频。Kuaishou Kling text/image-to-video.",
-      "prompt_tooltip": "镜头/画面描述，支持中文，最长 2500 字符。多分镜等高级用法见 evolink.ai/docs。",
-      "models": [
-        "kling-v3-text-to-video",
-        "kling-v3-image-to-video",
-        "kling-v3-turbo-text-to-video",
-        "kling-v3-turbo-image-to-video",
-        "kling-o3-text-to-video",
-        "kling-o3-image-to-video"
-      ],
-      "default_model": "kling-v3-text-to-video",
-      "prompt_required": false,
-      "params": [
-        {
-          "name": "duration",
-          "widget": "int",
-          "default": 5,
-          "min": 3,
+          "default": 1,
+          "min": 1,
           "max": 15,
-          "tooltip": "视频时长（秒），3~15 任意整数，按时长计费"
-        },
-        {
-          "name": "aspect_ratio",
-          "widget": "enum",
-          "values": [
-            "16:9",
-            "9:16",
-            "1:1"
-          ],
-          "default": "16:9",
-          "models": [
-            "kling-v3-text-to-video",
-            "kling-v3-turbo-text-to-video",
-            "kling-o3-text-to-video",
-            "kling-o3-image-to-video"
-          ],
-          "tooltip": "画幅；图生视频（v3/turbo）由首帧图决定，此参数无效"
-        },
-        {
-          "name": "quality",
-          "widget": "enum",
-          "values": [
-            "720p",
-            "1080p",
-            "4k"
-          ],
-          "default": "720p",
-          "tooltip": "分辨率；Turbo 不支持 4k",
-          "model_values": {
-            "kling-v3-text-to-video": [
-              "720p",
-              "1080p",
-              "4k"
-            ],
-            "kling-v3-image-to-video": [
-              "720p",
-              "1080p",
-              "4k"
-            ],
-            "kling-o3-text-to-video": [
-              "720p",
-              "1080p",
-              "4k"
-            ],
-            "kling-o3-image-to-video": [
-              "720p",
-              "1080p",
-              "4k"
-            ],
-            "kling-v3-turbo-text-to-video": [
-              "720p",
-              "1080p"
-            ],
-            "kling-v3-turbo-image-to-video": [
-              "720p",
-              "1080p"
-            ]
-          }
-        },
-        {
-          "name": "sound",
-          "widget": "enum",
-          "values": [
-            "off",
-            "on"
-          ],
-          "default": "off",
-          "skip_value": "off",
-          "models": [
-            "kling-v3-text-to-video",
-            "kling-v3-image-to-video",
-            "kling-o3-text-to-video",
-            "kling-o3-image-to-video"
-          ],
-          "tooltip": "生成音效；Turbo 不支持"
-        },
-        {
-          "name": "negative_prompt",
-          "widget": "string",
-          "default": "",
-          "models": [
-            "kling-v3-text-to-video",
-            "kling-v3-image-to-video"
-          ],
-          "tooltip": "不希望出现的内容"
+          "tooltip": "最多生成几张（上限，需同时在 prompt 中要求多图）",
+          "skip_value": 1
         }
       ],
-      "image_slots": [
-        {
-          "name": "first_frame",
-          "api_param": "image_start",
-          "single": true,
-          "models": [
-            "kling-v3-image-to-video",
-            "kling-v3-turbo-image-to-video",
-            "kling-o3-image-to-video"
-          ],
-          "tooltip": "首帧图（image-to-video 模型必接）；宽高≥300px，比例 1:2.5~2.5:1"
-        },
-        {
-          "name": "last_frame",
-          "api_param": "image_end",
-          "single": true,
-          "models": [
-            "kling-v3-image-to-video",
-            "kling-o3-image-to-video"
-          ],
-          "tooltip": "尾帧图（可选；Turbo 不支持）"
-        }
-      ],
-      "default_timeout": 1200
-    },
-    {
-      "node_id": "EvoLink_Seedance",
-      "display_name": "EvoLink Seedance 2.5 (Official)",
-      "output": "video",
-      "endpoint": "/videos/generations",
-      "description": "EvoLink 官方节点：字节豆包 Seedance 2.5 文生视频、图生视频（1 张=首帧，2 张=首尾帧），时长 4~30 秒或 -1 自动，同步音频不加价。ByteDance Seedance 2.5 text/image-to-video. 2.0 系列请用 EvoLink Seedance 2.0 / Mini 节点。",
-      "prompt_tooltip": "镜头/画面描述，支持中文（建议 500 字内）。图生视频时接 first_frame（可再接 last_frame 做首尾帧）。",
-      "models": [
-        "seedance-2.5-text-to-video",
-        "seedance-2.5-image-to-video"
-      ],
-      "default_model": "seedance-2.5-text-to-video",
-      "params": [
-        {
-          "name": "duration",
-          "widget": "int",
-          "default": 5,
-          "min": -1,
-          "max": 30,
-          "tooltip": "视频时长（秒）：4~30 或 -1（自动时长，按实际输出计费）"
-        },
-        {
-          "name": "quality",
-          "widget": "enum",
-          "values": [
-            "720p",
-            "480p",
-            "1080p"
-          ],
-          "default": "720p",
-          "tooltip": "分辨率；480p 为低价档",
-          "model_values": {
-            "seedance-2.5-text-to-video": [
-              "720p",
-              "480p",
-              "1080p"
-            ],
-            "seedance-2.5-image-to-video": [
-              "720p",
-              "480p",
-              "1080p"
-            ]
-          }
-        },
-        {
-          "name": "aspect_ratio",
-          "widget": "enum",
-          "values": [
-            "adaptive",
-            "16:9",
-            "9:16",
-            "1:1",
-            "4:3",
-            "3:4",
-            "21:9"
-          ],
-          "default": "adaptive",
-          "tooltip": "画幅；图生视频只接受 adaptive（跟随首帧图）",
-          "model_values": {
-            "seedance-2.5-text-to-video": [
-              "adaptive",
-              "16:9",
-              "9:16",
-              "1:1",
-              "4:3",
-              "3:4",
-              "21:9"
-            ],
-            "seedance-2.5-image-to-video": [
-              "adaptive"
-            ]
-          }
-        },
-        {
-          "name": "generate_audio",
-          "widget": "bool",
-          "default": true,
-          "tooltip": "生成同步音频（不额外收费）"
-        }
-      ],
-      "image_slots": [
-        {
-          "name": "first_frame",
-          "api_param": "image_urls",
-          "models": [
-            "seedance-2.5-image-to-video"
-          ],
-          "tooltip": "首帧图（image-to-video 模型必接）"
-        },
-        {
-          "name": "last_frame",
-          "api_param": "image_urls",
-          "models": [
-            "seedance-2.5-image-to-video"
-          ],
-          "tooltip": "尾帧图（可选，接上即首尾帧模式；比例不同时自动对齐首帧）"
-        }
-      ],
-      "max_images": 2,
-      "default_timeout": 1800
-    },
-    {
-      "node_id": "EvoLink_Video",
-      "display_name": "EvoLink Video (All Models)",
-      "output": "video",
-      "endpoint": "/videos/generations",
-      "description": "EvoLink 通用视频节点：一个节点调用全部视频模型（Sora 2、Veo 3.1、Kling、Seedance 等）。模型专属参数（video_urls、sound、seed 等）用 extra_params 以 JSON 传入，接口文档见 evolink.ai/docs。Kling 图生视频请用专属 Kling 节点（首帧参数不同）。",
-      "prompt_tooltip": "镜头/画面描述，支持中文。",
-      "models": [
-        "sora-2-preview",
-        "sora-2-pro-preview",
-        "veo-3.1-generate-preview",
-        "veo-3.1-fast-generate-preview",
-        "veo3.1-pro-beta",
-        "veo3.1-fast-beta",
-        "kling-v3-text-to-video",
-        "kling-v3-turbo-text-to-video",
-        "kling-o3-text-to-video",
-        "seedance-2.5-text-to-video",
-        "seedance-2.5-image-to-video",
-        "seedance-2.5-reference-to-video",
-        "seedance-2.5-video-edit",
-        "seedance-2.5-video-extend",
-        "seedance-2.0-text-to-video",
-        "seedance-2.0-image-to-video",
-        "seedance-2.0-fast-text-to-video",
-        "seedance-2.0-fast-image-to-video",
-        "seedance-2.0-mini-text-to-video",
-        "seedance-2.0-mini-image-to-video",
-        "wan3.0-text-to-video",
-        "wan3.0-image-to-video",
-        "wan3.0-reference-video",
-        "wan3.0-prime-text-to-video",
-        "wan3.0-prime-image-to-video",
-        "wan3.0-prime-reference-video"
-      ],
-      "default_model": "seedance-2.5-text-to-video",
-      "params": [
-        {
-          "name": "duration",
-          "widget": "int",
-          "default": 0,
-          "min": -1,
-          "max": 30,
-          "skip_value": 0,
-          "tooltip": "视频时长（秒）；0=用模型默认；-1=Seedance 2.5 自动时长。各模型允许范围见 evolink.ai/docs"
-        },
-        {
-          "name": "quality",
-          "widget": "enum",
-          "values": [
-            "auto",
-            "480p",
-            "720p",
-            "1080p",
-            "4k"
-          ],
-          "default": "auto",
-          "skip_value": "auto",
-          "tooltip": "分辨率；auto=用模型默认。各模型支持面不同，选不支持的档会报错"
-        },
-        {
-          "name": "aspect_ratio",
-          "widget": "string",
-          "default": "",
-          "tooltip": "留空=用模型默认；可填 16:9 / 9:16 / 1:1 / adaptive 等（支持面随模型而异）"
-        }
-      ],
-      "extra_json_param": true,
       "image_slots": [
         {
           "name": "image1",
           "api_param": "image_urls",
-          "tooltip": "参考图/首帧（是否支持随模型而异）"
+          "tooltip": "参考图 1：接「加载图像」即图生图/图片编辑"
         },
         {
           "name": "image2",
           "api_param": "image_urls",
-          "tooltip": "参考图 2/尾帧（可选）"
+          "tooltip": "参考图 2（可选）"
+        },
+        {
+          "name": "image3",
+          "api_param": "image_urls",
+          "tooltip": "参考图 3（可选）"
+        },
+        {
+          "name": "image4",
+          "api_param": "image_urls",
+          "tooltip": "参考图 4（可选）"
         }
       ],
       "url_text_param": "image_urls",
-      "max_images": 9,
-      "default_timeout": 1800
-    },
-    {
-      "node_id": "EvoLink_Seedance20",
-      "display_name": "EvoLink Seedance 2.0 (Official)",
-      "output": "video",
-      "endpoint": "/videos/generations",
-      "description": "EvoLink 官方节点：字节豆包 Seedance 2.0 / 2.0 Fast 文生视频、图生视频（1 张=首帧，2 张=首尾帧），时长 4~15 秒，standard 档支持 4K，同步音频不加价。ByteDance Seedance 2.0 text/image-to-video.",
-      "prompt_tooltip": "镜头/画面描述，支持中文。图生视频时接 first_frame（可再接 last_frame 做首尾帧）。",
-      "models": [
-        "seedance-2.0-text-to-video",
-        "seedance-2.0-image-to-video",
-        "seedance-2.0-fast-text-to-video",
-        "seedance-2.0-fast-image-to-video"
-      ],
-      "default_model": "seedance-2.0-text-to-video",
-      "params": [
-        {
-          "name": "duration",
-          "widget": "int",
-          "default": 5,
-          "min": 4,
-          "max": 15,
-          "tooltip": "视频时长（秒），4~15 任意整数，按时长计费"
-        },
-        {
-          "name": "quality",
-          "widget": "enum",
-          "values": [
-            "720p",
-            "480p",
-            "1080p",
-            "4k"
-          ],
-          "default": "720p",
-          "tooltip": "分辨率；1080p/4k 仅 standard 档，fast 最高 720p",
-          "model_values": {
-            "seedance-2.0-text-to-video": [
-              "720p",
-              "480p",
-              "1080p",
-              "4k"
-            ],
-            "seedance-2.0-image-to-video": [
-              "720p",
-              "480p",
-              "1080p",
-              "4k"
-            ],
-            "seedance-2.0-fast-text-to-video": [
-              "720p",
-              "480p"
-            ],
-            "seedance-2.0-fast-image-to-video": [
-              "720p",
-              "480p"
-            ]
-          }
-        },
-        {
-          "name": "aspect_ratio",
-          "widget": "enum",
-          "values": [
-            "adaptive",
-            "16:9",
-            "9:16",
-            "1:1",
-            "4:3",
-            "3:4",
-            "21:9"
-          ],
-          "default": "adaptive",
-          "tooltip": "画幅；fast 图生视频只接受 adaptive（跟随首帧图）",
-          "model_values": {
-            "seedance-2.0-text-to-video": [
-              "adaptive",
-              "16:9",
-              "9:16",
-              "1:1",
-              "4:3",
-              "3:4",
-              "21:9"
-            ],
-            "seedance-2.0-image-to-video": [
-              "adaptive",
-              "16:9",
-              "9:16",
-              "1:1",
-              "4:3",
-              "3:4",
-              "21:9"
-            ],
-            "seedance-2.0-fast-text-to-video": [
-              "adaptive",
-              "16:9",
-              "9:16",
-              "1:1",
-              "4:3",
-              "3:4",
-              "21:9"
-            ],
-            "seedance-2.0-fast-image-to-video": [
-              "adaptive"
-            ]
-          }
-        },
-        {
-          "name": "generate_audio",
-          "widget": "bool",
-          "default": true,
-          "tooltip": "生成同步音频（不额外收费）"
-        }
-      ],
-      "image_slots": [
-        {
-          "name": "first_frame",
-          "api_param": "image_urls",
-          "models": [
-            "seedance-2.0-image-to-video",
-            "seedance-2.0-fast-image-to-video"
-          ],
-          "tooltip": "首帧图（image-to-video 模型必接）"
-        },
-        {
-          "name": "last_frame",
-          "api_param": "image_urls",
-          "models": [
-            "seedance-2.0-image-to-video",
-            "seedance-2.0-fast-image-to-video"
-          ],
-          "tooltip": "尾帧图（可选，接上即首尾帧模式）"
-        }
-      ],
-      "max_images": 2,
-      "default_timeout": 1800
-    },
-    {
-      "node_id": "EvoLink_Seedance20Mini",
-      "display_name": "EvoLink Seedance 2.0 Mini (Official)",
-      "output": "video",
-      "endpoint": "/videos/generations",
-      "description": "EvoLink 官方节点：字节豆包 Seedance 2.0 Mini 文生视频、图生视频——最便宜的视频档位，适合批量与调试，4~15 秒，最高 720p，同步音频不加价。ByteDance Seedance 2.0 Mini budget text/image-to-video.",
-      "prompt_tooltip": "镜头/画面描述，支持中文。图生视频时接 first_frame。",
-      "models": [
-        "seedance-2.0-mini-text-to-video",
-        "seedance-2.0-mini-image-to-video"
-      ],
-      "default_model": "seedance-2.0-mini-text-to-video",
-      "params": [
-        {
-          "name": "duration",
-          "widget": "int",
-          "default": 5,
-          "min": 4,
-          "max": 15,
-          "tooltip": "视频时长（秒），4~15 任意整数，按时长计费"
-        },
-        {
-          "name": "quality",
-          "widget": "enum",
-          "values": [
-            "720p",
-            "480p"
-          ],
-          "default": "720p",
-          "tooltip": "分辨率；480p 更便宜"
-        },
-        {
-          "name": "aspect_ratio",
-          "widget": "enum",
-          "values": [
-            "adaptive",
-            "16:9",
-            "9:16",
-            "1:1",
-            "4:3",
-            "3:4",
-            "21:9"
-          ],
-          "default": "adaptive",
-          "tooltip": "画幅；图生视频只接受 adaptive（跟随首帧图）",
-          "model_values": {
-            "seedance-2.0-mini-text-to-video": [
-              "adaptive",
-              "16:9",
-              "9:16",
-              "1:1",
-              "4:3",
-              "3:4",
-              "21:9"
-            ],
-            "seedance-2.0-mini-image-to-video": [
-              "adaptive"
-            ]
-          }
-        },
-        {
-          "name": "generate_audio",
-          "widget": "bool",
-          "default": true,
-          "tooltip": "生成同步音频（不额外收费）"
-        }
-      ],
-      "image_slots": [
-        {
-          "name": "first_frame",
-          "api_param": "image_urls",
-          "models": [
-            "seedance-2.0-mini-image-to-video"
-          ],
-          "tooltip": "首帧图（image-to-video 模型必接）"
-        },
-        {
-          "name": "last_frame",
-          "api_param": "image_urls",
-          "models": [
-            "seedance-2.0-mini-image-to-video"
-          ],
-          "tooltip": "尾帧图（可选，接上即首尾帧模式）"
-        }
-      ],
-      "max_images": 2,
-      "default_timeout": 1800
-    },
-    {
-      "node_id": "EvoLink_Wan30",
-      "display_name": "EvoLink Wan 3.0 (Official)",
-      "output": "video",
-      "endpoint": "/videos/generations",
-      "description": "EvoLink 官方节点：阿里通义万相 Wan 3.0 / Prime 文生视频、首尾帧图生视频、多模态参考生视频（图+视频+音频混合参考）。时长可 -1 智能时长（按实际输出结算），480p 起步低价档。Alibaba Wan 3.0 text/image/reference-to-video.",
-      "prompt_tooltip": "镜头/画面描述，支持中文，最长 20000 字符。reference 模型可用「图1」「视频1」引用素材。",
-      "models": [
-        "wan3.0-text-to-video",
-        "wan3.0-image-to-video",
-        "wan3.0-reference-video",
-        "wan3.0-prime-text-to-video",
-        "wan3.0-prime-image-to-video",
-        "wan3.0-prime-reference-video"
-      ],
-      "default_model": "wan3.0-text-to-video",
-      "prompt_required": false,
-      "params": [
-        {
-          "name": "duration",
-          "widget": "int",
-          "default": 5,
-          "min": -1,
-          "max": 30,
-          "tooltip": "视频时长（秒）；-1=智能时长（按 30s 上限预扣、按实际输出结算退差额）"
-        },
-        {
-          "name": "quality",
-          "widget": "enum",
-          "values": [
-            "720p",
-            "480p",
-            "1080p"
-          ],
-          "default": "720p",
-          "tooltip": "480p=计费基准最便宜；720p 约 2 倍；1080p 约 4 倍"
-        },
-        {
-          "name": "aspect_ratio",
-          "widget": "enum",
-          "values": [
-            "adaptive",
-            "16:9",
-            "9:16",
-            "1:1",
-            "4:3",
-            "3:4"
-          ],
-          "default": "adaptive",
-          "tooltip": "adaptive：按素材与 prompt 自动推荐"
-        },
-        {
-          "name": "generate_audio",
-          "widget": "bool",
-          "default": true,
-          "tooltip": "输出是否含音轨（开关同价）"
-        },
-        {
-          "name": "seed",
-          "widget": "int",
-          "default": 0,
-          "min": 0,
-          "max": 2147483647,
-          "skip_value": 0,
-          "tooltip": "0=随机；固定可复现结果"
-        }
-      ],
-      "image_slots": [
-        {
-          "name": "first_frame",
-          "api_param": "image_start",
-          "single": true,
-          "models": [
-            "wan3.0-image-to-video",
-            "wan3.0-prime-image-to-video"
-          ],
-          "tooltip": "首帧图（image-to-video 模型必接）；240~8000px，比例 1:8~8:1"
-        },
-        {
-          "name": "last_frame",
-          "api_param": "image_end",
-          "single": true,
-          "models": [
-            "wan3.0-image-to-video",
-            "wan3.0-prime-image-to-video"
-          ],
-          "tooltip": "尾帧图（可选，须与首帧同用）"
-        },
-        {
-          "name": "reference_image1",
-          "api_param": "image_urls",
-          "models": [
-            "wan3.0-reference-video",
-            "wan3.0-prime-reference-video"
-          ],
-          "tooltip": "参考图 1（reference 模型用，prompt 里写「图1」引用；单主体单图）"
-        },
-        {
-          "name": "reference_image2",
-          "api_param": "image_urls",
-          "models": [
-            "wan3.0-reference-video",
-            "wan3.0-prime-reference-video"
-          ],
-          "tooltip": "参考图 2（可选，最多 10 张，其余可经 extra_params 的 image_urls 传）"
-        }
-      ],
-      "extra_json_param": true,
-      "max_images": 10,
-      "default_timeout": 1800
+      "max_images": 14,
+      "default_timeout": 300
     },
     {
       "node_id": "EvoLink_GrokImagine",
@@ -1305,11 +521,11 @@
       "output": "image",
       "endpoint": "/images/generations",
       "description": "EvoLink 官方节点：xAI Grok Imagine Image 2.0 文生图、图生图、多图编辑（<IMAGE_0> 引用语法），支持 13 种画幅与一次最多 10 张。xAI Grok Imagine text-to-image & image editing.",
-      "prompt_tooltip": "画面描述或编辑指令。多图编辑用 <IMAGE_0>、<IMAGE_1> 引用第 1、2 张参考图。",
       "models": [
         "grok-imagine-image-2.0"
       ],
       "default_model": "grok-imagine-image-2.0",
+      "prompt_tooltip": "画面描述或编辑指令。多图编辑用 <IMAGE_0>、<IMAGE_1> 引用第 1、2 张参考图。",
       "params": [
         {
           "name": "size",
@@ -1359,8 +575,8 @@
           "default": 1,
           "min": 1,
           "max": 10,
-          "skip_value": 1,
-          "tooltip": "一次生成几张，每张独立计费"
+          "tooltip": "一次生成几张，每张独立计费",
+          "skip_value": 1
         }
       ],
       "image_slots": [
@@ -1382,6 +598,2916 @@
       ],
       "max_images": 3,
       "default_timeout": 300
+    },
+    {
+      "node_id": "EvoLink_QwenImage3",
+      "display_name": "EvoLink Qwen Image 3.0 (Official)",
+      "output": "image",
+      "endpoint": "/images/generations",
+      "description": "EvoLink 官方节点：阿里通义千问 Qwen Image 3.0 文生图、图生图，中文文字渲染强，一次最多 6 张。Alibaba Qwen Image 3.0 text-to-image & image-to-image.",
+      "models": [
+        "qwen-image-3.0"
+      ],
+      "default_model": "qwen-image-3.0",
+      "prompt_tooltip": "画面描述，支持中文，擅长画面内文字渲染。",
+      "params": [
+        {
+          "name": "size",
+          "widget": "string",
+          "default": "auto",
+          "tooltip": "auto / 比例如 1:1、16:9 / 像素如 1328x1328"
+        },
+        {
+          "name": "quality",
+          "widget": "enum",
+          "values": [
+            "1K",
+            "2K"
+          ],
+          "default": "1K",
+          "tooltip": "分辨率档位"
+        },
+        {
+          "name": "n",
+          "widget": "int",
+          "default": 1,
+          "min": 1,
+          "max": 6,
+          "tooltip": "一次生成几张（1~6）",
+          "skip_value": 1
+        },
+        {
+          "name": "negative_prompt",
+          "widget": "string",
+          "default": "",
+          "tooltip": "不希望出现的内容"
+        },
+        {
+          "name": "prompt_extend",
+          "widget": "bool",
+          "default": false,
+          "tooltip": "提示词智能扩写（短 prompt 建议开启）"
+        },
+        {
+          "name": "watermark",
+          "widget": "bool",
+          "default": false,
+          "tooltip": "是否加水印",
+          "skip_value": false
+        },
+        {
+          "name": "seed",
+          "widget": "int",
+          "default": 0,
+          "min": 0,
+          "max": 2147483647,
+          "tooltip": "0=随机；固定可复现结果",
+          "skip_value": 0
+        }
+      ],
+      "image_slots": [
+        {
+          "name": "image1",
+          "api_param": "image_urls",
+          "tooltip": "参考图 1：接「加载图像」即图生图"
+        },
+        {
+          "name": "image2",
+          "api_param": "image_urls",
+          "tooltip": "参考图 2（可选）"
+        },
+        {
+          "name": "image3",
+          "api_param": "image_urls",
+          "tooltip": "参考图 3（可选）"
+        },
+        {
+          "name": "image4",
+          "api_param": "image_urls",
+          "tooltip": "参考图 4（可选）"
+        }
+      ],
+      "url_text_param": "image_urls",
+      "default_timeout": 300
+    },
+    {
+      "node_id": "EvoLink_QwenImage3Pro",
+      "display_name": "EvoLink Qwen Image 3.0 Pro (Official)",
+      "output": "image",
+      "endpoint": "/images/generations",
+      "description": "EvoLink 官方节点：阿里通义千问 Qwen Image 3.0 Pro 高质量文生图、图生图，中文文字渲染强，一次最多 6 张。Alibaba Qwen Image 3.0 Pro text-to-image & image-to-image.",
+      "models": [
+        "qwen-image-3.0-pro"
+      ],
+      "default_model": "qwen-image-3.0-pro",
+      "prompt_tooltip": "画面描述，支持中文，擅长画面内文字渲染。",
+      "params": [
+        {
+          "name": "size",
+          "widget": "string",
+          "default": "auto",
+          "tooltip": "auto / 比例如 1:1、16:9 / 像素如 1328x1328"
+        },
+        {
+          "name": "quality",
+          "widget": "enum",
+          "values": [
+            "1K",
+            "2K"
+          ],
+          "default": "1K",
+          "tooltip": "分辨率档位"
+        },
+        {
+          "name": "n",
+          "widget": "int",
+          "default": 1,
+          "min": 1,
+          "max": 6,
+          "tooltip": "一次生成几张（1~6）",
+          "skip_value": 1
+        },
+        {
+          "name": "negative_prompt",
+          "widget": "string",
+          "default": "",
+          "tooltip": "不希望出现的内容"
+        },
+        {
+          "name": "prompt_extend",
+          "widget": "bool",
+          "default": false,
+          "tooltip": "提示词智能扩写（短 prompt 建议开启）"
+        },
+        {
+          "name": "watermark",
+          "widget": "bool",
+          "default": false,
+          "tooltip": "是否加水印",
+          "skip_value": false
+        },
+        {
+          "name": "seed",
+          "widget": "int",
+          "default": 0,
+          "min": 0,
+          "max": 2147483647,
+          "tooltip": "0=随机；固定可复现结果",
+          "skip_value": 0
+        }
+      ],
+      "image_slots": [
+        {
+          "name": "image1",
+          "api_param": "image_urls",
+          "tooltip": "参考图 1：接「加载图像」即图生图"
+        },
+        {
+          "name": "image2",
+          "api_param": "image_urls",
+          "tooltip": "参考图 2（可选）"
+        },
+        {
+          "name": "image3",
+          "api_param": "image_urls",
+          "tooltip": "参考图 3（可选）"
+        },
+        {
+          "name": "image4",
+          "api_param": "image_urls",
+          "tooltip": "参考图 4（可选）"
+        }
+      ],
+      "url_text_param": "image_urls",
+      "default_timeout": 300
+    },
+    {
+      "node_id": "EvoLink_QwenImageEditPlus",
+      "display_name": "EvoLink Qwen Image Edit Plus (Official)",
+      "output": "image",
+      "endpoint": "/images/generations",
+      "description": "EvoLink 官方节点：阿里通义千问 Qwen Image Edit Plus 图片编辑（必接输入图），改文字/换风格/局部修改，一次最多 6 张。Alibaba Qwen Image Edit Plus image editing.",
+      "models": [
+        "qwen-image-edit-plus"
+      ],
+      "default_model": "qwen-image-edit-plus",
+      "prompt_tooltip": "编辑指令，支持中文（如「把招牌文字改成…」）。",
+      "params": [
+        {
+          "name": "size",
+          "widget": "string",
+          "default": "",
+          "tooltip": "留空=跟随输入图；或比例/像素"
+        },
+        {
+          "name": "n",
+          "widget": "int",
+          "default": 1,
+          "min": 1,
+          "max": 6,
+          "tooltip": "一次生成几张（1~6）",
+          "skip_value": 1
+        },
+        {
+          "name": "negative_prompt",
+          "widget": "string",
+          "default": "",
+          "tooltip": "不希望出现的内容"
+        },
+        {
+          "name": "prompt_extend",
+          "widget": "bool",
+          "default": true,
+          "tooltip": "提示词智能扩写"
+        },
+        {
+          "name": "watermark",
+          "widget": "bool",
+          "default": false,
+          "tooltip": "是否加水印",
+          "skip_value": false
+        },
+        {
+          "name": "seed",
+          "widget": "int",
+          "default": 0,
+          "min": 0,
+          "max": 2147483647,
+          "tooltip": "0=随机；固定可复现结果",
+          "skip_value": 0
+        }
+      ],
+      "image_slots": [
+        {
+          "name": "image1",
+          "api_param": "image_urls",
+          "required": true,
+          "tooltip": "要编辑的图片（必接）"
+        },
+        {
+          "name": "image2",
+          "api_param": "image_urls",
+          "tooltip": "参考图 2（可选）"
+        },
+        {
+          "name": "image3",
+          "api_param": "image_urls",
+          "tooltip": "参考图 3（可选）"
+        }
+      ],
+      "url_text_param": "image_urls",
+      "default_timeout": 300
+    },
+    {
+      "node_id": "EvoLink_ZImageTurbo",
+      "display_name": "EvoLink Z-Image Turbo (Official)",
+      "output": "image",
+      "endpoint": "/images/generations",
+      "description": "EvoLink 官方节点：阿里通义 Z-Image Turbo 轻量极速文生图——出图快、价格低，适合批量与实时场景。Alibaba Z-Image Turbo fast budget text-to-image.",
+      "models": [
+        "z-image-turbo"
+      ],
+      "default_model": "z-image-turbo",
+      "prompt_tooltip": "画面描述，支持中文。",
+      "params": [
+        {
+          "name": "size",
+          "widget": "enum",
+          "values": [
+            "auto",
+            "1:1",
+            "2:3",
+            "3:2",
+            "3:4",
+            "4:3",
+            "9:16",
+            "16:9",
+            "1:2",
+            "2:1"
+          ],
+          "default": "auto",
+          "tooltip": "画幅比例；auto=不指定，用模型默认",
+          "skip_value": "auto"
+        },
+        {
+          "name": "seed",
+          "widget": "int",
+          "default": 0,
+          "min": 0,
+          "max": 2147483647,
+          "tooltip": "0=随机；固定可复现结果",
+          "skip_value": 0
+        },
+        {
+          "name": "nsfw_check",
+          "widget": "bool",
+          "default": false,
+          "tooltip": "开启 NSFW 内容检测",
+          "skip_value": false
+        }
+      ],
+      "default_timeout": 300
+    },
+    {
+      "node_id": "EvoLink_Krea2Turbo",
+      "display_name": "EvoLink Krea 2 Turbo (Official)",
+      "output": "image",
+      "endpoint": "/images/generations",
+      "description": "EvoLink 官方节点：Krea 2 Turbo 文生图——真实感风格出众、速度快。Krea 2 Turbo photorealistic fast text-to-image.",
+      "models": [
+        "krea-2-turbo"
+      ],
+      "default_model": "krea-2-turbo",
+      "prompt_tooltip": "画面描述。",
+      "params": [
+        {
+          "name": "size",
+          "widget": "enum",
+          "values": [
+            "1:1",
+            "4:3",
+            "3:4",
+            "5:4",
+            "4:5",
+            "2:3",
+            "3:2",
+            "9:16",
+            "16:9",
+            "1:2",
+            "2:1"
+          ],
+          "default": "1:1",
+          "tooltip": "画幅比例"
+        },
+        {
+          "name": "quality",
+          "widget": "enum",
+          "values": [
+            "1K",
+            "2K"
+          ],
+          "default": "1K",
+          "tooltip": "分辨率档位"
+        },
+        {
+          "name": "seed",
+          "widget": "int",
+          "default": 0,
+          "min": 0,
+          "max": 1048576,
+          "tooltip": "0=随机；固定可复现结果",
+          "skip_value": 0
+        },
+        {
+          "name": "nsfw_check",
+          "widget": "bool",
+          "default": false,
+          "tooltip": "开启 NSFW 内容检测",
+          "skip_value": false
+        }
+      ],
+      "default_timeout": 300
+    },
+    {
+      "node_id": "EvoLink_Image",
+      "display_name": "EvoLink Image (All Models)",
+      "output": "image",
+      "endpoint": "/images/generations",
+      "description": "EvoLink 通用图像节点：一个节点调用全部图像模型（含各 beta 低价渠道与老模型）。模型专属参数用 extra_params 以 JSON 传入，接口文档见 evolink.ai/docs。",
+      "models": [
+        "gpt-image-2",
+        "grok-imagine-image-2.0",
+        "nano-banana-2",
+        "nano-banana-pro",
+        "nano-banana-2-lite",
+        "doubao-seedream-5.0-pro",
+        "doubao-seedream-5.0-lite",
+        "doubao-seedream-4.5",
+        "doubao-seedream-4.0",
+        "qwen-image-3.0",
+        "qwen-image-3.0-pro",
+        "qwen-image-edit-plus",
+        "qwen-image-edit",
+        "z-image-turbo",
+        "krea-2-turbo",
+        "wan2.5-text-to-image",
+        "wan2.5-image-to-image",
+        "doubao-seedream-5.0-pro-layerize",
+        "gpt-image-1.5",
+        "nano-banana-2-beta",
+        "nano-banana-pro-beta",
+        "nano-banana-2-lite-beta",
+        "nano-banana-beta",
+        "gpt-image-2-beta"
+      ],
+      "default_model": "gpt-image-2",
+      "prompt_tooltip": "画面描述或修改指令，支持中文。",
+      "model_map": {
+        "nano-banana-2": "gemini-3.1-flash-image-preview",
+        "nano-banana-2-lite": "gemini-3.1-flash-lite-image",
+        "nano-banana-pro": "gemini-3-pro-image-preview"
+      },
+      "params": [
+        {
+          "name": "size",
+          "widget": "string",
+          "default": "auto",
+          "tooltip": "auto / 比例如 1:1、16:9 / 像素如 1024x1024（支持范围随模型而异）"
+        }
+      ],
+      "extra_json_param": true,
+      "image_slots": [
+        {
+          "name": "image1",
+          "api_param": "image_urls",
+          "tooltip": "参考图 1：接「加载图像」即图生图"
+        },
+        {
+          "name": "image2",
+          "api_param": "image_urls",
+          "tooltip": "参考图 2（可选）"
+        },
+        {
+          "name": "image3",
+          "api_param": "image_urls",
+          "tooltip": "参考图 3（可选）"
+        },
+        {
+          "name": "image4",
+          "api_param": "image_urls",
+          "tooltip": "参考图 4（可选）"
+        }
+      ],
+      "url_text_param": "image_urls",
+      "max_images": 16,
+      "default_timeout": 300
+    },
+    {
+      "node_id": "EvoLink_Sora2",
+      "display_name": "EvoLink Sora 2 (Official)",
+      "output": "video",
+      "endpoint": "/videos/generations",
+      "description": "EvoLink 官方节点：OpenAI Sora 2 文生视频、图生视频。接「加载图像」即图生视频（参考图会自动缩放到与画幅一致的像素）。输出可直连原生「保存视频」节点。更高分辨率见 EvoLink Sora 2 Pro 节点。Sora 2 text-to-video & image-to-video.",
+      "models": [
+        "sora-2-preview"
+      ],
+      "default_model": "sora-2-preview",
+      "preprocess": "sora_exact_size",
+      "prompt_tooltip": "镜头/画面描述，支持中文，最长约 5000 tokens。Sora 内容审核较严，参考图不支持真人照片。",
+      "params": [
+        {
+          "name": "aspect_ratio",
+          "widget": "enum",
+          "values": [
+            "16:9",
+            "9:16"
+          ],
+          "default": "16:9",
+          "tooltip": "横屏 16:9 / 竖屏 9:16"
+        },
+        {
+          "name": "duration",
+          "widget": "enum",
+          "values": [
+            4,
+            8,
+            12
+          ],
+          "default": 4,
+          "tooltip": "视频时长（秒），按时长计费"
+        }
+      ],
+      "image_slots": [
+        {
+          "name": "image",
+          "api_param": "image_urls",
+          "tooltip": "参考图（图生视频）；不支持真人照片"
+        }
+      ],
+      "max_images": 1,
+      "default_timeout": 1200
+    },
+    {
+      "node_id": "EvoLink_Sora2Pro",
+      "display_name": "EvoLink Sora 2 Pro (Official)",
+      "output": "video",
+      "endpoint": "/videos/generations",
+      "description": "EvoLink 官方节点：OpenAI Sora 2 Pro 文生视频、图生视频，支持 1080p。接「加载图像」即图生视频。输出可直连原生「保存视频」节点。Sora 2 Pro text-to-video & image-to-video.",
+      "models": [
+        "sora-2-pro-preview"
+      ],
+      "default_model": "sora-2-pro-preview",
+      "prompt_tooltip": "镜头/画面描述，支持中文，最长约 5000 tokens。Sora 内容审核较严，参考图不支持真人照片。",
+      "params": [
+        {
+          "name": "aspect_ratio",
+          "widget": "enum",
+          "values": [
+            "16:9",
+            "9:16"
+          ],
+          "default": "16:9",
+          "tooltip": "横屏 16:9 / 竖屏 9:16"
+        },
+        {
+          "name": "duration",
+          "widget": "enum",
+          "values": [
+            4,
+            8,
+            12
+          ],
+          "default": 4,
+          "tooltip": "视频时长（秒），按时长计费"
+        },
+        {
+          "name": "quality",
+          "widget": "enum",
+          "values": [
+            "720p",
+            "1080p"
+          ],
+          "default": "720p",
+          "tooltip": "1080p 价格约为 720p 的 1.67 倍"
+        }
+      ],
+      "image_slots": [
+        {
+          "name": "image",
+          "api_param": "image_urls",
+          "tooltip": "参考图（图生视频）；不支持真人照片"
+        }
+      ],
+      "max_images": 1,
+      "default_timeout": 1200
+    },
+    {
+      "node_id": "EvoLink_Veo31T2V",
+      "display_name": "EvoLink Veo 3.1 Text-to-Video (Official)",
+      "output": "video",
+      "endpoint": "/videos/generations",
+      "description": "EvoLink 官方节点：Google Veo 3.1 / 3.1 Fast 文生视频，原生音频，最高 4K。首尾帧图生视频、参考图生视频请用对应的 EvoLink Veo 3.1 节点；beta 低价渠道见 EvoLink Video 通用节点。Veo 3.1 text-to-video with native audio.",
+      "models": [
+        "veo-3.1-generate-preview",
+        "veo-3.1-fast-generate-preview"
+      ],
+      "default_model": "veo-3.1-generate-preview",
+      "prompt_tooltip": "镜头/画面描述，支持中文，最长约 2000 tokens。",
+      "params": [
+        {
+          "name": "aspect_ratio",
+          "widget": "enum",
+          "values": [
+            "auto",
+            "16:9",
+            "9:16"
+          ],
+          "default": "auto",
+          "tooltip": "auto：按 prompt 自动选择画幅"
+        },
+        {
+          "name": "duration",
+          "widget": "enum",
+          "values": [
+            8,
+            4,
+            6
+          ],
+          "default": 8,
+          "tooltip": "视频时长（秒）"
+        },
+        {
+          "name": "quality",
+          "widget": "enum",
+          "values": [
+            "720p",
+            "1080p",
+            "4k"
+          ],
+          "default": "720p",
+          "tooltip": "分辨率"
+        },
+        {
+          "name": "generate_audio",
+          "widget": "bool",
+          "default": true,
+          "tooltip": "生成原生音频（额外收费）"
+        },
+        {
+          "name": "negative_prompt",
+          "widget": "string",
+          "default": "",
+          "tooltip": "不希望出现的内容"
+        },
+        {
+          "name": "seed",
+          "widget": "int",
+          "default": 0,
+          "min": 0,
+          "max": 4294967295,
+          "tooltip": "0=随机",
+          "skip_value": 0
+        }
+      ],
+      "default_timeout": 1200
+    },
+    {
+      "node_id": "EvoLink_Veo31I2V",
+      "display_name": "EvoLink Veo 3.1 Image-to-Video (Official)",
+      "output": "video",
+      "endpoint": "/videos/generations",
+      "description": "EvoLink 官方节点：Google Veo 3.1 / 3.1 Fast 首尾帧图生视频（first_frame 必接，last_frame 可选），原生音频，最高 4K。Veo 3.1 image-to-video (first/last frame) with native audio.",
+      "models": [
+        "veo-3.1-generate-preview",
+        "veo-3.1-fast-generate-preview"
+      ],
+      "default_model": "veo-3.1-generate-preview",
+      "prompt_tooltip": "镜头/画面描述，支持中文，最长约 2000 tokens。",
+      "payload_const": {
+        "generation_type": "FIRST&LAST"
+      },
+      "params": [
+        {
+          "name": "aspect_ratio",
+          "widget": "enum",
+          "values": [
+            "auto",
+            "16:9",
+            "9:16"
+          ],
+          "default": "auto",
+          "tooltip": "auto：按首帧图比例"
+        },
+        {
+          "name": "duration",
+          "widget": "enum",
+          "values": [
+            8,
+            4,
+            6
+          ],
+          "default": 8,
+          "tooltip": "视频时长（秒）"
+        },
+        {
+          "name": "quality",
+          "widget": "enum",
+          "values": [
+            "720p",
+            "1080p",
+            "4k"
+          ],
+          "default": "720p",
+          "tooltip": "分辨率"
+        },
+        {
+          "name": "generate_audio",
+          "widget": "bool",
+          "default": true,
+          "tooltip": "生成原生音频（额外收费）"
+        },
+        {
+          "name": "negative_prompt",
+          "widget": "string",
+          "default": "",
+          "tooltip": "不希望出现的内容"
+        },
+        {
+          "name": "seed",
+          "widget": "int",
+          "default": 0,
+          "min": 0,
+          "max": 4294967295,
+          "tooltip": "0=随机",
+          "skip_value": 0
+        }
+      ],
+      "image_slots": [
+        {
+          "name": "first_frame",
+          "api_param": "image_urls",
+          "required": true,
+          "tooltip": "首帧图（必接）"
+        },
+        {
+          "name": "last_frame",
+          "api_param": "image_urls",
+          "tooltip": "尾帧图（可选）"
+        }
+      ],
+      "max_images": 2,
+      "default_timeout": 1200
+    },
+    {
+      "node_id": "EvoLink_Veo31Ref",
+      "display_name": "EvoLink Veo 3.1 Reference-to-Video (Official)",
+      "output": "video",
+      "endpoint": "/videos/generations",
+      "description": "EvoLink 官方节点：Google Veo 3.1 / 3.1 Fast 参考图生视频（最多 3 张参考图，保持主体/风格一致），原生音频。Veo 3.1 reference-to-video with native audio.",
+      "models": [
+        "veo-3.1-generate-preview",
+        "veo-3.1-fast-generate-preview"
+      ],
+      "default_model": "veo-3.1-generate-preview",
+      "prompt_tooltip": "镜头/画面描述，支持中文，最长约 2000 tokens。",
+      "payload_const": {
+        "generation_type": "REFERENCE"
+      },
+      "params": [
+        {
+          "name": "aspect_ratio",
+          "widget": "enum",
+          "values": [
+            "auto",
+            "16:9",
+            "9:16"
+          ],
+          "default": "auto",
+          "tooltip": "auto：按参考图与 prompt 自动"
+        },
+        {
+          "name": "duration",
+          "widget": "enum",
+          "values": [
+            8,
+            4,
+            6
+          ],
+          "default": 8,
+          "tooltip": "视频时长（秒）"
+        },
+        {
+          "name": "quality",
+          "widget": "enum",
+          "values": [
+            "720p",
+            "1080p",
+            "4k"
+          ],
+          "default": "720p",
+          "tooltip": "分辨率"
+        },
+        {
+          "name": "generate_audio",
+          "widget": "bool",
+          "default": true,
+          "tooltip": "生成原生音频（额外收费）"
+        },
+        {
+          "name": "negative_prompt",
+          "widget": "string",
+          "default": "",
+          "tooltip": "不希望出现的内容"
+        },
+        {
+          "name": "seed",
+          "widget": "int",
+          "default": 0,
+          "min": 0,
+          "max": 4294967295,
+          "tooltip": "0=随机",
+          "skip_value": 0
+        }
+      ],
+      "image_slots": [
+        {
+          "name": "reference_image1",
+          "api_param": "image_urls",
+          "required": true,
+          "tooltip": "参考图 1（必接，最多 3 张）"
+        },
+        {
+          "name": "reference_image2",
+          "api_param": "image_urls",
+          "tooltip": "参考图 2（可选）"
+        },
+        {
+          "name": "reference_image3",
+          "api_param": "image_urls",
+          "tooltip": "参考图 3（可选）"
+        }
+      ],
+      "max_images": 3,
+      "default_timeout": 1200
+    },
+    {
+      "node_id": "EvoLink_KlingV3T2V",
+      "display_name": "EvoLink Kling V3 Text-to-Video (Official)",
+      "output": "video",
+      "endpoint": "/videos/generations",
+      "description": "EvoLink 官方节点：快手可灵 Kling V3 文生视频，3~15 秒任意时长，最高 4K，支持音效与负向提示词。Kuaishou Kling V3 text-to-video.",
+      "models": [
+        "kling-v3-text-to-video"
+      ],
+      "default_model": "kling-v3-text-to-video",
+      "prompt_tooltip": "镜头/画面描述，支持中文，最长 2500 字符。多分镜等高级用法见 evolink.ai/docs。",
+      "params": [
+        {
+          "name": "duration",
+          "widget": "int",
+          "default": 5,
+          "min": 3,
+          "max": 15,
+          "tooltip": "视频时长（秒），3~15 任意整数，按时长计费"
+        },
+        {
+          "name": "aspect_ratio",
+          "widget": "enum",
+          "values": [
+            "16:9",
+            "9:16",
+            "1:1"
+          ],
+          "default": "16:9",
+          "tooltip": "画幅比例"
+        },
+        {
+          "name": "quality",
+          "widget": "enum",
+          "values": [
+            "720p",
+            "1080p",
+            "4k"
+          ],
+          "default": "720p",
+          "tooltip": "分辨率"
+        },
+        {
+          "name": "sound",
+          "widget": "enum",
+          "values": [
+            "off",
+            "on"
+          ],
+          "default": "off",
+          "tooltip": "生成音效",
+          "skip_value": "off"
+        },
+        {
+          "name": "negative_prompt",
+          "widget": "string",
+          "default": "",
+          "tooltip": "不希望出现的内容"
+        }
+      ],
+      "default_timeout": 1200
+    },
+    {
+      "node_id": "EvoLink_KlingV3I2V",
+      "display_name": "EvoLink Kling V3 Image-to-Video (Official)",
+      "output": "video",
+      "endpoint": "/videos/generations",
+      "description": "EvoLink 官方节点：快手可灵 Kling V3 图生视频（首帧必接，尾帧可选），画幅由首帧图决定，3~15 秒任意时长，最高 4K，支持音效。Kuaishou Kling V3 image-to-video (first/last frame).",
+      "models": [
+        "kling-v3-image-to-video"
+      ],
+      "default_model": "kling-v3-image-to-video",
+      "prompt_required": false,
+      "prompt_tooltip": "镜头/画面描述，支持中文，最长 2500 字符。多分镜等高级用法见 evolink.ai/docs。",
+      "params": [
+        {
+          "name": "duration",
+          "widget": "int",
+          "default": 5,
+          "min": 3,
+          "max": 15,
+          "tooltip": "视频时长（秒），3~15 任意整数，按时长计费"
+        },
+        {
+          "name": "quality",
+          "widget": "enum",
+          "values": [
+            "720p",
+            "1080p",
+            "4k"
+          ],
+          "default": "720p",
+          "tooltip": "分辨率"
+        },
+        {
+          "name": "sound",
+          "widget": "enum",
+          "values": [
+            "off",
+            "on"
+          ],
+          "default": "off",
+          "tooltip": "生成音效",
+          "skip_value": "off"
+        },
+        {
+          "name": "negative_prompt",
+          "widget": "string",
+          "default": "",
+          "tooltip": "不希望出现的内容"
+        }
+      ],
+      "image_slots": [
+        {
+          "name": "first_frame",
+          "api_param": "image_start",
+          "single": true,
+          "required": true,
+          "tooltip": "首帧图（必接）；宽高≥300px，比例 1:2.5~2.5:1"
+        },
+        {
+          "name": "last_frame",
+          "api_param": "image_end",
+          "single": true,
+          "tooltip": "尾帧图（可选）"
+        }
+      ],
+      "default_timeout": 1200
+    },
+    {
+      "node_id": "EvoLink_KlingTurboT2V",
+      "display_name": "EvoLink Kling V3 Turbo Text-to-Video (Official)",
+      "output": "video",
+      "endpoint": "/videos/generations",
+      "description": "EvoLink 官方节点：快手可灵 Kling V3 Turbo 文生视频——更快更便宜的档位，3~15 秒，最高 1080p（不支持音效与负向提示词）。Kuaishou Kling V3 Turbo fast text-to-video.",
+      "models": [
+        "kling-v3-turbo-text-to-video"
+      ],
+      "default_model": "kling-v3-turbo-text-to-video",
+      "prompt_tooltip": "镜头/画面描述，支持中文，最长 2500 字符。多分镜等高级用法见 evolink.ai/docs。",
+      "params": [
+        {
+          "name": "duration",
+          "widget": "int",
+          "default": 5,
+          "min": 3,
+          "max": 15,
+          "tooltip": "视频时长（秒），3~15 任意整数，按时长计费"
+        },
+        {
+          "name": "aspect_ratio",
+          "widget": "enum",
+          "values": [
+            "16:9",
+            "9:16",
+            "1:1"
+          ],
+          "default": "16:9",
+          "tooltip": "画幅比例"
+        },
+        {
+          "name": "quality",
+          "widget": "enum",
+          "values": [
+            "720p",
+            "1080p"
+          ],
+          "default": "720p",
+          "tooltip": "分辨率（Turbo 不支持 4k）"
+        }
+      ],
+      "default_timeout": 1200
+    },
+    {
+      "node_id": "EvoLink_KlingTurboI2V",
+      "display_name": "EvoLink Kling V3 Turbo Image-to-Video (Official)",
+      "output": "video",
+      "endpoint": "/videos/generations",
+      "description": "EvoLink 官方节点：快手可灵 Kling V3 Turbo 图生视频——更快更便宜的档位（仅首帧，不支持尾帧/音效），画幅由首帧图决定，最高 1080p。Kuaishou Kling V3 Turbo fast image-to-video.",
+      "models": [
+        "kling-v3-turbo-image-to-video"
+      ],
+      "default_model": "kling-v3-turbo-image-to-video",
+      "prompt_required": false,
+      "prompt_tooltip": "镜头/画面描述，支持中文，最长 2500 字符。多分镜等高级用法见 evolink.ai/docs。",
+      "params": [
+        {
+          "name": "duration",
+          "widget": "int",
+          "default": 5,
+          "min": 3,
+          "max": 15,
+          "tooltip": "视频时长（秒），3~15 任意整数，按时长计费"
+        },
+        {
+          "name": "quality",
+          "widget": "enum",
+          "values": [
+            "720p",
+            "1080p"
+          ],
+          "default": "720p",
+          "tooltip": "分辨率（Turbo 不支持 4k）"
+        }
+      ],
+      "image_slots": [
+        {
+          "name": "first_frame",
+          "api_param": "image_start",
+          "single": true,
+          "required": true,
+          "tooltip": "首帧图（必接）；宽高≥300px，比例 1:2.5~2.5:1"
+        }
+      ],
+      "default_timeout": 1200
+    },
+    {
+      "node_id": "EvoLink_KlingO3T2V",
+      "display_name": "EvoLink Kling O3 Text-to-Video (Official)",
+      "output": "video",
+      "endpoint": "/videos/generations",
+      "description": "EvoLink 官方节点：快手可灵 Kling O3 文生视频，3~15 秒任意时长，最高 4K，支持音效。Kuaishou Kling O3 text-to-video.",
+      "models": [
+        "kling-o3-text-to-video"
+      ],
+      "default_model": "kling-o3-text-to-video",
+      "prompt_tooltip": "镜头/画面描述，支持中文，最长 2500 字符。多分镜等高级用法见 evolink.ai/docs。",
+      "params": [
+        {
+          "name": "duration",
+          "widget": "int",
+          "default": 5,
+          "min": 3,
+          "max": 15,
+          "tooltip": "视频时长（秒），3~15 任意整数，按时长计费"
+        },
+        {
+          "name": "aspect_ratio",
+          "widget": "enum",
+          "values": [
+            "16:9",
+            "9:16",
+            "1:1"
+          ],
+          "default": "16:9",
+          "tooltip": "画幅比例"
+        },
+        {
+          "name": "quality",
+          "widget": "enum",
+          "values": [
+            "720p",
+            "1080p",
+            "4k"
+          ],
+          "default": "720p",
+          "tooltip": "分辨率"
+        },
+        {
+          "name": "sound",
+          "widget": "enum",
+          "values": [
+            "off",
+            "on"
+          ],
+          "default": "off",
+          "tooltip": "生成音效",
+          "skip_value": "off"
+        }
+      ],
+      "default_timeout": 1200
+    },
+    {
+      "node_id": "EvoLink_KlingO3I2V",
+      "display_name": "EvoLink Kling O3 Image-to-Video (Official)",
+      "output": "video",
+      "endpoint": "/videos/generations",
+      "description": "EvoLink 官方节点：快手可灵 Kling O3 图生视频（首帧必接，尾帧可选，可指定画幅），3~15 秒任意时长，最高 4K，支持音效。Kuaishou Kling O3 image-to-video (first/last frame).",
+      "models": [
+        "kling-o3-image-to-video"
+      ],
+      "default_model": "kling-o3-image-to-video",
+      "prompt_required": false,
+      "prompt_tooltip": "镜头/画面描述，支持中文，最长 2500 字符。多分镜等高级用法见 evolink.ai/docs。",
+      "params": [
+        {
+          "name": "duration",
+          "widget": "int",
+          "default": 5,
+          "min": 3,
+          "max": 15,
+          "tooltip": "视频时长（秒），3~15 任意整数，按时长计费"
+        },
+        {
+          "name": "aspect_ratio",
+          "widget": "enum",
+          "values": [
+            "16:9",
+            "9:16",
+            "1:1"
+          ],
+          "default": "16:9",
+          "tooltip": "画幅比例"
+        },
+        {
+          "name": "quality",
+          "widget": "enum",
+          "values": [
+            "720p",
+            "1080p",
+            "4k"
+          ],
+          "default": "720p",
+          "tooltip": "分辨率"
+        },
+        {
+          "name": "sound",
+          "widget": "enum",
+          "values": [
+            "off",
+            "on"
+          ],
+          "default": "off",
+          "tooltip": "生成音效",
+          "skip_value": "off"
+        }
+      ],
+      "image_slots": [
+        {
+          "name": "first_frame",
+          "api_param": "image_start",
+          "single": true,
+          "required": true,
+          "tooltip": "首帧图（必接）；宽高≥300px，比例 1:2.5~2.5:1"
+        },
+        {
+          "name": "last_frame",
+          "api_param": "image_end",
+          "single": true,
+          "tooltip": "尾帧图（可选）"
+        }
+      ],
+      "default_timeout": 1200
+    },
+    {
+      "node_id": "EvoLink_Seedance25T2V",
+      "display_name": "EvoLink Seedance 2.5 Text-to-Video (Official)",
+      "output": "video",
+      "endpoint": "/videos/generations",
+      "description": "EvoLink 官方节点：字节豆包 Seedance 2.5 文生视频，4~30 秒或智能时长，同步音频不加价。ByteDance Seedance 2.5 text-to-video.",
+      "models": [
+        "seedance-2.5-text-to-video"
+      ],
+      "default_model": "seedance-2.5-text-to-video",
+      "prompt_tooltip": "镜头/画面描述，支持中文（建议 500 字内）。",
+      "params": [
+        {
+          "name": "duration",
+          "widget": "int",
+          "default": 5,
+          "min": 4,
+          "max": 30,
+          "tooltip": "视频时长（秒），4~30 任意整数，按时长计费"
+        },
+        {
+          "name": "auto_duration",
+          "widget": "bool",
+          "default": false,
+          "tooltip": "智能时长：开启后忽略 duration，由模型在 4~30 秒内自选，按实际输出时长计费",
+          "true_sets": {
+            "duration": -1
+          }
+        },
+        {
+          "name": "quality",
+          "widget": "enum",
+          "values": [
+            "720p",
+            "480p",
+            "1080p"
+          ],
+          "default": "720p",
+          "tooltip": "分辨率；480p 为低价档"
+        },
+        {
+          "name": "aspect_ratio",
+          "widget": "enum",
+          "values": [
+            "adaptive",
+            "16:9",
+            "9:16",
+            "1:1",
+            "4:3",
+            "3:4",
+            "21:9"
+          ],
+          "default": "adaptive",
+          "tooltip": "画幅；adaptive 由模型自动选择"
+        },
+        {
+          "name": "generate_audio",
+          "widget": "bool",
+          "default": true,
+          "tooltip": "生成同步音频（不额外收费）"
+        }
+      ],
+      "default_timeout": 1800
+    },
+    {
+      "node_id": "EvoLink_Seedance25I2V",
+      "display_name": "EvoLink Seedance 2.5 Image-to-Video (Official)",
+      "output": "video",
+      "endpoint": "/videos/generations",
+      "description": "EvoLink 官方节点：字节豆包 Seedance 2.5 图生视频（首帧必接，尾帧可选即首尾帧模式），画幅跟随首帧图，4~30 秒或智能时长，同步音频不加价。ByteDance Seedance 2.5 image-to-video.",
+      "models": [
+        "seedance-2.5-image-to-video"
+      ],
+      "default_model": "seedance-2.5-image-to-video",
+      "prompt_tooltip": "镜头/画面描述，支持中文（建议 500 字内）。接 first_frame 出图生视频，可再接 last_frame 做首尾帧。",
+      "params": [
+        {
+          "name": "duration",
+          "widget": "int",
+          "default": 5,
+          "min": 4,
+          "max": 30,
+          "tooltip": "视频时长（秒），4~30 任意整数，按时长计费"
+        },
+        {
+          "name": "auto_duration",
+          "widget": "bool",
+          "default": false,
+          "tooltip": "智能时长：开启后忽略 duration，由模型在 4~30 秒内自选，按实际输出时长计费",
+          "true_sets": {
+            "duration": -1
+          }
+        },
+        {
+          "name": "quality",
+          "widget": "enum",
+          "values": [
+            "720p",
+            "480p",
+            "1080p"
+          ],
+          "default": "720p",
+          "tooltip": "分辨率；480p 为低价档"
+        },
+        {
+          "name": "generate_audio",
+          "widget": "bool",
+          "default": true,
+          "tooltip": "生成同步音频（不额外收费）"
+        }
+      ],
+      "image_slots": [
+        {
+          "name": "first_frame",
+          "api_param": "image_urls",
+          "required": true,
+          "tooltip": "首帧图（必接）"
+        },
+        {
+          "name": "last_frame",
+          "api_param": "image_urls",
+          "tooltip": "尾帧图（可选，接上即首尾帧模式；比例不同时自动对齐首帧）"
+        }
+      ],
+      "max_images": 2,
+      "default_timeout": 1800
+    },
+    {
+      "node_id": "EvoLink_Seedance20T2V",
+      "display_name": "EvoLink Seedance 2.0 Text-to-Video (Official)",
+      "output": "video",
+      "endpoint": "/videos/generations",
+      "description": "EvoLink 官方节点：字节豆包 Seedance 2.0 文生视频，4~15 秒，最高 4K，同步音频不加价。ByteDance Seedance 2.0 text-to-video.",
+      "models": [
+        "seedance-2.0-text-to-video"
+      ],
+      "default_model": "seedance-2.0-text-to-video",
+      "prompt_tooltip": "镜头/画面描述，支持中文（建议 500 字内）。",
+      "params": [
+        {
+          "name": "duration",
+          "widget": "int",
+          "default": 5,
+          "min": 4,
+          "max": 15,
+          "tooltip": "视频时长（秒），4~15 任意整数，按时长计费"
+        },
+        {
+          "name": "quality",
+          "widget": "enum",
+          "values": [
+            "720p",
+            "480p",
+            "1080p",
+            "4k"
+          ],
+          "default": "720p",
+          "tooltip": "分辨率"
+        },
+        {
+          "name": "aspect_ratio",
+          "widget": "enum",
+          "values": [
+            "adaptive",
+            "16:9",
+            "9:16",
+            "1:1",
+            "4:3",
+            "3:4",
+            "21:9"
+          ],
+          "default": "adaptive",
+          "tooltip": "画幅；adaptive 由模型自动选择"
+        },
+        {
+          "name": "generate_audio",
+          "widget": "bool",
+          "default": true,
+          "tooltip": "生成同步音频（不额外收费）"
+        }
+      ],
+      "default_timeout": 1800
+    },
+    {
+      "node_id": "EvoLink_Seedance20I2V",
+      "display_name": "EvoLink Seedance 2.0 Image-to-Video (Official)",
+      "output": "video",
+      "endpoint": "/videos/generations",
+      "description": "EvoLink 官方节点：字节豆包 Seedance 2.0 图生视频（首帧必接，尾帧可选即首尾帧模式），4~15 秒，最高 4K，同步音频不加价。ByteDance Seedance 2.0 image-to-video.",
+      "models": [
+        "seedance-2.0-image-to-video"
+      ],
+      "default_model": "seedance-2.0-image-to-video",
+      "prompt_tooltip": "镜头/画面描述，支持中文（建议 500 字内）。接 first_frame 出图生视频，可再接 last_frame 做首尾帧。",
+      "params": [
+        {
+          "name": "duration",
+          "widget": "int",
+          "default": 5,
+          "min": 4,
+          "max": 15,
+          "tooltip": "视频时长（秒），4~15 任意整数，按时长计费"
+        },
+        {
+          "name": "quality",
+          "widget": "enum",
+          "values": [
+            "720p",
+            "480p",
+            "1080p",
+            "4k"
+          ],
+          "default": "720p",
+          "tooltip": "分辨率"
+        },
+        {
+          "name": "aspect_ratio",
+          "widget": "enum",
+          "values": [
+            "adaptive",
+            "16:9",
+            "9:16",
+            "1:1",
+            "4:3",
+            "3:4",
+            "21:9"
+          ],
+          "default": "adaptive",
+          "tooltip": "画幅；adaptive 由模型自动选择"
+        },
+        {
+          "name": "generate_audio",
+          "widget": "bool",
+          "default": true,
+          "tooltip": "生成同步音频（不额外收费）"
+        }
+      ],
+      "image_slots": [
+        {
+          "name": "first_frame",
+          "api_param": "image_urls",
+          "required": true,
+          "tooltip": "首帧图（必接）"
+        },
+        {
+          "name": "last_frame",
+          "api_param": "image_urls",
+          "tooltip": "尾帧图（可选，接上即首尾帧模式；比例不同时自动对齐首帧）"
+        }
+      ],
+      "max_images": 2,
+      "default_timeout": 1800
+    },
+    {
+      "node_id": "EvoLink_Seedance20FastT2V",
+      "display_name": "EvoLink Seedance 2.0 Fast Text-to-Video (Official)",
+      "output": "video",
+      "endpoint": "/videos/generations",
+      "description": "EvoLink 官方节点：字节豆包 Seedance 2.0 Fast 文生视频——更快更便宜的档位，4~15 秒，最高 720p，同步音频不加价。ByteDance Seedance 2.0 Fast text-to-video.",
+      "models": [
+        "seedance-2.0-fast-text-to-video"
+      ],
+      "default_model": "seedance-2.0-fast-text-to-video",
+      "prompt_tooltip": "镜头/画面描述，支持中文（建议 500 字内）。",
+      "params": [
+        {
+          "name": "duration",
+          "widget": "int",
+          "default": 5,
+          "min": 4,
+          "max": 15,
+          "tooltip": "视频时长（秒），4~15 任意整数，按时长计费"
+        },
+        {
+          "name": "quality",
+          "widget": "enum",
+          "values": [
+            "720p",
+            "480p"
+          ],
+          "default": "720p",
+          "tooltip": "分辨率；fast 档最高 720p"
+        },
+        {
+          "name": "aspect_ratio",
+          "widget": "enum",
+          "values": [
+            "adaptive",
+            "16:9",
+            "9:16",
+            "1:1",
+            "4:3",
+            "3:4",
+            "21:9"
+          ],
+          "default": "adaptive",
+          "tooltip": "画幅；adaptive 由模型自动选择"
+        },
+        {
+          "name": "generate_audio",
+          "widget": "bool",
+          "default": true,
+          "tooltip": "生成同步音频（不额外收费）"
+        }
+      ],
+      "default_timeout": 1800
+    },
+    {
+      "node_id": "EvoLink_Seedance20FastI2V",
+      "display_name": "EvoLink Seedance 2.0 Fast Image-to-Video (Official)",
+      "output": "video",
+      "endpoint": "/videos/generations",
+      "description": "EvoLink 官方节点：字节豆包 Seedance 2.0 Fast 图生视频——更快更便宜的档位（首帧必接，尾帧可选），画幅跟随首帧图，4~15 秒，最高 720p。ByteDance Seedance 2.0 Fast image-to-video.",
+      "models": [
+        "seedance-2.0-fast-image-to-video"
+      ],
+      "default_model": "seedance-2.0-fast-image-to-video",
+      "prompt_tooltip": "镜头/画面描述，支持中文（建议 500 字内）。接 first_frame 出图生视频，可再接 last_frame 做首尾帧。",
+      "params": [
+        {
+          "name": "duration",
+          "widget": "int",
+          "default": 5,
+          "min": 4,
+          "max": 15,
+          "tooltip": "视频时长（秒），4~15 任意整数，按时长计费"
+        },
+        {
+          "name": "quality",
+          "widget": "enum",
+          "values": [
+            "720p",
+            "480p"
+          ],
+          "default": "720p",
+          "tooltip": "分辨率；fast 档最高 720p"
+        },
+        {
+          "name": "aspect_ratio",
+          "widget": "enum",
+          "values": [
+            "adaptive",
+            "16:9",
+            "9:16",
+            "1:1",
+            "4:3",
+            "3:4",
+            "21:9"
+          ],
+          "default": "adaptive",
+          "tooltip": "画幅；adaptive 由模型自动选择"
+        },
+        {
+          "name": "generate_audio",
+          "widget": "bool",
+          "default": true,
+          "tooltip": "生成同步音频（不额外收费）"
+        }
+      ],
+      "image_slots": [
+        {
+          "name": "first_frame",
+          "api_param": "image_urls",
+          "required": true,
+          "tooltip": "首帧图（必接）"
+        },
+        {
+          "name": "last_frame",
+          "api_param": "image_urls",
+          "tooltip": "尾帧图（可选，接上即首尾帧模式；比例不同时自动对齐首帧）"
+        }
+      ],
+      "max_images": 2,
+      "default_timeout": 1800
+    },
+    {
+      "node_id": "EvoLink_Seedance20MiniT2V",
+      "display_name": "EvoLink Seedance 2.0 Mini Text-to-Video (Official)",
+      "output": "video",
+      "endpoint": "/videos/generations",
+      "description": "EvoLink 官方节点：字节豆包 Seedance 2.0 Mini 文生视频——最便宜的视频档位，适合批量与调试，4~15 秒，最高 720p，同步音频不加价。ByteDance Seedance 2.0 Mini budget text-to-video.",
+      "models": [
+        "seedance-2.0-mini-text-to-video"
+      ],
+      "default_model": "seedance-2.0-mini-text-to-video",
+      "prompt_tooltip": "镜头/画面描述，支持中文（建议 500 字内）。",
+      "params": [
+        {
+          "name": "duration",
+          "widget": "int",
+          "default": 5,
+          "min": 4,
+          "max": 15,
+          "tooltip": "视频时长（秒），4~15 任意整数，按时长计费"
+        },
+        {
+          "name": "quality",
+          "widget": "enum",
+          "values": [
+            "720p",
+            "480p"
+          ],
+          "default": "720p",
+          "tooltip": "分辨率；480p 更便宜"
+        },
+        {
+          "name": "aspect_ratio",
+          "widget": "enum",
+          "values": [
+            "adaptive",
+            "16:9",
+            "9:16",
+            "1:1",
+            "4:3",
+            "3:4",
+            "21:9"
+          ],
+          "default": "adaptive",
+          "tooltip": "画幅；adaptive 由模型自动选择"
+        },
+        {
+          "name": "generate_audio",
+          "widget": "bool",
+          "default": true,
+          "tooltip": "生成同步音频（不额外收费）"
+        }
+      ],
+      "default_timeout": 1800
+    },
+    {
+      "node_id": "EvoLink_Seedance20MiniI2V",
+      "display_name": "EvoLink Seedance 2.0 Mini Image-to-Video (Official)",
+      "output": "video",
+      "endpoint": "/videos/generations",
+      "description": "EvoLink 官方节点：字节豆包 Seedance 2.0 Mini 图生视频——最便宜的视频档位（首帧必接，尾帧可选），画幅跟随首帧图，4~15 秒，最高 720p。ByteDance Seedance 2.0 Mini budget image-to-video.",
+      "models": [
+        "seedance-2.0-mini-image-to-video"
+      ],
+      "default_model": "seedance-2.0-mini-image-to-video",
+      "prompt_tooltip": "镜头/画面描述，支持中文（建议 500 字内）。接 first_frame 出图生视频，可再接 last_frame 做首尾帧。",
+      "params": [
+        {
+          "name": "duration",
+          "widget": "int",
+          "default": 5,
+          "min": 4,
+          "max": 15,
+          "tooltip": "视频时长（秒），4~15 任意整数，按时长计费"
+        },
+        {
+          "name": "quality",
+          "widget": "enum",
+          "values": [
+            "720p",
+            "480p"
+          ],
+          "default": "720p",
+          "tooltip": "分辨率；480p 更便宜"
+        },
+        {
+          "name": "aspect_ratio",
+          "widget": "enum",
+          "values": [
+            "adaptive",
+            "16:9",
+            "9:16",
+            "1:1",
+            "4:3",
+            "3:4",
+            "21:9"
+          ],
+          "default": "adaptive",
+          "tooltip": "画幅；adaptive 由模型自动选择"
+        },
+        {
+          "name": "generate_audio",
+          "widget": "bool",
+          "default": true,
+          "tooltip": "生成同步音频（不额外收费）"
+        }
+      ],
+      "image_slots": [
+        {
+          "name": "first_frame",
+          "api_param": "image_urls",
+          "required": true,
+          "tooltip": "首帧图（必接）"
+        },
+        {
+          "name": "last_frame",
+          "api_param": "image_urls",
+          "tooltip": "尾帧图（可选，接上即首尾帧模式；比例不同时自动对齐首帧）"
+        }
+      ],
+      "max_images": 2,
+      "default_timeout": 1800
+    },
+    {
+      "node_id": "EvoLink_Wan30T2V",
+      "display_name": "EvoLink Wan 3.0 Text-to-Video (Official)",
+      "output": "video",
+      "endpoint": "/videos/generations",
+      "description": "EvoLink 官方节点：阿里通义万相 Wan 3.0 / 3.0 Prime 文生视频，智能时长可选（按实际输出结算），480p 起步低价档。Alibaba Wan 3.0 text-to-video.",
+      "models": [
+        "wan3.0-text-to-video",
+        "wan3.0-prime-text-to-video"
+      ],
+      "default_model": "wan3.0-text-to-video",
+      "prompt_tooltip": "镜头/画面描述，支持中文，最长 20000 字符。",
+      "params": [
+        {
+          "name": "duration",
+          "widget": "int",
+          "default": 5,
+          "min": 2,
+          "max": 30,
+          "tooltip": "视频时长（秒），2~30 任意整数，按时长计费"
+        },
+        {
+          "name": "auto_duration",
+          "widget": "bool",
+          "default": false,
+          "tooltip": "智能时长：开启后忽略 duration，模型按 prompt 与素材自选时长（按 30s 上限预扣、按实际输出结算退差额）",
+          "true_sets": {
+            "duration": -1
+          }
+        },
+        {
+          "name": "quality",
+          "widget": "enum",
+          "values": [
+            "720p",
+            "480p",
+            "1080p"
+          ],
+          "default": "720p",
+          "tooltip": "480p=计费基准最便宜；720p 约 2 倍；1080p 约 4 倍"
+        },
+        {
+          "name": "aspect_ratio",
+          "widget": "enum",
+          "values": [
+            "adaptive",
+            "16:9",
+            "9:16",
+            "1:1",
+            "4:3",
+            "3:4"
+          ],
+          "default": "adaptive",
+          "tooltip": "adaptive：按素材与 prompt 自动推荐"
+        },
+        {
+          "name": "generate_audio",
+          "widget": "bool",
+          "default": true,
+          "tooltip": "输出是否含音轨（开关同价）"
+        },
+        {
+          "name": "seed",
+          "widget": "int",
+          "default": 0,
+          "min": 0,
+          "max": 2147483647,
+          "tooltip": "0=随机；固定可复现结果",
+          "skip_value": 0
+        }
+      ],
+      "extra_json_param": true,
+      "default_timeout": 1800
+    },
+    {
+      "node_id": "EvoLink_Wan30I2V",
+      "display_name": "EvoLink Wan 3.0 Image-to-Video (Official)",
+      "output": "video",
+      "endpoint": "/videos/generations",
+      "description": "EvoLink 官方节点：阿里通义万相 Wan 3.0 / 3.0 Prime 首尾帧图生视频（首帧必接，尾帧可选），智能时长可选，480p 起步低价档。Alibaba Wan 3.0 image-to-video (first/last frame).",
+      "models": [
+        "wan3.0-image-to-video",
+        "wan3.0-prime-image-to-video"
+      ],
+      "default_model": "wan3.0-image-to-video",
+      "prompt_required": false,
+      "prompt_tooltip": "镜头/画面描述，支持中文，最长 20000 字符。",
+      "params": [
+        {
+          "name": "duration",
+          "widget": "int",
+          "default": 5,
+          "min": 2,
+          "max": 30,
+          "tooltip": "视频时长（秒），2~30 任意整数，按时长计费"
+        },
+        {
+          "name": "auto_duration",
+          "widget": "bool",
+          "default": false,
+          "tooltip": "智能时长：开启后忽略 duration，模型按 prompt 与素材自选时长（按 30s 上限预扣、按实际输出结算退差额）",
+          "true_sets": {
+            "duration": -1
+          }
+        },
+        {
+          "name": "quality",
+          "widget": "enum",
+          "values": [
+            "720p",
+            "480p",
+            "1080p"
+          ],
+          "default": "720p",
+          "tooltip": "480p=计费基准最便宜；720p 约 2 倍；1080p 约 4 倍"
+        },
+        {
+          "name": "aspect_ratio",
+          "widget": "enum",
+          "values": [
+            "adaptive",
+            "16:9",
+            "9:16",
+            "1:1",
+            "4:3",
+            "3:4"
+          ],
+          "default": "adaptive",
+          "tooltip": "adaptive：按素材与 prompt 自动推荐"
+        },
+        {
+          "name": "generate_audio",
+          "widget": "bool",
+          "default": true,
+          "tooltip": "输出是否含音轨（开关同价）"
+        },
+        {
+          "name": "seed",
+          "widget": "int",
+          "default": 0,
+          "min": 0,
+          "max": 2147483647,
+          "tooltip": "0=随机；固定可复现结果",
+          "skip_value": 0
+        }
+      ],
+      "extra_json_param": true,
+      "image_slots": [
+        {
+          "name": "first_frame",
+          "api_param": "image_start",
+          "single": true,
+          "required": true,
+          "tooltip": "首帧图（必接）；240~8000px，比例 1:8~8:1"
+        },
+        {
+          "name": "last_frame",
+          "api_param": "image_end",
+          "single": true,
+          "tooltip": "尾帧图（可选，须与首帧同用）"
+        }
+      ],
+      "default_timeout": 1800
+    },
+    {
+      "node_id": "EvoLink_Wan30Ref",
+      "display_name": "EvoLink Wan 3.0 Reference-to-Video (Official)",
+      "output": "video",
+      "endpoint": "/videos/generations",
+      "description": "EvoLink 官方节点：阿里通义万相 Wan 3.0 / 3.0 Prime 多模态参考生视频（图+视频+音频混合参考，视频/音频素材经 extra_params 的 video_urls/audio_urls 传入），prompt 里用「图1」「视频1」引用素材。Alibaba Wan 3.0 reference-to-video.",
+      "models": [
+        "wan3.0-reference-video",
+        "wan3.0-prime-reference-video"
+      ],
+      "default_model": "wan3.0-reference-video",
+      "prompt_tooltip": "镜头/画面描述，支持中文，最长 20000 字符。用「图1」「视频1」引用素材。",
+      "params": [
+        {
+          "name": "duration",
+          "widget": "int",
+          "default": 5,
+          "min": 2,
+          "max": 30,
+          "tooltip": "视频时长（秒），2~30 任意整数，按时长计费"
+        },
+        {
+          "name": "auto_duration",
+          "widget": "bool",
+          "default": false,
+          "tooltip": "智能时长：开启后忽略 duration，模型按 prompt 与素材自选时长（按 30s 上限预扣、按实际输出结算退差额）",
+          "true_sets": {
+            "duration": -1
+          }
+        },
+        {
+          "name": "quality",
+          "widget": "enum",
+          "values": [
+            "720p",
+            "480p",
+            "1080p"
+          ],
+          "default": "720p",
+          "tooltip": "480p=计费基准最便宜；720p 约 2 倍；1080p 约 4 倍"
+        },
+        {
+          "name": "aspect_ratio",
+          "widget": "enum",
+          "values": [
+            "adaptive",
+            "16:9",
+            "9:16",
+            "1:1",
+            "4:3",
+            "3:4"
+          ],
+          "default": "adaptive",
+          "tooltip": "adaptive：按素材与 prompt 自动推荐"
+        },
+        {
+          "name": "generate_audio",
+          "widget": "bool",
+          "default": true,
+          "tooltip": "输出是否含音轨（开关同价）"
+        },
+        {
+          "name": "seed",
+          "widget": "int",
+          "default": 0,
+          "min": 0,
+          "max": 2147483647,
+          "tooltip": "0=随机；固定可复现结果",
+          "skip_value": 0
+        }
+      ],
+      "extra_json_param": true,
+      "image_slots": [
+        {
+          "name": "reference_image1",
+          "api_param": "image_urls",
+          "tooltip": "参考图 1（prompt 里写「图1」引用；单主体单图）"
+        },
+        {
+          "name": "reference_image2",
+          "api_param": "image_urls",
+          "tooltip": "参考图 2（可选，最多 10 张，其余可经 extra_params 的 image_urls 传）"
+        }
+      ],
+      "max_images": 10,
+      "default_timeout": 1800
+    },
+    {
+      "node_id": "EvoLink_GrokVideo15",
+      "display_name": "EvoLink Grok Imagine Video 1.5 (Official)",
+      "output": "video",
+      "endpoint": "/videos/generations",
+      "description": "EvoLink 官方节点：xAI Grok Imagine Video 1.5——一个模型三种玩法：不接图=文生视频，接 1 张=首帧图生视频，接 2~7 张=参考图生视频。1~15 秒，最高 1080p。xAI Grok Imagine Video 1.5 text/image/reference-to-video.",
+      "models": [
+        "grok-imagine-video-1.5-preview"
+      ],
+      "default_model": "grok-imagine-video-1.5-preview",
+      "prompt_tooltip": "镜头/画面描述。",
+      "params": [
+        {
+          "name": "duration",
+          "widget": "int",
+          "default": 6,
+          "min": 1,
+          "max": 15,
+          "tooltip": "视频时长（秒），1~15 任意整数，按时长计费"
+        },
+        {
+          "name": "quality",
+          "widget": "enum",
+          "values": [
+            "480p",
+            "720p",
+            "1080p"
+          ],
+          "default": "480p",
+          "tooltip": "分辨率；480p 最便宜"
+        },
+        {
+          "name": "aspect_ratio",
+          "widget": "enum",
+          "values": [
+            "auto",
+            "16:9",
+            "9:16",
+            "1:1",
+            "3:2",
+            "2:3"
+          ],
+          "default": "auto",
+          "tooltip": "画幅；接图时由图决定"
+        }
+      ],
+      "image_slots": [
+        {
+          "name": "image1",
+          "api_param": "image_urls",
+          "tooltip": "不接=文生视频；1 张=首帧；2 张以上=参考图（最多 7 张）"
+        },
+        {
+          "name": "image2",
+          "api_param": "image_urls",
+          "tooltip": "参考图 2（可选）"
+        },
+        {
+          "name": "image3",
+          "api_param": "image_urls",
+          "tooltip": "参考图 3（可选）"
+        }
+      ],
+      "url_text_param": "image_urls",
+      "max_images": 7,
+      "default_timeout": 1200
+    },
+    {
+      "node_id": "EvoLink_GrokVideoT2V",
+      "display_name": "EvoLink Grok Imagine Text-to-Video (Official)",
+      "output": "video",
+      "endpoint": "/videos/generations",
+      "description": "EvoLink 官方节点：xAI Grok Imagine 文生视频，6~30 秒，normal/fun/spicy 三种风格。xAI Grok Imagine text-to-video.",
+      "models": [
+        "grok-imagine-text-to-video-beta"
+      ],
+      "default_model": "grok-imagine-text-to-video-beta",
+      "prompt_tooltip": "镜头/画面描述。",
+      "params": [
+        {
+          "name": "duration",
+          "widget": "int",
+          "default": 6,
+          "min": 6,
+          "max": 30,
+          "tooltip": "视频时长（秒），6~30 任意整数，按时长计费"
+        },
+        {
+          "name": "mode",
+          "widget": "enum",
+          "values": [
+            "normal",
+            "fun",
+            "spicy"
+          ],
+          "default": "normal",
+          "tooltip": "生成风格：normal 常规 / fun 趣味 / spicy 大胆"
+        },
+        {
+          "name": "aspect_ratio",
+          "widget": "enum",
+          "values": [
+            "16:9",
+            "9:16",
+            "1:1",
+            "3:2",
+            "2:3"
+          ],
+          "default": "16:9",
+          "tooltip": "画幅比例"
+        },
+        {
+          "name": "quality",
+          "widget": "enum",
+          "values": [
+            "480p",
+            "720p"
+          ],
+          "default": "480p",
+          "tooltip": "分辨率"
+        }
+      ],
+      "default_timeout": 1200
+    },
+    {
+      "node_id": "EvoLink_GrokVideoI2V",
+      "display_name": "EvoLink Grok Imagine Image-to-Video (Official)",
+      "output": "video",
+      "endpoint": "/videos/generations",
+      "description": "EvoLink 官方节点：xAI Grok Imagine 图生视频（首图必接，最多 7 张参考），6~30 秒，normal/fun/spicy 三种风格。xAI Grok Imagine image-to-video.",
+      "models": [
+        "grok-imagine-image-to-video-beta"
+      ],
+      "default_model": "grok-imagine-image-to-video-beta",
+      "prompt_tooltip": "镜头/画面描述。",
+      "params": [
+        {
+          "name": "duration",
+          "widget": "int",
+          "default": 6,
+          "min": 6,
+          "max": 30,
+          "tooltip": "视频时长（秒），6~30 任意整数，按时长计费"
+        },
+        {
+          "name": "mode",
+          "widget": "enum",
+          "values": [
+            "normal",
+            "fun",
+            "spicy"
+          ],
+          "default": "normal",
+          "tooltip": "生成风格：normal 常规 / fun 趣味 / spicy 大胆"
+        },
+        {
+          "name": "aspect_ratio",
+          "widget": "enum",
+          "values": [
+            "16:9",
+            "9:16",
+            "1:1",
+            "3:2",
+            "2:3"
+          ],
+          "default": "16:9",
+          "tooltip": "画幅比例"
+        },
+        {
+          "name": "quality",
+          "widget": "enum",
+          "values": [
+            "480p",
+            "720p"
+          ],
+          "default": "480p",
+          "tooltip": "分辨率"
+        }
+      ],
+      "image_slots": [
+        {
+          "name": "image1",
+          "api_param": "image_urls",
+          "required": true,
+          "tooltip": "首帧/参考图（必接，最多 7 张）"
+        },
+        {
+          "name": "image2",
+          "api_param": "image_urls",
+          "tooltip": "参考图 2（可选）"
+        },
+        {
+          "name": "image3",
+          "api_param": "image_urls",
+          "tooltip": "参考图 3（可选）"
+        }
+      ],
+      "url_text_param": "image_urls",
+      "max_images": 7,
+      "default_timeout": 1200
+    },
+    {
+      "node_id": "EvoLink_Hailuo23",
+      "display_name": "EvoLink MiniMax Hailuo 2.3 (Official)",
+      "output": "video",
+      "endpoint": "/videos/generations",
+      "description": "EvoLink 官方节点：MiniMax 海螺 Hailuo 2.3 文生视频、图生视频（接 first_frame 即图生），动作表现力强，6/10 秒，最高 1080p。MiniMax Hailuo 2.3 text/image-to-video.",
+      "models": [
+        "MiniMax-Hailuo-2.3"
+      ],
+      "default_model": "MiniMax-Hailuo-2.3",
+      "prompt_tooltip": "镜头/画面描述（含运镜指令），支持中文。",
+      "params": [
+        {
+          "name": "quality",
+          "widget": "enum",
+          "values": [
+            "768p",
+            "1080p"
+          ],
+          "default": "768p",
+          "tooltip": "分辨率"
+        },
+        {
+          "name": "duration",
+          "widget": "enum",
+          "values": [
+            6,
+            10
+          ],
+          "default": 6,
+          "tooltip": "视频时长（秒）"
+        },
+        {
+          "name": "prompt_optimizer",
+          "widget": "bool",
+          "default": true,
+          "tooltip": "自动优化 prompt；要精确控制时关闭",
+          "nest": "model_params"
+        },
+        {
+          "name": "fast_pretreatment",
+          "widget": "bool",
+          "default": false,
+          "tooltip": "快速预处理，缩短优化耗时",
+          "skip_value": false,
+          "nest": "model_params"
+        }
+      ],
+      "image_slots": [
+        {
+          "name": "first_frame",
+          "api_param": "image_urls",
+          "tooltip": "首帧图（可选，接上即图生视频）"
+        }
+      ],
+      "max_images": 1,
+      "default_timeout": 1200
+    },
+    {
+      "node_id": "EvoLink_Hailuo23Fast",
+      "display_name": "EvoLink MiniMax Hailuo 2.3 Fast (Official)",
+      "output": "video",
+      "endpoint": "/videos/generations",
+      "description": "EvoLink 官方节点：MiniMax 海螺 Hailuo 2.3 Fast 图生视频——更快更便宜的档位（首帧必接），6/10 秒，最高 1080p。MiniMax Hailuo 2.3 Fast fast image-to-video.",
+      "models": [
+        "MiniMax-Hailuo-2.3-Fast"
+      ],
+      "default_model": "MiniMax-Hailuo-2.3-Fast",
+      "prompt_required": false,
+      "prompt_tooltip": "镜头/画面描述（可选），支持中文。",
+      "params": [
+        {
+          "name": "quality",
+          "widget": "enum",
+          "values": [
+            "768p",
+            "1080p"
+          ],
+          "default": "768p",
+          "tooltip": "分辨率"
+        },
+        {
+          "name": "duration",
+          "widget": "enum",
+          "values": [
+            6,
+            10
+          ],
+          "default": 6,
+          "tooltip": "视频时长（秒）"
+        },
+        {
+          "name": "prompt_optimizer",
+          "widget": "bool",
+          "default": true,
+          "tooltip": "自动优化 prompt；要精确控制时关闭",
+          "nest": "model_params"
+        },
+        {
+          "name": "fast_pretreatment",
+          "widget": "bool",
+          "default": false,
+          "tooltip": "快速预处理，缩短优化耗时",
+          "skip_value": false,
+          "nest": "model_params"
+        }
+      ],
+      "image_slots": [
+        {
+          "name": "first_frame",
+          "api_param": "image_urls",
+          "required": true,
+          "tooltip": "首帧图（必接）"
+        }
+      ],
+      "max_images": 1,
+      "default_timeout": 1200
+    },
+    {
+      "node_id": "EvoLink_GeminiOmniT2V",
+      "display_name": "EvoLink Gemini Omni Flash Text-to-Video (Official)",
+      "output": "video",
+      "endpoint": "/videos/generations",
+      "description": "EvoLink 官方节点：Google Gemini Omni Flash 文生视频，3~10 秒。Google Gemini Omni Flash text-to-video.",
+      "models": [
+        "gemini-omni-flash-text-to-video"
+      ],
+      "default_model": "gemini-omni-flash-text-to-video",
+      "prompt_tooltip": "镜头/画面描述，支持中文。",
+      "params": [
+        {
+          "name": "duration",
+          "widget": "int",
+          "default": 10,
+          "min": 3,
+          "max": 10,
+          "tooltip": "视频时长（秒），3~10 任意整数"
+        },
+        {
+          "name": "aspect_ratio",
+          "widget": "enum",
+          "values": [
+            "16:9",
+            "9:16",
+            "auto"
+          ],
+          "default": "16:9",
+          "tooltip": "画幅比例"
+        }
+      ],
+      "default_timeout": 1200
+    },
+    {
+      "node_id": "EvoLink_GeminiOmniI2V",
+      "display_name": "EvoLink Gemini Omni Flash Image-to-Video (Official)",
+      "output": "video",
+      "endpoint": "/videos/generations",
+      "description": "EvoLink 官方节点：Google Gemini Omni Flash 图生视频（首帧必接），3~10 秒。Google Gemini Omni Flash image-to-video.",
+      "models": [
+        "gemini-omni-flash-image-to-video"
+      ],
+      "default_model": "gemini-omni-flash-image-to-video",
+      "prompt_tooltip": "镜头/画面描述，支持中文。",
+      "params": [
+        {
+          "name": "duration",
+          "widget": "int",
+          "default": 10,
+          "min": 3,
+          "max": 10,
+          "tooltip": "视频时长（秒），3~10 任意整数"
+        },
+        {
+          "name": "aspect_ratio",
+          "widget": "enum",
+          "values": [
+            "16:9",
+            "9:16",
+            "auto"
+          ],
+          "default": "16:9",
+          "tooltip": "画幅比例"
+        }
+      ],
+      "image_slots": [
+        {
+          "name": "first_frame",
+          "api_param": "image_urls",
+          "required": true,
+          "tooltip": "首帧图（必接）"
+        }
+      ],
+      "max_images": 1,
+      "default_timeout": 1200
+    },
+    {
+      "node_id": "EvoLink_GeminiOmniRef",
+      "display_name": "EvoLink Gemini Omni Flash Reference-to-Video (Official)",
+      "output": "video",
+      "endpoint": "/videos/generations",
+      "description": "EvoLink 官方节点：Google Gemini Omni Flash 参考图生视频（最多 6 张，保持主体一致），3~10 秒。Google Gemini Omni Flash reference-to-video.",
+      "models": [
+        "gemini-omni-flash-reference-to-video"
+      ],
+      "default_model": "gemini-omni-flash-reference-to-video",
+      "prompt_tooltip": "镜头/画面描述，支持中文。",
+      "params": [
+        {
+          "name": "duration",
+          "widget": "int",
+          "default": 10,
+          "min": 3,
+          "max": 10,
+          "tooltip": "视频时长（秒），3~10 任意整数"
+        },
+        {
+          "name": "aspect_ratio",
+          "widget": "enum",
+          "values": [
+            "16:9",
+            "9:16",
+            "auto"
+          ],
+          "default": "16:9",
+          "tooltip": "画幅比例"
+        }
+      ],
+      "image_slots": [
+        {
+          "name": "reference_image1",
+          "api_param": "image_urls",
+          "required": true,
+          "tooltip": "参考图 1（必接，最多 6 张）"
+        },
+        {
+          "name": "reference_image2",
+          "api_param": "image_urls",
+          "tooltip": "参考图 2（可选）"
+        },
+        {
+          "name": "reference_image3",
+          "api_param": "image_urls",
+          "tooltip": "参考图 3（可选）"
+        }
+      ],
+      "url_text_param": "image_urls",
+      "max_images": 6,
+      "default_timeout": 1200
+    },
+    {
+      "node_id": "EvoLink_GeminiOmniEdit",
+      "display_name": "EvoLink Gemini Omni Flash Video Edit (Official)",
+      "output": "video",
+      "endpoint": "/videos/generations",
+      "description": "EvoLink 官方节点：Google Gemini Omni Flash 视频编辑——对输入视频改主体/风格/局部。视频 URL 可直接接上游生成节点的 result_urls 输出。Google Gemini Omni Flash video editing.",
+      "models": [
+        "gemini-omni-flash-video-edit"
+      ],
+      "default_model": "gemini-omni-flash-video-edit",
+      "prompt_tooltip": "编辑指令，支持中文（如「把背景换成雪山」）。",
+      "params": [
+        {
+          "name": "video_url",
+          "widget": "string",
+          "default": "",
+          "tooltip": "要编辑的视频 URL（必填），可接上游节点的 result_urls 输出",
+          "api_name": "video_urls",
+          "url_list": true,
+          "max_items": 1,
+          "required": true,
+          "multiline": true
+        }
+      ],
+      "default_timeout": 1800
+    },
+    {
+      "node_id": "EvoLink_Seedance25Ref",
+      "display_name": "EvoLink Seedance 2.5 Reference-to-Video (Official)",
+      "output": "video",
+      "endpoint": "/videos/generations",
+      "description": "EvoLink 官方节点：字节豆包 Seedance 2.5 多模态参考生视频——图（≤30）+视频（≤10）+音频（≤10）混合参考，至少给一种素材，4~30 秒。ByteDance Seedance 2.5 reference-to-video.",
+      "models": [
+        "seedance-2.5-reference-to-video"
+      ],
+      "default_model": "seedance-2.5-reference-to-video",
+      "prompt_tooltip": "镜头/画面描述，可引用参考素材（支持中文）。至少接一张图或填一条视频/音频 URL。",
+      "params": [
+        {
+          "name": "duration",
+          "widget": "int",
+          "default": 5,
+          "min": 4,
+          "max": 30,
+          "tooltip": "视频时长（秒），4~30 任意整数，按时长计费"
+        },
+        {
+          "name": "quality",
+          "widget": "enum",
+          "values": [
+            "720p",
+            "480p",
+            "1080p"
+          ],
+          "default": "720p",
+          "tooltip": "分辨率；480p 为低价档"
+        },
+        {
+          "name": "aspect_ratio",
+          "widget": "enum",
+          "values": [
+            "adaptive",
+            "16:9",
+            "9:16",
+            "1:1",
+            "4:3",
+            "3:4",
+            "21:9"
+          ],
+          "default": "adaptive",
+          "tooltip": "画幅；adaptive 由模型自动选择"
+        },
+        {
+          "name": "generate_audio",
+          "widget": "bool",
+          "default": true,
+          "tooltip": "生成同步音频（不额外收费）"
+        },
+        {
+          "name": "video_urls",
+          "widget": "string",
+          "default": "",
+          "tooltip": "参考视频 URL，每行一个（最多 10 条，2~30 秒），可接上游节点的 result_urls 输出",
+          "url_list": true,
+          "max_items": 10,
+          "multiline": true
+        },
+        {
+          "name": "audio_urls",
+          "widget": "string",
+          "default": "",
+          "tooltip": "参考音频 URL，每行一个（最多 10 条，2~30 秒）",
+          "url_list": true,
+          "max_items": 10,
+          "multiline": true
+        }
+      ],
+      "image_slots": [
+        {
+          "name": "image1",
+          "api_param": "image_urls",
+          "tooltip": "参考图 1（可选，最多 30 张）"
+        },
+        {
+          "name": "image2",
+          "api_param": "image_urls",
+          "tooltip": "参考图 2（可选）"
+        },
+        {
+          "name": "image3",
+          "api_param": "image_urls",
+          "tooltip": "参考图 3（可选）"
+        },
+        {
+          "name": "image4",
+          "api_param": "image_urls",
+          "tooltip": "参考图 4（可选）"
+        }
+      ],
+      "url_text_param": "image_urls",
+      "max_images": 30,
+      "default_timeout": 1800
+    },
+    {
+      "node_id": "EvoLink_Seedance25Edit",
+      "display_name": "EvoLink Seedance 2.5 Video Edit (Official)",
+      "output": "video",
+      "endpoint": "/videos/generations",
+      "description": "EvoLink 官方节点：字节豆包 Seedance 2.5 视频编辑——换主体/增删物体/重绘风格，输出时长跟随原片。视频 URL 可直接接上游生成节点的 result_urls 输出。ByteDance Seedance 2.5 video editing.",
+      "models": [
+        "seedance-2.5-video-edit"
+      ],
+      "default_model": "seedance-2.5-video-edit",
+      "prompt_tooltip": "编辑指令（必填），如「Edit the video: 去掉背景音乐，主体换成柴犬」。",
+      "params": [
+        {
+          "name": "video_urls",
+          "widget": "string",
+          "default": "",
+          "tooltip": "要编辑的视频 URL（必填，每行一个，最多 10 条，4~30 秒），可接上游节点的 result_urls 输出",
+          "url_list": true,
+          "max_items": 10,
+          "required": true,
+          "multiline": true
+        },
+        {
+          "name": "quality",
+          "widget": "enum",
+          "values": [
+            "720p",
+            "480p",
+            "1080p"
+          ],
+          "default": "720p",
+          "tooltip": "分辨率；480p 为低价档"
+        },
+        {
+          "name": "generate_audio",
+          "widget": "bool",
+          "default": true,
+          "tooltip": "生成同步音频（不额外收费）"
+        },
+        {
+          "name": "audio_urls",
+          "widget": "string",
+          "default": "",
+          "tooltip": "参考音频 URL，每行一个（最多 10 条，2~30 秒）",
+          "url_list": true,
+          "max_items": 10,
+          "multiline": true
+        }
+      ],
+      "image_slots": [
+        {
+          "name": "image1",
+          "api_param": "image_urls",
+          "tooltip": "参考图 1（可选，最多 30 张）"
+        },
+        {
+          "name": "image2",
+          "api_param": "image_urls",
+          "tooltip": "参考图 2（可选）"
+        }
+      ],
+      "url_text_param": "image_urls",
+      "max_images": 30,
+      "default_timeout": 1800
+    },
+    {
+      "node_id": "EvoLink_Seedance25Extend",
+      "display_name": "EvoLink Seedance 2.5 Video Extend (Official)",
+      "output": "video",
+      "endpoint": "/videos/generations",
+      "description": "EvoLink 官方节点：字节豆包 Seedance 2.5 视频延长——把输入视频向前/向后续写 4~30 秒。视频 URL 可直接接上游生成节点的 result_urls 输出。ByteDance Seedance 2.5 video extend.",
+      "models": [
+        "seedance-2.5-video-extend"
+      ],
+      "default_model": "seedance-2.5-video-extend",
+      "prompt_tooltip": "延长指令（必填），如「Extend @video1 backward, 人物走出画面」。",
+      "params": [
+        {
+          "name": "video_urls",
+          "widget": "string",
+          "default": "",
+          "tooltip": "要延长的视频 URL（必填，每行一个，最多 10 条，2~30 秒），可接上游节点的 result_urls 输出",
+          "url_list": true,
+          "max_items": 10,
+          "required": true,
+          "multiline": true
+        },
+        {
+          "name": "duration",
+          "widget": "int",
+          "default": 5,
+          "min": 4,
+          "max": 30,
+          "tooltip": "延长时长（秒），4~30 任意整数，按时长计费"
+        },
+        {
+          "name": "quality",
+          "widget": "enum",
+          "values": [
+            "720p",
+            "480p",
+            "1080p"
+          ],
+          "default": "720p",
+          "tooltip": "分辨率；480p 为低价档"
+        },
+        {
+          "name": "generate_audio",
+          "widget": "bool",
+          "default": true,
+          "tooltip": "生成同步音频（不额外收费）"
+        },
+        {
+          "name": "audio_urls",
+          "widget": "string",
+          "default": "",
+          "tooltip": "参考音频 URL，每行一个（最多 10 条，2~30 秒）",
+          "url_list": true,
+          "max_items": 10,
+          "multiline": true
+        }
+      ],
+      "image_slots": [
+        {
+          "name": "image1",
+          "api_param": "image_urls",
+          "tooltip": "参考图 1（可选，最多 30 张）"
+        },
+        {
+          "name": "image2",
+          "api_param": "image_urls",
+          "tooltip": "参考图 2（可选）"
+        }
+      ],
+      "url_text_param": "image_urls",
+      "max_images": 30,
+      "default_timeout": 1800
+    },
+    {
+      "node_id": "EvoLink_KlingO3Ref",
+      "display_name": "EvoLink Kling O3 Reference-to-Video (Official)",
+      "output": "video",
+      "endpoint": "/videos/generations",
+      "description": "EvoLink 官方节点：快手可灵 Kling O3 参考视频生视频——提取参考视频的风格与运动特征生成新视频，可搭配参考图。视频 URL 可接上游节点的 result_urls 输出。Kuaishou Kling O3 reference-to-video.",
+      "models": [
+        "kling-o3-reference-to-video"
+      ],
+      "default_model": "kling-o3-reference-to-video",
+      "prompt_tooltip": "镜头/画面描述（必填），支持中文，最长 2500 字符。",
+      "params": [
+        {
+          "name": "video_url",
+          "widget": "string",
+          "default": "",
+          "tooltip": "参考视频 URL（必填），可接上游节点的 result_urls 输出",
+          "required": true,
+          "multiline": true
+        },
+        {
+          "name": "duration",
+          "widget": "int",
+          "default": 5,
+          "min": 3,
+          "max": 10,
+          "tooltip": "视频时长（秒），3~10 任意整数"
+        },
+        {
+          "name": "aspect_ratio",
+          "widget": "enum",
+          "values": [
+            "16:9",
+            "9:16",
+            "1:1"
+          ],
+          "default": "16:9",
+          "tooltip": "画幅比例"
+        },
+        {
+          "name": "quality",
+          "widget": "enum",
+          "values": [
+            "720p",
+            "1080p"
+          ],
+          "default": "720p",
+          "tooltip": "分辨率"
+        },
+        {
+          "name": "keep_original_sound",
+          "widget": "bool",
+          "default": true,
+          "tooltip": "保留原视频声音"
+        }
+      ],
+      "image_slots": [
+        {
+          "name": "reference_image1",
+          "api_param": "image_urls",
+          "tooltip": "参考图 1（可选）"
+        },
+        {
+          "name": "reference_image2",
+          "api_param": "image_urls",
+          "tooltip": "参考图 2（可选）"
+        }
+      ],
+      "default_timeout": 1200
+    },
+    {
+      "node_id": "EvoLink_KlingO3Edit",
+      "display_name": "EvoLink Kling O3 Video Edit (Official)",
+      "output": "video",
+      "endpoint": "/videos/generations",
+      "description": "EvoLink 官方节点：快手可灵 Kling O3 视频编辑——用文字指令/参考图修改原视频，输出时长与画幅跟随原片。视频 URL 可接上游节点的 result_urls 输出。Kuaishou Kling O3 video editing.",
+      "models": [
+        "kling-o3-video-edit"
+      ],
+      "default_model": "kling-o3-video-edit",
+      "prompt_required": false,
+      "prompt_tooltip": "编辑指令（支持中文），如「把外套换成红色」。",
+      "params": [
+        {
+          "name": "video_url",
+          "widget": "string",
+          "default": "",
+          "tooltip": "要编辑的视频 URL（必填），可接上游节点的 result_urls 输出",
+          "required": true,
+          "multiline": true
+        },
+        {
+          "name": "quality",
+          "widget": "enum",
+          "values": [
+            "720p",
+            "1080p"
+          ],
+          "default": "720p",
+          "tooltip": "分辨率"
+        },
+        {
+          "name": "keep_original_sound",
+          "widget": "bool",
+          "default": true,
+          "tooltip": "保留原视频声音"
+        }
+      ],
+      "image_slots": [
+        {
+          "name": "reference_image1",
+          "api_param": "image_urls",
+          "tooltip": "参考图 1（可选）"
+        },
+        {
+          "name": "reference_image2",
+          "api_param": "image_urls",
+          "tooltip": "参考图 2（可选）"
+        }
+      ],
+      "default_timeout": 1200
+    },
+    {
+      "node_id": "EvoLink_KlingMotion",
+      "display_name": "EvoLink Kling V3 Motion Control (Official)",
+      "output": "video",
+      "endpoint": "/videos/generations",
+      "description": "EvoLink 官方节点：快手可灵 Kling V3 运动控制——从参考视频提取动作轨迹，套用到参考图中的人物/物体上生成新视频。视频 URL 可接上游节点的 result_urls 输出。Kuaishou Kling V3 motion control (reference image + motion video).",
+      "models": [
+        "kling-v3-motion-control"
+      ],
+      "default_model": "kling-v3-motion-control",
+      "prompt_required": false,
+      "prompt_tooltip": "画面描述（可选），支持中文。",
+      "params": [
+        {
+          "name": "video_urls",
+          "widget": "string",
+          "default": "",
+          "tooltip": "参考动作视频 URL（必填），可接上游节点的 result_urls 输出",
+          "url_list": true,
+          "max_items": 1,
+          "required": true,
+          "multiline": true
+        },
+        {
+          "name": "character_orientation",
+          "widget": "enum",
+          "values": [
+            "image",
+            "video"
+          ],
+          "default": "image",
+          "tooltip": "人物朝向跟随：image=跟参考图（≤10 秒）/ video=跟参考视频（≤30 秒）",
+          "nest": "model_params"
+        },
+        {
+          "name": "quality",
+          "widget": "enum",
+          "values": [
+            "720p",
+            "1080p"
+          ],
+          "default": "720p",
+          "tooltip": "分辨率"
+        }
+      ],
+      "image_slots": [
+        {
+          "name": "reference_image1",
+          "api_param": "image_urls",
+          "required": true,
+          "tooltip": "参考图（必接）：要被驱动的人物/物体"
+        }
+      ],
+      "max_images": 1,
+      "default_timeout": 1200
+    },
+    {
+      "node_id": "EvoLink_TopazUpscale",
+      "display_name": "EvoLink Topaz Video Upscale (Official)",
+      "output": "video",
+      "endpoint": "/videos/generations",
+      "description": "EvoLink 官方节点：Topaz 视频超分/画质增强——1x 仅增强、2x/4x 放大分辨率，接上游生成节点的 result_urls 输出即可做后处理链。Topaz AI video upscaling & enhancement.",
+      "models": [
+        "topaz-video-upscale"
+      ],
+      "default_model": "topaz-video-upscale",
+      "prompt_required": false,
+      "prompt_tooltip": "无需填写（Topaz 为画质处理，不看 prompt）。",
+      "params": [
+        {
+          "name": "video_urls",
+          "widget": "string",
+          "default": "",
+          "tooltip": "要超分的视频 URL（必填），可接上游节点的 result_urls 输出",
+          "url_list": true,
+          "max_items": 1,
+          "required": true,
+          "multiline": true
+        },
+        {
+          "name": "upscale_factor",
+          "widget": "enum",
+          "values": [
+            "2",
+            "1",
+            "4"
+          ],
+          "default": "2",
+          "tooltip": "放大倍数：1=仅增强不放大 / 2=2 倍 / 4=4 倍（影响计费）",
+          "nest": "model_params"
+        }
+      ],
+      "default_timeout": 1800
+    },
+    {
+      "node_id": "EvoLink_Video",
+      "display_name": "EvoLink Video (All Models)",
+      "output": "video",
+      "endpoint": "/videos/generations",
+      "description": "EvoLink 通用视频节点：一个节点调用全部视频模型（含各 beta 低价渠道与 video-edit/extend 等变体）。模型专属参数（video_urls、sound、seed 等）用 extra_params 以 JSON 传入，接口文档见 evolink.ai/docs。Kling/Wan 图生视频请用专属节点（首帧参数不同）。",
+      "models": [
+        "sora-2-preview",
+        "sora-2-pro-preview",
+        "veo-3.1-generate-preview",
+        "veo-3.1-fast-generate-preview",
+        "veo3.1-pro-beta",
+        "veo3.1-fast-beta",
+        "kling-v3-text-to-video",
+        "kling-v3-turbo-text-to-video",
+        "kling-o3-text-to-video",
+        "seedance-2.5-text-to-video",
+        "seedance-2.5-image-to-video",
+        "seedance-2.5-reference-to-video",
+        "seedance-2.5-video-edit",
+        "seedance-2.5-video-extend",
+        "seedance-2.0-text-to-video",
+        "seedance-2.0-image-to-video",
+        "seedance-2.0-fast-text-to-video",
+        "seedance-2.0-fast-image-to-video",
+        "seedance-2.0-mini-text-to-video",
+        "seedance-2.0-mini-image-to-video",
+        "seedance-2.0-reference-to-video",
+        "seedance-2.0-fast-reference-to-video",
+        "seedance-2.0-mini-reference-to-video",
+        "wan3.0-text-to-video",
+        "wan3.0-image-to-video",
+        "wan3.0-reference-video",
+        "wan3.0-prime-text-to-video",
+        "wan3.0-prime-image-to-video",
+        "wan3.0-prime-reference-video",
+        "grok-imagine-video-1.5-preview",
+        "grok-imagine-text-to-video-beta",
+        "grok-imagine-image-to-video-beta",
+        "MiniMax-Hailuo-2.3",
+        "MiniMax-Hailuo-2.3-Fast",
+        "gemini-omni-flash-text-to-video",
+        "gemini-omni-flash-image-to-video",
+        "gemini-omni-flash-reference-to-video",
+        "gemini-omni-flash-video-edit",
+        "kling-o3-reference-to-video",
+        "kling-o3-video-edit",
+        "kling-v3-motion-control",
+        "topaz-video-upscale"
+      ],
+      "default_model": "seedance-2.5-text-to-video",
+      "prompt_tooltip": "镜头/画面描述，支持中文。",
+      "params": [
+        {
+          "name": "duration",
+          "widget": "int",
+          "default": 0,
+          "min": -1,
+          "max": 30,
+          "tooltip": "视频时长（秒）；0=用模型默认；-1=Seedance 2.5/Wan 自动时长。各模型允许范围见 evolink.ai/docs",
+          "skip_value": 0
+        },
+        {
+          "name": "quality",
+          "widget": "enum",
+          "values": [
+            "auto",
+            "480p",
+            "720p",
+            "1080p",
+            "4k"
+          ],
+          "default": "auto",
+          "tooltip": "分辨率；auto=用模型默认。各模型支持面不同，选不支持的档会报错",
+          "skip_value": "auto"
+        },
+        {
+          "name": "aspect_ratio",
+          "widget": "string",
+          "default": "",
+          "tooltip": "留空=用模型默认；可填 16:9 / 9:16 / 1:1 / adaptive 等（支持面随模型而异）"
+        }
+      ],
+      "extra_json_param": true,
+      "image_slots": [
+        {
+          "name": "image1",
+          "api_param": "image_urls",
+          "tooltip": "参考图/首帧（是否支持随模型而异）"
+        },
+        {
+          "name": "image2",
+          "api_param": "image_urls",
+          "tooltip": "参考图 2/尾帧（可选）"
+        }
+      ],
+      "url_text_param": "image_urls",
+      "max_images": 9,
+      "default_timeout": 1800
     }
   ]
 }

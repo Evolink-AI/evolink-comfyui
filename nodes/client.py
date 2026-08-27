@@ -147,7 +147,7 @@ def _handle_task_status(info, task_id, deadline, timeout_seconds, progress_callb
         raise EvoLinkError(
             f"等待超时（{timeout_seconds}s）。任务可能仍在后台运行，"
             f"任务 ID: {task_id}，可到 https://evolink.ai/zh/dashboard/logs "
-            "查看最终状态与扣费（超时失败的任务不会扣费）。"
+            "查看最终状态与扣费（生成失败或审核拦截的任务不会扣费）。"
         )
     return None
 

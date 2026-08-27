@@ -8,3 +8,6 @@ __pycache__/
 # 待 gh 获得 workflow 权限后再提交(Registry 自动发布用)
 # 届时: gh auth refresh -h github.com -s workflow && git add -f .github && git commit
 .github/
+
+# Registry 构建产物
+node.zip

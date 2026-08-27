@@ -10,7 +10,8 @@ registry 条目字段：
   output        "image" | "video"
   endpoint      提交路径（如 "/videos/generations"）
   description   节点帮助文本
-  models        model 下拉框选项
+  models        model 下拉框选项；只有 1 个时不显示下拉，直接用 default_model
+  payload_const 可选：原样并入请求体的固定字段（如 Veo 的 generation_type）
   default_model 默认选中
   params        参数定义列表，见 _build_widget()
   image_slots   IMAGE 输入口定义：[{name, api_param, tooltip, required?}]
@@ -96,8 +97,9 @@ def _build_input_types(spec):
             "multiline": True, "default": "",
             "tooltip": spec.get("prompt_tooltip", "画面/镜头描述，支持中文。"),
         }),
-        "model": (list(spec["models"]), {"default": spec["default_model"]}),
     }
+    if len(spec["models"]) > 1:
+        required["model"] = (list(spec["models"]), {"default": spec["default_model"]})
     optional = {}
     for param in spec.get("params", []):
         optional[param["name"]] = _build_widget(param)
@@ -118,7 +120,7 @@ def _build_input_types(spec):
     optional["api_key"] = ("STRING", {"default": "", "tooltip": _API_KEY_TOOLTIP})
     optional["timeout_seconds"] = ("INT", {
         "default": spec.get("default_timeout", 300), "min": 60, "max": 3600, "step": 30,
-        "tooltip": "最长等待时间；超时失败的任务不扣费",
+        "tooltip": "最长等待时间；生成失败或审核拦截的任务不扣费",
     })
     return {"required": required, "optional": optional}
 
@@ -192,7 +194,9 @@ def _build_payload(spec, model, prompt, kwargs, image_urls_by_param, notes):
       model_values  {model_id: [该模型允许的值]}；模型不在表里则参数整个剔除，
                     用户选了不支持的值时回退到该模型允许的第一个值并提示
     """
-    payload = {"model": model, "prompt": prompt}
+    payload = {"model": model}
+    if prompt:
+        payload["prompt"] = prompt
     for param in spec.get("params", []):
         allowed = param.get("models")
         if allowed and model not in allowed:
@@ -202,8 +206,25 @@ def _build_payload(spec, model, prompt, kwargs, image_urls_by_param, notes):
             continue
         if "skip_value" in param and value == param["skip_value"]:
             continue
+        # true_sets：布尔开关参数，开启时把指定字段写入请求体（如 auto_duration
+        # -> duration=-1），自身不进请求体。放在被覆盖参数之后定义。
+        if param.get("true_sets") is not None:
+            if value:
+                payload.update(param["true_sets"])
+            continue
         if param.get("widget") == "string" and not str(value).strip():
             continue
+        # url_list：多行文本框，每行一个 URL -> 数组参数（video_urls/audio_urls 等，
+        # 可直接接上游节点的 result_urls 输出）
+        if param.get("url_list"):
+            urls = list(dict.fromkeys(
+                line.strip() for line in str(value).splitlines() if line.strip()
+            ))
+            cap = param.get("max_items")
+            if cap and len(urls) > cap:
+                urls = urls[:cap]
+                notes.append(f"{param['name']} 超过 {cap} 条上限，已截断")
+            value = urls
         model_values = param.get("model_values")
         if model_values is not None:
             valid = model_values.get(model)
@@ -221,6 +242,7 @@ def _build_payload(spec, model, prompt, kwargs, image_urls_by_param, notes):
             payload.setdefault(nest, {})[name] = value
         else:
             payload[name] = value
+    payload.update(spec.get("payload_const") or {})
     payload.update(image_urls_by_param)
     extra = (kwargs.get("extra_params") or "").strip()
     if extra:
@@ -231,6 +253,14 @@ def _build_payload(spec, model, prompt, kwargs, image_urls_by_param, notes):
         except ValueError as e:
             raise EvoLinkError(f"extra_params 不是合法的 JSON 对象：{e}")
         payload.update(parsed)
+    # required 参数校验（如视频编辑必须给 video_urls），extra_params 也算数
+    for param in spec.get("params", []):
+        if param.get("required"):
+            name = param.get("api_name", param["name"])
+            if not payload.get(name):
+                raise EvoLinkError(
+                    f"{param['name']} 不能为空。{param.get('tooltip', '')}"
+                )
     # 注册表用友好名做下拉选项，提交前换成 API 真实 model ID
     # （如 nano-banana-2 官方渠道实为 gemini-3.1-flash-image-preview）
     payload["model"] = spec.get("model_map", {}).get(model, model)
@@ -238,8 +268,9 @@ def _build_payload(spec, model, prompt, kwargs, image_urls_by_param, notes):
 
 
 def _make_generate(spec):
-    async def generate(self, prompt, model, api_key="", timeout_seconds=None, **kwargs):
+    async def generate(self, prompt, model=None, api_key="", timeout_seconds=None, **kwargs):
         key = resolve_api_key(api_key)
+        model = model or spec["default_model"]
         prompt = (prompt or "").strip()
         if not prompt and spec.get("prompt_required", True):
             raise EvoLinkError("prompt 不能为空，请填写描述（支持中文）。")
@@ -269,18 +300,20 @@ def _make_generate(spec):
         if used is not None:
             status_parts.append(f"消耗 credits {used}")
         status_parts.extend(notes)
+        result_urls = "\n".join(results)
+        response_json = json.dumps(info, ensure_ascii=False)
 
         if spec["output"] == "video":
             status_parts.append("视频已下载（原始链接 24 小时过期），接「保存视频」节点落盘")
             video = await asyncio.to_thread(url_to_video, results[0])
             status_info = " | ".join(status_parts)
             print(f"[EvoLink] {status_info}")
-            return (video, task_id, status_info)
+            return (video, task_id, status_info, result_urls, response_json)
         status_parts.append(f"出图 {len(results)} 张（原始链接 24 小时过期）")
         images = await asyncio.to_thread(urls_to_tensor_batch, results)
         status_info = " | ".join(status_parts)
         print(f"[EvoLink] {status_info}")
-        return (images, task_id, status_info)
+        return (images, task_id, status_info, result_urls, response_json)
 
     return generate
 
@@ -291,8 +324,16 @@ def make_node_class(spec):
         "DESCRIPTION": spec.get("description", ""),
         "CATEGORY": "EvoLink",
         "FUNCTION": "generate",
-        "RETURN_TYPES": (output_type, "STRING", "STRING"),
-        "RETURN_NAMES": (spec["output"], "task_id", "status_info"),
+        "RETURN_TYPES": (output_type, "STRING", "STRING", "STRING", "STRING"),
+        "RETURN_NAMES": (spec["output"], "task_id", "status_info",
+                         "result_urls", "response_json"),
+        "OUTPUT_TOOLTIPS": (
+            "生成结果（已下载落地，可直连保存节点）",
+            "EvoLink 任务 ID，可到 evolink.ai/zh/dashboard/logs 查询",
+            "人读状态摘要（模型/用时/消耗 credits）",
+            "结果原始链接，每行一个（24 小时过期）",
+            "平台 GET /v1/tasks/{id} 的完整 JSON 响应（status/usage/results 等），供下游节点解析",
+        ),
         "INPUT_TYPES": classmethod(lambda cls, _spec=spec: _build_input_types(_spec)),
         "generate": _make_generate(spec),
     }

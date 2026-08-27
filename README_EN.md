@@ -4,9 +4,12 @@
 
 Generate images and videos inside ComfyUI with [EvoLink](https://evolink.ai) cloud models. **No local GPU required.**
 
-**Image**: GPT Image 2 | Nano Banana 2 / Pro | Seedream 5.0 | Grok Imagine Image 2.0
-**Video**: Sora 2 | Veo 3.1 | Kling 3.0 | Seedance 2.5 / 2.0 / Mini | Wan 3.0 — VIDEO output connects to the native Save Video node, tasks are async & cancellable
-**Dynamic**: EvoLink Image / Video nodes cover every model (new models work without a plugin update); Credits node for balance checks
+**Image**: GPT Image 2 | Nano Banana 2 / Pro / Lite | Seedream 5.0 Pro / Lite / 4.5 / 4.0 | Qwen Image 3.0 / Pro / Edit Plus | Z-Image Turbo | Krea 2 Turbo | Grok Imagine Image 2.0
+**Video**: Sora 2 / Pro | Veo 3.1 (text / first-last / reference) | Kling V3 / Turbo / O3 (incl. reference / video edit / motion control) | Seedance 2.5 (incl. reference / edit / extend) / 2.0 / Fast / Mini | Wan 3.0 | Grok Imagine Video | Hailuo 2.3 | Gemini Omni Flash | Topaz Video Upscale — VIDEO output connects to the native Save Video node, tasks are async & cancellable
+**Pipelines**: every node outputs `result_urls` / `response_json`; video edit / extend / upscale nodes accept an upstream node's `result_urls` directly, chaining generate → edit → upscale
+**Dynamic**: EvoLink Image / Video nodes cover every model incl. beta channels (new models work without a plugin update); Credits node for balance checks
+
+> One node per model variant (text-to-video and image-to-video are separate nodes), so every parameter you see applies to the model you picked. `first_frame` is a required input on image-to-video nodes.
 
 - ✅ **Zero-friction img2img**: connect "Load Image" to `image1` — local images are
   uploaded through EvoLink's official file channel (auto-deleted after 72h),
@@ -56,7 +59,7 @@ Drag-and-drop examples: [example_workflows/](example_workflows/) — **drag any 
 
 | Node | Purpose |
 |---|---|
-| `EvoLink GPT Image 2 (Official)` | text2img / img2img generation, returns `image`, `task_id`, `status_info` |
+| `EvoLink GPT Image 2 (Official)` | text2img / img2img generation, returns `image`, `task_id`, `status_info`, `result_urls` (raw links, one per line, 24h expiry), `response_json` (full task API response for downstream parsing) |
 | `EvoLink Upload Image (Official)` | advanced: local images → official channel → URL text |
 
 ## Key safety

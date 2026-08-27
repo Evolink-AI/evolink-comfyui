@@ -4,9 +4,12 @@
 
 在 ComfyUI 里直接调用 [EvoLink](https://evolink.ai) 云端模型出图出视频，**本地无需显卡**。
 
-**图像**：GPT Image 2 ｜ Nano Banana 2 / Pro ｜ Seedream 5.0 ｜ Grok Imagine Image 2.0
-**视频**：Sora 2 ｜ Veo 3.1 ｜ Kling 3.0 ｜ Seedance 2.5 / 2.0 / Mini ｜ Wan 3.0 —— 输出直连原生「保存视频」节点，任务可随时取消
-**通用**：EvoLink Image / Video 动态节点覆盖全部模型，新模型上线无需更新插件；Credits 节点一键查余额
+**图像**：GPT Image 2 ｜ Nano Banana 2 / Pro / Lite ｜ Seedream 5.0 Pro / Lite / 4.5 / 4.0 ｜ Qwen Image 3.0 / Pro / Edit Plus ｜ Z-Image Turbo ｜ Krea 2 Turbo ｜ Grok Imagine Image 2.0
+**视频**：Sora 2 / Pro ｜ Veo 3.1（文生 / 首尾帧 / 参考图）｜ Kling V3 / Turbo / O3（含参考视频 / 视频编辑 / 运动控制）｜ Seedance 2.5（含参考 / 编辑 / 延长）/ 2.0 / Fast / Mini ｜ Wan 3.0（文生 / 首尾帧 / 参考）｜ Grok Imagine Video ｜ Hailuo 2.3 ｜ Gemini Omni Flash ｜ Topaz 视频超分 —— 输出直连原生「保存视频」节点，任务可随时取消
+**通用**：EvoLink Image / Video 动态节点覆盖全部模型（含 beta 低价渠道），新模型上线无需更新插件；Credits 节点一键查余额
+**编排**：所有生成节点输出 `result_urls` / `response_json`，视频编辑/延长/超分节点直接吃上游的 `result_urls`，可串成「生成 → 编辑 → 超分」流水线
+
+> 每个模型变体一个节点（文生视频与图生视频分开），参数即所见即所得，不会出现"选了某变体但参数不适用"的情况。图生视频节点的 `first_frame` 为必接口。
 
 - ✅ **图生图零门槛**：「加载图像」连到 `image1` 就行 —— 本地图自动经 EvoLink 官方通道上传（72 小时自动删除），**不需要注册任何第三方图床**
 - ✅ **Key 只留在本机**：首次在节点框填写后自动保存，之后留空即可，不会跟着工作流 JSON 被分享出去
@@ -68,9 +71,9 @@ git clone https://github.com/deeplearning-goethe/comfyui-evolink.git
 | `api_key` | 首次填写自动存本机，之后留空；也支持环境变量 `EVOLINK_API_KEY` |
 | `image1~4` | 参考图口，接「加载图像」即图生图 |
 | `image_urls` | 进阶：已有公网 URL 每行贴一个 |
-| `timeout_seconds` | 最长等待（默认 300s），超时失败不扣费 |
+| `timeout_seconds` | 最长等待（默认 300s），生成失败或审核拦截的任务不扣费 |
 
-输出：`image`（结果图，已自动下载落地）、`task_id`（对账/报障凭证）、`status_info`（本次任务摘要）。
+输出：`image`（结果图，已自动下载落地）、`task_id`（对账/报障凭证）、`status_info`（本次任务摘要）、`result_urls`（结果原始链接每行一个，24 小时过期）、`response_json`（平台任务接口的完整 JSON 响应，供下游节点解析编排）。所有生成节点输出一致；prompt 等参数框可转换为输入口接线（新版前端直接把上游 STRING 输出拖到参数框上，旧版右键节点 → 转换为输入）。
 
 ## Key 安全
 
