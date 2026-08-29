@@ -1,7 +1,7 @@
 [project]
 name = "evolink-nodes"
 description = "Official EvoLink nodes — 56 nodes, one node per model variant: Nano Banana 2/Pro/Lite, Seedream 5.0, GPT Image 2, Qwen Image 3.0, Z-Image Turbo, Krea 2, Grok Imagine, Sora 2/Pro, Veo 3.1, Kling V3/Turbo/O3 (ref/edit/motion), Seedance 2.5/2.0 (ref/edit/extend), Wan 3.0, Hailuo 2.3, Gemini Omni Flash, Topaz Upscale. Chain generate→edit→upscale via result_urls. No local GPU, no third-party image hosting, async & cancellable, API key stays out of workflow JSON. 国内直连，中文支持。"
-version = "2.0.0"
+version = "2.0.1"
 license = { text = "MIT License" }
 dependencies = ["requests"]
 
