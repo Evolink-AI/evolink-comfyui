@@ -1,0 +1,6 @@
+# 发布包排除清单（git 保留，comfy node publish 打包时剔除）
+# 背景：Registry YARA 扫描按字符串命中即 Flag。tools/ 是构建期脚本，
+# 运行时不加载，却贡献了 2.0.0 的 2 条额外命中（urlopen / importlib.import_module）。
+tools/
+.gitignore
+.comfyignore
