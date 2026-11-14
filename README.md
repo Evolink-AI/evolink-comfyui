@@ -2,6 +2,8 @@
 
 [English](README_EN.md) ｜ 官方教程：https://evolink.ai/docs/cn/integration-guide/comfyui
 
+官方仓库：[Evolink-AI/evolink-comfyui](https://github.com/Evolink-AI/evolink-comfyui) ｜ 商店：[EvoLink (Official)](https://registry.comfy.org/nodes/evolink-nodes)
+
 在 ComfyUI 里直接调用 [EvoLink](https://evolink.ai) 云端模型出图出视频，**本地无需显卡**。
 
 **图像**：GPT Image 2 ｜ Nano Banana 2 / Pro / Lite ｜ Seedream 5.0 Pro / Lite / 4.5 / 4.0 ｜ Qwen Image 3.0 / Pro / Edit Plus ｜ Z-Image Turbo ｜ Krea 2 Turbo ｜ Grok Imagine Image 2.0
@@ -23,21 +25,33 @@
 
 ## 安装
 
-**方式一：ComfyUI-Manager（推荐，上架后可用）**
+**方式一：ComfyUI-Manager（推荐）**
 Manager → Custom Nodes Manager → 搜索 `EvoLink` → 安装 → **完全重启 ComfyUI**。
 
 **方式二：git**
 
 ```bash
 cd ComfyUI/custom_nodes
-git clone https://github.com/deeplearning-goethe/comfyui-evolink.git
+git clone https://github.com/Evolink-AI/evolink-comfyui.git
 ```
 
 **方式三：下载 ZIP**
-[Code → Download ZIP](https://github.com/deeplearning-goethe/comfyui-evolink) → 解压后把文件夹放进 `ComfyUI/custom_nodes/`。
-⚠️ 检查一层：打开 `custom_nodes/comfyui-evolink/` 应**直接看到** `__init__.py`；如果里面还套了一层同名文件夹，把内层移出来。
+[Code → Download ZIP](https://github.com/Evolink-AI/evolink-comfyui) → 解压后把文件夹放进 `ComfyUI/custom_nodes/`。
+⚠️ 检查一层：打开 `custom_nodes/evolink-comfyui/` 应**直接看到** `__init__.py`；如果里面还套了一层同名文件夹，把内层移出来。
 
 依赖只有 `requests`（ComfyUI 环境一般已自带），装完后**完全重启 ComfyUI**（关掉控制台窗口重开，不是只刷新浏览器）。
+
+### 从个人仓库安装的用户
+
+如果之前通过 git 安装到 `comfyui-evolink`，在现有目录中切换到官方仓库即可，不要重复安装：
+
+```bash
+cd ComfyUI/custom_nodes/comfyui-evolink
+git remote set-url origin https://github.com/Evolink-AI/evolink-comfyui.git
+git pull --ff-only
+```
+
+如果安装目录不同，请使用实际路径。保留现有目录和本机配置，完成后完全重启 ComfyUI。通过 Manager 安装的用户继续使用同一个商店条目 `evolink-nodes`。
 
 ## 快速开始
 

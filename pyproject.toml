@@ -6,11 +6,11 @@ license = { text = "MIT License" }
 dependencies = ["requests"]
 
 [project.urls]
-Repository = "https://github.com/deeplearning-goethe/comfyui-evolink"
+Repository = "https://github.com/Evolink-AI/evolink-comfyui"
 Documentation = "https://evolink.ai/docs/cn/integration-guide/comfyui"
 
 [tool.comfy]
 PublisherId = "evolink"
 DisplayName = "EvoLink (Official)"
-Icon = "https://raw.githubusercontent.com/deeplearning-goethe/comfyui-evolink/main/assets/icon.png"
-Banner = "https://raw.githubusercontent.com/deeplearning-goethe/comfyui-evolink/main/assets/banner.png"
+Icon = "https://raw.githubusercontent.com/Evolink-AI/evolink-comfyui/main/assets/icon.png"
+Banner = "https://raw.githubusercontent.com/Evolink-AI/evolink-comfyui/main/assets/banner.png"

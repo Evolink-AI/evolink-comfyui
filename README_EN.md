@@ -2,6 +2,8 @@
 
 [中文](README.md) | Docs: https://evolink.ai/docs/en/integration-guide/comfyui
 
+Official repository: [Evolink-AI/evolink-comfyui](https://github.com/Evolink-AI/evolink-comfyui) | Registry: [EvoLink (Official)](https://registry.comfy.org/nodes/evolink-nodes)
+
 Generate images and videos inside ComfyUI with [EvoLink](https://evolink.ai) cloud models. **No local GPU required.**
 
 **Image**: GPT Image 2 | Nano Banana 2 / Pro / Lite | Seedream 5.0 Pro / Lite / 4.5 / 4.0 | Qwen Image 3.0 / Pro / Edit Plus | Z-Image Turbo | Krea 2 Turbo | Grok Imagine Image 2.0
@@ -22,19 +24,31 @@ Generate images and videos inside ComfyUI with [EvoLink](https://evolink.ai) clo
 
 ## Install
 
-**ComfyUI-Manager** (recommended once listed): search `EvoLink` → install → fully restart.
+**ComfyUI-Manager** (recommended): search `EvoLink` → install → fully restart.
 
 **git**
 
 ```bash
 cd ComfyUI/custom_nodes
-git clone https://github.com/deeplearning-goethe/comfyui-evolink.git
+git clone https://github.com/Evolink-AI/evolink-comfyui.git
 ```
 
 **ZIP**: download, unzip into `ComfyUI/custom_nodes/`, make sure `__init__.py`
-sits directly inside `custom_nodes/comfyui-evolink/` (no nested folder), then fully restart.
+sits directly inside `custom_nodes/evolink-comfyui/` (no nested folder), then fully restart.
 
 The only dependency is `requests`.
+
+### Existing installations from the personal repository
+
+If you previously cloned the plugin into `comfyui-evolink`, switch the remote in that existing directory. Do not install a second copy:
+
+```bash
+cd ComfyUI/custom_nodes/comfyui-evolink
+git remote set-url origin https://github.com/Evolink-AI/evolink-comfyui.git
+git pull --ff-only
+```
+
+Use your actual path if the directory has a different name. Keep the existing directory and local configuration, then fully restart ComfyUI. Manager installations continue to use the same Registry entry, `evolink-nodes`.
 
 ## Quick start
 
